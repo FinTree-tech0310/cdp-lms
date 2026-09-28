@@ -2,6 +2,7 @@
 
 import React, {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useRef,
@@ -24,9 +25,23 @@ function useDropdownMenu() {
   return context;
 }
 
-export function DropdownMenu({ children }: { children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
+interface DropdownMenuProps {
+  children: React.ReactNode;
+  /** Lets the caller lift its stacking context while the menu is open. */
+  onOpenChange?: (open: boolean) => void;
+}
+
+export function DropdownMenu({ children, onOpenChange }: DropdownMenuProps) {
+  const [open, setOpenState] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const setOpen = useCallback(
+    (next: boolean) => {
+      setOpenState(next);
+      onOpenChange?.(next);
+    },
+    [onOpenChange],
+  );
 
   useEffect(() => {
     if (!open) return;
@@ -53,7 +68,7 @@ export function DropdownMenu({ children }: { children: React.ReactNode }) {
       document.removeEventListener("mousedown", handlePointerDown);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [open]);
+  }, [open, setOpen]);
 
   return (
     <DropdownMenuContext.Provider value={{ open, setOpen }}>

@@ -5,8 +5,11 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 import {
+  BookOpen,
   BriefcaseBusiness,
+  Gamepad2,
   LayoutDashboard,
+  Users,
   X,
 } from "lucide-react";
 
@@ -20,6 +23,21 @@ const navigation = [
     name: "Careers",
     href: "/careers",
     icon: BriefcaseBusiness,
+  },
+  {
+    name: "Handbook",
+    href: "/handbook",
+    icon: BookOpen,
+  },
+  {
+    name: "Community",
+    href: "/community",
+    icon: Users,
+  },
+  {
+    name: "Mini Games",
+    href: "/mini-games",
+    icon: Gamepad2,
   },
 ];
 

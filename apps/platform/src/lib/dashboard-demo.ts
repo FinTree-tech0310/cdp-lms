@@ -8,6 +8,13 @@ import type {
 } from "@cdp/types";
 
 import { formatExpinarDate, formatExpinarTime } from "./dashboard-format";
+import {
+  addDays,
+  addDaysToKey,
+  dateKey,
+  dayNumberBetween,
+  formatDayMonth,
+} from "./dates";
 
 /**
  * Fallback data used when Supabase is not configured (or the dashboard
@@ -116,27 +123,56 @@ export function upcomingThursday(now: Date = new Date()): Date {
   return date;
 }
 
+/** The demo program's day-1 date (so "day 12" maps to real calendar dates). */
+function demoAnchorKey(currentDay = DEMO_CURRENT_DAY): string {
+  return dateKey(addDays(new Date(), -(currentDay - 1)));
+}
+
+/**
+ * Rolling 30-day window: yesterday → +(totalDays - 2), re-derived on every
+ * render so it slides forward a cell per day with no reset logic (the one
+ * leading "done" cell is yesterday). Each cell carries its calendar date
+ * (primary label) plus the elapsed program day for that date (secondary
+ * label, day 1 = the anchor date).
+ */
 export function buildProgramPlan(
   currentDay = DEMO_CURRENT_DAY,
   totalDays = DEMO_TOTAL_DAYS,
   expinarDays = DEMO_EXPINAR_DAYS,
+  anchor?: { key: string; day: number },
 ): ProgramPlan {
+  const today = new Date();
+  const anchorKey = anchor?.key ?? demoAnchorKey(currentDay);
+  const anchorDay = anchor?.day ?? 1;
+  // Yesterday → +28: one completed (blue) day stays visible, then today
+  // (gold), then 28 upcoming days. Re-derived every render, so the window
+  // slides a cell per day with no reset logic.
+  const lookback = totalDays > 1 ? 1 : 0;
+
   const days: ProgramDay[] = Array.from({ length: totalDays }, (_, index) => {
-    const day = index + 1;
+    const date = addDays(today, index - lookback);
+    const dateStr = dateKey(date);
+    const day = dayNumberBetween(anchorKey, anchorDay, dateStr) ?? index + 1;
 
     return {
       day,
+      date: dateStr,
       state:
-        day < currentDay
+        index < lookback
           ? ("done" as const)
-          : day === currentDay
+          : index === lookback
             ? ("today" as const)
             : ("upcoming" as const),
       isExpinarDay: expinarDays.includes(day),
     };
   });
 
-  return { totalDays, currentDay, days };
+  return {
+    totalDays,
+    currentDay,
+    rangeLabel: `${formatDayMonth(days[0].date)} – ${formatDayMonth(days[days.length - 1].date)}`,
+    days,
+  };
 }
 
 export function buildDemoExpinar(now: Date = new Date()): LiveExpinar {
@@ -157,6 +193,8 @@ export function buildDemoExpinar(now: Date = new Date()): LiveExpinar {
 export function buildDemoTracks(
   currentDay = DEMO_CURRENT_DAY,
 ): TrackProgress[] {
+  const anchorKey = demoAnchorKey(currentDay);
+
   return DEMO_TRACKS.map((track) => {
     const status: TrackProgress["status"] =
       track.status === "locked" &&
@@ -178,15 +216,20 @@ export function buildDemoTracks(
             ? "Started"
             : status === "available"
               ? "Open"
-              : `Opens day ${track.unlockDay}`,
+              : track.unlockDay != null
+                ? `Opens ${formatDayMonth(addDaysToKey(anchorKey, track.unlockDay - 1))} (day ${track.unlockDay})`
+                : "Locked",
       unlockDay: track.unlockDay,
     };
   });
 }
 
 export function buildDemoCareerFit(): CareerFitReport {
+  const opensDay = 30;
+
   return {
-    opensDay: 30,
+    opensDay,
+    opensDateLabel: formatDayMonth(addDaysToKey(demoAnchorKey(), opensDay - 1)),
     progressPercent: 15,
     blurb: CAREER_FIT_BLURB,
   };

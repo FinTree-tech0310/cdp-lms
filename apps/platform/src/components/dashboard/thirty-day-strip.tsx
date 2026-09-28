@@ -10,21 +10,33 @@ import type {
   TrackProgress,
 } from "@cdp/types";
 
+import { dateKey, formatDayMonth, formatWeekdayDate } from "@/lib/dates";
 import { cn } from "@/lib/utils";
 
+// Yesterday stays visible as the one blue "Done" cell, then today (gold).
 const legend: Array<{ label: string; swatch?: string; dot?: boolean }> = [
   { label: "Done", swatch: "bg-[#b7ecfb]" },
   { label: "Today", swatch: "bg-[#f8dc03]" },
   { label: "Expinar day", dot: true },
 ];
 
-const weekLabels = [
-  { label: "Week 1", span: 7 },
-  { label: "Week 2", span: 7 },
-  { label: "Week 3", span: 7 },
-  { label: "Week 4", span: 7 },
-  { label: "Wrap-up", span: 2 },
-];
+/** Fixed week spans over the 30-cell window (7,7,7,7,2). */
+const WEEK_SPANS = [7, 7, 7, 7, 2];
+
+/** Week captions become real date ranges, e.g. "28 Sep – 4 Oct". */
+function buildWeekLabels(days: ProgramDay[]): Array<{ label: string; span: number }> {
+  let start = 0;
+
+  return WEEK_SPANS.map((span) => {
+    const end = Math.min(start + span, days.length) - 1;
+    const label =
+      days.length > 0 && start < days.length
+        ? `${formatDayMonth(days[start].date)} – ${formatDayMonth(days[end].date)}`
+        : "";
+    start += span;
+    return { label, span };
+  });
+}
 
 const TOOLTIP_WIDTH = 220;
 const POPOVER_WIDTH = 264;
@@ -36,7 +48,7 @@ interface DayEvent {
 }
 
 interface Anchor {
-  day: number;
+  index: number;
   x: number;
   y: number;
 }
@@ -48,11 +60,8 @@ interface ThirtyDayStripProps {
   liveExpinar: LiveExpinar;
 }
 
-function weekIndexForDay(day: number): number {
-  return Math.min(
-    Math.floor((day - 1) / 7),
-    weekLabels.length - 1,
-  );
+function weekIndexForIndex(index: number): number {
+  return Math.min(Math.floor(index / 7), WEEK_SPANS.length - 1);
 }
 
 function eventDotClass(kind: DayEvent["kind"], onDark: boolean): string {
@@ -80,10 +89,14 @@ export function ThirtyDayStrip({
   const sectionRef = useRef<HTMLElement | null>(null);
   const cellRefs = useRef<Record<number, HTMLButtonElement | null>>({});
 
-  const [hoveredDay, setHoveredDay] = useState<number | null>(null);
-  const [openDay, setOpenDay] = useState<number | null>(null);
+  // Anchors/refs are keyed by cell index (0 = today): day numbers in a
+  // rolling window aren't contiguous from 1, so index is the safe key.
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [activeWeek, setActiveWeek] = useState<number | null>(null);
-  const [focusDay, setFocusDay] = useState<number>(plan.currentDay);
+  const [focusIndex, setFocusIndex] = useState<number>(() =>
+    Math.max(0, plan.days.findIndex((d) => d.state === "today")),
+  );
 
   const [tooltipAnchor, setTooltipAnchor] = useState<Anchor | null>(null);
   const [popoverAnchor, setPopoverAnchor] = useState<Anchor | null>(null);
@@ -92,25 +105,27 @@ export function ThirtyDayStrip({
   const eventMap = useMemo(() => {
     const map = new Map<number, DayEvent[]>();
 
-    const nextExpinarDay =
-      plan.days.find((d) => d.isExpinarDay && d.day >= plan.currentDay)?.day ??
-      null;
+    // The live event gets its dot on its real calendar date; other marked
+    // cells (stored Expinar markers) stay generic.
+    const liveExpinarIndex = plan.days.findIndex(
+      (d) => d.date === dateKey(new Date(liveExpinar.startsAt)),
+    );
 
-    for (const day of plan.days) {
+    plan.days.forEach((day, index) => {
       const events: DayEvent[] = [];
 
       if (day.isExpinarDay) {
-        if (day.day === nextExpinarDay) {
+        if (index === liveExpinarIndex) {
           events.push({
             kind: "expinar",
             label: liveExpinar.title,
             detail: `${liveExpinar.dateLabel} · ${liveExpinar.timeLabel}`,
           });
         } else {
+          // Later sessions in the window: generic marker, no past to report.
           events.push({
             kind: "expinar",
             label: "Expinar session",
-            detail: day.day < plan.currentDay ? "Completed" : undefined,
           });
         }
       }
@@ -126,18 +141,24 @@ export function ThirtyDayStrip({
       }
 
       if (events.length > 0) {
-        map.set(day.day, events);
+        map.set(index, events);
       }
-    }
+    });
 
     return map;
   }, [plan, tracks, liveExpinar, careerFit]);
 
-  const stateLabel = (day: ProgramDay): string => {
+  // Window position of today (1 when yesterday leads the strip).
+  const todayIndex = Math.max(
+    0,
+    plan.days.findIndex((d) => d.state === "today"),
+  );
+
+  const stateLabel = (day: ProgramDay, index: number): string => {
     if (day.state === "done") return "Done";
     if (day.state === "today") return "Today";
 
-    const diff = day.day - plan.currentDay;
+    const diff = index - todayIndex;
     return diff === 1 ? "Tomorrow" : `In ${diff} days`;
   };
 
@@ -145,12 +166,12 @@ export function ThirtyDayStrip({
      positioned absolutely (the section is `relative`; both overlays live
      outside the horizontally scrollable strip, so nothing clips them). */
   const measure = (
-    day: number,
+    index: number,
     placement: "above" | "below",
     width: number,
   ): Anchor | null => {
     const section = sectionRef.current;
-    const cell = cellRefs.current[day];
+    const cell = cellRefs.current[index];
     if (!section || !cell) return null;
 
     const s = section.getBoundingClientRect();
@@ -165,26 +186,26 @@ export function ThirtyDayStrip({
     );
     const y = placement === "above" ? c.top - s.top : c.bottom - s.top;
 
-    return { day, x, y };
+    return { index, x, y };
   };
 
   /* Sync anchors when hover/open changes, and keep them glued to their
      cells on page scroll, strip scroll and window resize. */
   useEffect(() => {
-    if (hoveredDay == null) setTooltipAnchor(null);
-    else setTooltipAnchor(measure(hoveredDay, "above", TOOLTIP_WIDTH));
+    if (hoveredIndex == null) setTooltipAnchor(null);
+    else setTooltipAnchor(measure(hoveredIndex, "above", TOOLTIP_WIDTH));
 
-    if (openDay == null) setPopoverAnchor(null);
-    else setPopoverAnchor(measure(openDay, "below", POPOVER_WIDTH));
+    if (openIndex == null) setPopoverAnchor(null);
+    else setPopoverAnchor(measure(openIndex, "below", POPOVER_WIDTH));
 
-    if (hoveredDay == null && openDay == null) return;
+    if (hoveredIndex == null && openIndex == null) return;
 
     const sync = () => {
-      if (hoveredDay != null) {
-        setTooltipAnchor(measure(hoveredDay, "above", TOOLTIP_WIDTH));
+      if (hoveredIndex != null) {
+        setTooltipAnchor(measure(hoveredIndex, "above", TOOLTIP_WIDTH));
       }
-      if (openDay != null) {
-        setPopoverAnchor(measure(openDay, "below", POPOVER_WIDTH));
+      if (openIndex != null) {
+        setPopoverAnchor(measure(openIndex, "below", POPOVER_WIDTH));
       }
     };
 
@@ -197,11 +218,11 @@ export function ThirtyDayStrip({
       window.removeEventListener("scroll", sync, true);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hoveredDay, openDay]);
+  }, [hoveredIndex, openIndex]);
 
   /* Click outside any day cell closes the detail popover. */
   useEffect(() => {
-    if (openDay == null) return;
+    if (openIndex == null) return;
 
     const onPointerDown = (event: PointerEvent) => {
       const target = event.target as HTMLElement | null;
@@ -209,48 +230,58 @@ export function ThirtyDayStrip({
       if (target.closest("[data-day-cell]") || target.closest("[data-day-popover]")) {
         return;
       }
-      setOpenDay(null);
+      setOpenIndex(null);
     };
 
     document.addEventListener("pointerdown", onPointerDown);
     return () => document.removeEventListener("pointerdown", onPointerDown);
-  }, [openDay]);
+  }, [openIndex]);
 
   /* Escape closes the popover first, then resets week focus. */
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
 
-      if (openDay != null) setOpenDay(null);
+      if (openIndex != null) setOpenIndex(null);
       else if (activeWeek != null) setActiveWeek(null);
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [openDay, activeWeek]);
+  }, [openIndex, activeWeek]);
 
-  const onCellKeyDown = (event: React.KeyboardEvent, day: number) => {
+  const onCellKeyDown = (event: React.KeyboardEvent, index: number) => {
+    const lastIndex = plan.days.length - 1;
     let target: number | null = null;
 
-    if (event.key === "ArrowLeft") target = Math.max(1, day - 1);
-    else if (event.key === "ArrowRight") target = Math.min(plan.totalDays, day + 1);
-    else if (event.key === "Home") target = 1;
-    else if (event.key === "End") target = plan.totalDays;
+    if (event.key === "ArrowLeft") target = Math.max(0, index - 1);
+    else if (event.key === "ArrowRight") target = Math.min(lastIndex, index + 1);
+    else if (event.key === "Home") target = 0;
+    else if (event.key === "End") target = lastIndex;
 
     if (target == null) return;
 
     event.preventDefault();
-    setFocusDay(target);
+    setFocusIndex(target);
     cellRefs.current[target]?.focus();
   };
 
-  const tooltipDay = tooltipAnchor ? plan.days[tooltipAnchor.day - 1] : null;
+  const tooltipDay = tooltipAnchor ? plan.days[tooltipAnchor.index] : null;
   const tooltipEvents =
-    tooltipAnchor ? (eventMap.get(tooltipAnchor.day) ?? []) : [];
+    tooltipAnchor ? (eventMap.get(tooltipAnchor.index) ?? []) : [];
 
-  const popoverDay = popoverAnchor ? plan.days[popoverAnchor.day - 1] : null;
+  const popoverDay = popoverAnchor ? plan.days[popoverAnchor.index] : null;
   const popoverEvents =
-    popoverAnchor ? (eventMap.get(popoverAnchor.day) ?? []) : [];
+    popoverAnchor ? (eventMap.get(popoverAnchor.index) ?? []) : [];
+
+  const weekLabels = buildWeekLabels(plan.days);
+
+  /** Primary + secondary label, e.g. "Day 5 · Sun 28 Sep" (day only while
+      it's a real program day — plain date for day 0/out-of-range cells). */
+  const dayHeading = (day: ProgramDay): string =>
+    day.day >= 1 && day.day <= plan.totalDays
+      ? `Day ${day.day} · ${formatWeekdayDate(day.date)}`
+      : formatWeekdayDate(day.date);
 
   return (
     <section
@@ -259,9 +290,12 @@ export function ThirtyDayStrip({
       className="relative rounded-2xl border border-black/10 bg-white p-5 shadow-[0_1px_3px_rgba(14,14,14,0.04)] sm:p-6"
     >
       <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
-        <h2 className="text-lg font-semibold tracking-[-0.01em] text-[#0e0e0e]">
-          Your {plan.totalDays} days
-        </h2>
+        <div className="flex flex-wrap items-baseline gap-x-3">
+          <h2 className="text-lg font-semibold tracking-[-0.01em] text-[#0e0e0e]">
+            Next {plan.totalDays} days
+          </h2>
+          <span className="text-sm text-[#5a5f58]">{plan.rangeLabel}</span>
+        </div>
 
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
           {legend.map((item) => (
@@ -288,18 +322,18 @@ export function ThirtyDayStrip({
         <div className="min-w-[680px]">
           <div
             role="group"
-            aria-label={`Your ${plan.totalDays} day schedule`}
+            aria-label={`Next ${plan.totalDays} days, ${plan.rangeLabel}`}
             className="grid grid-cols-[repeat(30,minmax(0,1fr))] gap-1.5"
           >
-            {plan.days.map((day) => {
-              const events = eventMap.get(day.day) ?? [];
-              const weekIndex = weekIndexForDay(day.day);
+            {plan.days.map((day, index) => {
+              const events = eventMap.get(index) ?? [];
+              const weekIndex = weekIndexForIndex(index);
               const inActiveWeek = activeWeek === weekIndex;
               const isDone = day.state === "done";
               const shouldFill = isDone || day.state === "today";
 
               const ariaLabel = [
-                `Day ${day.day} of ${plan.totalDays}, ${stateLabel(day)}`,
+                `${dayHeading(day)}, ${stateLabel(day, index)}`,
                 ...events.map((e) =>
                   e.detail ? `${e.label}, ${e.detail}` : e.label,
                 ),
@@ -307,15 +341,15 @@ export function ThirtyDayStrip({
 
               return (
                 <button
-                  key={day.day}
+                  key={day.date}
                   type="button"
                   data-day-cell
                   ref={(el) => {
-                    cellRefs.current[day.day] = el;
+                    cellRefs.current[index] = el;
                   }}
-                  tabIndex={focusDay === day.day ? 0 : -1}
+                  tabIndex={focusIndex === index ? 0 : -1}
                   aria-label={ariaLabel}
-                  aria-expanded={openDay === day.day}
+                  aria-expanded={openIndex === index}
                   className={cn(
                     "relative flex h-10 cursor-pointer items-center justify-center rounded-lg border text-[13px] tabular-nums transition duration-300 ease-out",
                     "focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#0e0e0e]",
@@ -325,7 +359,7 @@ export function ThirtyDayStrip({
                       "border-2 border-[#0e0e0e] bg-[#f8dc03] font-bold text-[#0e0e0e]",
                     day.state === "upcoming" &&
                       "border-[#e6e6e1] bg-white text-[#8a8f88]",
-                    // Animated fill-in: done days (then today) cascade left → right.
+                    // Animated fill-in: today's cell pops in on load.
                     shouldFill && "day-fill",
                     // Week focus mode: spotlight the active week, dim the rest.
                     // Lift + shadow instead of scale — scaling resamples the
@@ -337,31 +371,31 @@ export function ThirtyDayStrip({
                   )}
                   style={
                     shouldFill
-                      ? { animationDelay: `${(day.day - 1) * 45}ms` }
+                      ? { animationDelay: `${index * 45}ms` }
                       : undefined
                   }
-                  onMouseEnter={() => setHoveredDay(day.day)}
+                  onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() =>
-                    setHoveredDay((h) => (h === day.day ? null : h))
+                    setHoveredIndex((h) => (h === index ? null : h))
                   }
                   onFocus={() => {
-                    setFocusDay(day.day);
-                    setHoveredDay(day.day);
+                    setFocusIndex(index);
+                    setHoveredIndex(index);
                   }}
                   onBlur={() =>
-                    setHoveredDay((h) => (h === day.day ? null : h))
+                    setHoveredIndex((h) => (h === index ? null : h))
                   }
                   onClick={() =>
-                    setOpenDay((o) => (o === day.day ? null : day.day))
+                    setOpenIndex((o) => (o === index ? null : index))
                   }
-                  onKeyDown={(event) => onCellKeyDown(event, day.day)}
+                  onKeyDown={(event) => onCellKeyDown(event, index)}
                 >
                   {day.isExpinarDay && (
                     <span className="absolute top-1 h-1.5 w-1.5 rounded-full bg-[#0e0e0e]" />
                   )}
 
                   <span className={cn(day.isExpinarDay && "mt-1.5")}>
-                    {day.day}
+                    {Number(day.date.slice(8))}
                   </span>
                 </button>
               );
@@ -371,15 +405,10 @@ export function ThirtyDayStrip({
           <div className="mt-2 grid grid-cols-[repeat(30,minmax(0,1fr))] gap-1.5 text-[11px] font-medium text-[#8a8f88]">
             {weekLabels.map((week, index) => {
               const isActive = activeWeek === index;
-              const startDay = index * 7 + 1;
-              const endDay = Math.min(
-                startDay + week.span - 1,
-                plan.totalDays,
-              );
 
               return (
                 <span
-                  key={week.label}
+                  key={week.label || `week-${index}`}
                   className={cn(
                     index === weekLabels.length - 1 && "text-right",
                     activeWeek != null && !isActive && "opacity-40",
@@ -389,7 +418,7 @@ export function ThirtyDayStrip({
                   <button
                     type="button"
                     aria-pressed={isActive}
-                    aria-label={`Focus ${week.label}, days ${startDay} to ${endDay}`}
+                    aria-label={`Focus ${week.label}`}
                     onClick={() =>
                       setActiveWeek(isActive ? null : index)
                     }
@@ -410,7 +439,7 @@ export function ThirtyDayStrip({
       </div>
 
       {/* Hover / keyboard-focus tooltip (pointer-events-none, never clips). */}
-      {tooltipAnchor && tooltipDay && openDay == null && (
+      {tooltipAnchor && tooltipDay && openIndex == null && (
         <div
           role="tooltip"
           className="pointer-events-none absolute z-40 -translate-x-1/2 -translate-y-full rounded-xl bg-[#0e0e0e] px-3 py-2 text-left text-white shadow-xl animate-fade-in"
@@ -422,10 +451,10 @@ export function ThirtyDayStrip({
         >
           <div className="flex items-baseline justify-between gap-2">
             <span className="text-xs font-semibold">
-              Day {tooltipAnchor.day} of {plan.totalDays}
+              {dayHeading(tooltipDay)}
             </span>
             <span className="text-[11px] text-white/60">
-              {stateLabel(tooltipDay)}
+              {stateLabel(tooltipDay, tooltipAnchor.index)}
             </span>
           </div>
 
@@ -470,7 +499,7 @@ export function ThirtyDayStrip({
         >
           <div className="flex items-center justify-between gap-2">
             <p className="text-sm font-semibold text-[#0e0e0e]">
-              Day {popoverAnchor.day} of {plan.totalDays}
+              {dayHeading(popoverDay)}
             </p>
 
             <span
@@ -486,14 +515,14 @@ export function ThirtyDayStrip({
             >
               {popoverDay.state === "upcoming"
                 ? "Upcoming"
-                : stateLabel(popoverDay)}
+                : stateLabel(popoverDay, popoverAnchor.index)}
             </span>
           </div>
 
           <p className="mt-0.5 text-[11px] text-[#5a5f58]">
-            {weekLabels[weekIndexForDay(popoverAnchor.day)].label}
+            {weekLabels[weekIndexForIndex(popoverAnchor.index)].label}
             {" · "}
-            {stateLabel(popoverDay)}
+            {stateLabel(popoverDay, popoverAnchor.index)}
           </p>
 
           {popoverEvents.length > 0 ? (

@@ -13,7 +13,21 @@ import type {
 
 import { createClient } from "./supabase/server";
 import { isSupabaseConfigured } from "./supabase/client";
-import { buildActivityParts, dateKey, type ActivityInputRow } from "./activity";
+import { buildActivityParts, type ActivityInputRow } from "./activity";
+import {
+  addDaysToKey,
+  dateKey,
+  dayNumberBetween,
+  formatDayMonth,
+  formatWeekdayDate,
+} from "./dates";
+import {
+  completedSectionCount,
+  getCurriculum,
+  progressFromRows,
+  type ProgressRow,
+} from "./career-curriculum";
+import { careerIdForTrack } from "./career-tracks";
 import {
   formatDuration,
   formatExpinarDate,
@@ -23,7 +37,6 @@ import {
 } from "./dashboard-format";
 import {
   CAREER_FIT_BLURB,
-  DEMO_CURRENT_DAY,
   DEMO_MODULE_NOTES,
   DEMO_TOTAL_DAYS,
   DEMO_VIDEO_URL,
@@ -159,7 +172,8 @@ function buildSummaryPartsDemo(): SummaryParts {
     activeTrack: { completed: completedModules, total: totalModules },
     quizzesDone: 2,
     liveExpinar: buildDemoExpinar(),
-    tracks: buildDemoTracks(),
+    // Same derivation as the database path, so demo mode and /careers agree.
+    tracks: buildDemoTracks().map((row) => syllabusTrackRow(row, [])),
     badges: DEMO_BADGES,
     careerFit: buildDemoCareerFit(),
   };
@@ -183,7 +197,7 @@ async function buildSummaryPartsDb(
   ] = await Promise.all([
     supabase
       .from("program_progress")
-      .select("current_day, total_days, expinar_days")
+      .select("current_day, total_days, expinar_days, started_at")
       .eq("user_id", userId)
       .maybeSingle(),
     supabase.from("tracks").select("*").order("sort_order"),
@@ -227,18 +241,67 @@ async function buildSummaryPartsDb(
     ),
   );
 
-  const currentDay: number = program.current_day ?? DEMO_CURRENT_DAY;
+  const totalDays: number = program.total_days ?? DEMO_TOTAL_DAYS;
+  const storedDay: number = program.current_day ?? 1;
+  const startedAt: string | null =
+    typeof program.started_at === "string" ? program.started_at : null;
+  const storedExpinarDays: number[] = Array.isArray(program.expinar_days)
+    ? program.expinar_days.filter((day: unknown): day is number => typeof day === "number")
+    : [];
+
+  // A learner without a program_progress row starts on day 1.
+  //
+  // Day rolls forward with the calendar: `started_at` is day 1, so the
+  // elapsed day advances daily and the strip's rolling window slides with
+  // it. Nothing else writes current_day, so it is derived here and
+  // persisted whenever it moves — plus a row is created for accounts that
+  // don't have one yet, since the demo seed that used to write it is gone.
+  const anchorKey: string = startedAt ? startedAt.slice(0, 10) : dateKey(new Date());
+  const anchorDay: number = startedAt ? 1 : storedDay;
+  const rolledDay: number | null = dayNumberBetween(
+    anchorKey,
+    anchorDay,
+    dateKey(new Date()),
+  );
+  // Not clamped to totalDays: the strip shows a rolling window whose cells
+  // carry true elapsed day numbers (day 31+ once the plan is past).
+  const currentDay: number = Math.max(storedDay, rolledDay ?? storedDay);
+
+  if (currentDay !== storedDay || startedAt == null) {
+    const { error: dayError } = await supabase.from("program_progress").upsert(
+      {
+        user_id: userId,
+        current_day: currentDay,
+        total_days: totalDays,
+        expinar_days: storedExpinarDays,
+        started_at: startedAt ?? dateKey(new Date()),
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: "user_id" },
+    );
+
+    if (dayError) {
+      console.warn("[dashboard] program day not persisted:", dayError.message);
+    }
+  }
 
   const trackRows: TrackProgress[] = tracks.map((track: any) => {
     const progress = progressByTrack.get(track.id);
+    const unlockDay: number | null = track.unlock_day ?? null;
+    const unlocked = unlockDay == null || unlockDay <= currentDay;
+
     const storedStatus: TrackProgress["status"] =
       progress?.status === "in_progress" ||
       progress?.status === "started" ||
       progress?.status === "available"
         ? progress.status
-        : "locked";
-
-    const unlockDay: number | null = track.unlock_day ?? null;
+        : progress == null
+          ? // Never touched (no row — the demo seed no longer writes one):
+            // open as soon as its unlock day has arrived.
+              unlocked
+              ? "available"
+              : "locked"
+          : "locked";
 
     // A locked track whose unlock day has arrived is now open.
     const status: TrackProgress["status"] =
@@ -261,16 +324,26 @@ async function buildSummaryPartsDb(
             ? "Started"
             : status === "available"
               ? "Open"
-              : `Opens day ${unlockDay}`,
+              : unlockDay != null
+                ? `Opens ${formatDayMonth(addDaysToKey(anchorKey, unlockDay - anchorDay))} (day ${unlockDay})`
+                : "Locked",
       unlockDay,
     };
   });
 
+  // Tracks with a syllabus read their totals from /careers progress so the
+  // dashboard and the career page can never disagree.
+  const syncedTrackRows = await withSyllabusProgress(
+    supabase,
+    userId,
+    trackRows,
+  );
+
   // Active track = the one in progress, else the first started, else the first track.
   const activeRow =
-    trackRows.find((row) => row.status === "in_progress") ??
-    trackRows.find((row) => row.status === "started") ??
-    trackRows[0];
+    syncedTrackRows.find((row) => row.status === "in_progress") ??
+    syncedTrackRows.find((row) => row.status === "started") ??
+    syncedTrackRows[0];
 
   const [modulesRes, moduleProgressRes] = await Promise.all([
     supabase
@@ -345,19 +418,45 @@ async function buildSummaryPartsDb(
   };
 
   const fit = fitRes.data;
+  const opensDay: number = fit?.opens_day ?? DEMO_TOTAL_DAYS;
 
   const careerFit: CareerFitReport = {
-    opensDay: fit?.opens_day ?? DEMO_TOTAL_DAYS,
+    opensDay,
+    opensDateLabel: formatDayMonth(
+      addDaysToKey(anchorKey, opensDay - anchorDay),
+    ),
     progressPercent: fit?.progress_percent ?? 0,
     blurb: fit?.blurb || CAREER_FIT_BLURB,
   };
 
+  // Expinar markers: keep the stored ones and always add the *live* event's
+  // program day (e.g. next Thursday is day N of *this* learner's plan), so
+  // the strip's yellow dot lands on the real date for every account.
+  const liveExpinarDay: number | null =
+    liveExpinar.startsAt != null
+      ? dayNumberBetween(
+          anchorKey,
+          anchorDay,
+          dateKey(new Date(liveExpinar.startsAt)),
+        )
+      : null;
+  const expinarDays: number[] = Array.from(
+    new Set([
+      ...storedExpinarDays,
+      // No upper clamp: cells carry unclamped day numbers and the visible
+      // window runs past day 30, so an in-window event keeps its dot
+      // whenever its date is on screen — even after the plan's day 30.
+      ...(liveExpinarDay != null && liveExpinarDay >= 1
+        ? [liveExpinarDay]
+        : []),
+    ]),
+  ).sort((a, b) => a - b);
+
   return {
-    program: buildProgramPlan(
-      program.current_day ?? DEMO_CURRENT_DAY,
-      program.total_days ?? DEMO_TOTAL_DAYS,
-      program.expinar_days ?? [],
-    ),
+    program: buildProgramPlan(currentDay, totalDays, expinarDays, {
+      key: anchorKey,
+      day: anchorDay,
+    }),
     currentModule,
     activeTrack: {
       completed: activeRow.completedModules,
@@ -365,10 +464,67 @@ async function buildSummaryPartsDb(
     },
     quizzesDone: quizRes.count ?? 0,
     liveExpinar,
-    tracks: trackRows,
+    tracks: syncedTrackRows,
     badges: badgeItems,
     careerFit,
   };
+}
+
+/**
+ * Replace a track row's counters with syllabus-derived ones: "1 of 14" on
+ * the dashboard is literally the same state as "1 of 14 sections complete"
+ * on /careers. Rows with no syllabus pass through untouched.
+ */
+function syllabusTrackRow(
+  row: TrackProgress,
+  careerRows: readonly (ProgressRow & { career_id?: string })[],
+): TrackProgress {
+  const careerId = careerIdForTrack(row.id);
+  const curriculum = careerId ? getCurriculum(careerId) : undefined;
+  if (!curriculum) return row;
+
+  const state = progressFromRows(
+    curriculum,
+    careerRows.filter((entry) => entry.career_id === careerId),
+  );
+
+  return {
+    ...row,
+    completedModules: completedSectionCount(curriculum, state),
+    totalModules: curriculum.sections.length,
+  };
+}
+
+/**
+ * Overlay syllabus-derived totals (public.career_progress, migration 0004)
+ * onto the seeded track rows.
+ *
+ * Returns the rows untouched when the table hasn't been migrated yet — the
+ * careers feature must never fail the whole dashboard.
+ */
+async function withSyllabusProgress(
+  supabase: any,
+  userId: string,
+  rows: TrackProgress[],
+): Promise<TrackProgress[]> {
+  if (!rows.some((row) => careerIdForTrack(row.id))) return rows;
+
+  let careerRows: any[];
+
+  try {
+    const result = await supabase
+      .from("career_progress")
+      .select("career_id, item_id, completed")
+      .eq("user_id", userId);
+
+    if (result.error) throw new Error(result.error.message);
+    careerRows = result.data ?? [];
+  } catch (error) {
+    console.warn("[dashboard] syllabus progress unavailable:", error);
+    return rows;
+  }
+
+  return rows.map((row) => syllabusTrackRow(row, careerRows));
 }
 
 async function loadSummaryParts(userId: string): Promise<SummaryParts> {
@@ -397,9 +553,10 @@ interface ActivityParts {
  * Only needs `userId`, so the caller starts it in parallel with
  * loadSummaryParts instead of awaiting it afterwards — the two database
  * round-trips overlap instead of stacking. Returns null when Supabase is
- * unconfigured, the table is missing, or there are no rows yet, so the
- * caller can substitute the deterministic demo rows and keep the activity
- * card rendering.
+ * unconfigured or the table is missing, so the caller can substitute the
+ * deterministic demo rows and keep the activity card rendering. A
+ * configured account with no history yet gets an empty array — zeros,
+ * not fiction.
  */
 async function loadActivityRows(
   userId: string,
@@ -430,10 +587,8 @@ async function loadActivityRows(
       modulesCompleted: Number(row.modules_completed) || 0,
     }));
 
-    if (rows.length === 0) {
-      throw new Error("no activity rows yet");
-    }
-
+    // An empty result is a learner with no history yet — hand back an
+    // empty array so the charts render zeros instead of demo data.
     return rows;
   } catch (error) {
     // Optional table — never fail the whole dashboard over it.
@@ -490,12 +645,18 @@ export async function getDashboardSummary(options: {
         )}'s Expinar.`
       : "";
 
+  const elapsedDay = parts.program.currentDay;
+  const todayKey = dateKey(now);
+
+  const dayNote =
+    elapsedDay <= parts.program.totalDays
+      ? `Today is ${formatWeekdayDate(todayKey)} — day ${elapsedDay} of ${parts.program.totalDays}.`
+      : `Today is ${formatWeekdayDate(todayKey)} — day ${elapsedDay}. Your ${parts.program.totalDays}-day plan is complete.`;
+
   return {
     firstName,
     greeting: getGreeting(now),
-    headlineNote:
-      `You are on day ${parts.program.currentDay} of ${parts.program.totalDays}.` +
-      noteSecondSentence,
+    headlineNote: dayNote + noteSecondSentence,
     program: parts.program,
     currentModule: parts.currentModule,
     steps: buildSteps(

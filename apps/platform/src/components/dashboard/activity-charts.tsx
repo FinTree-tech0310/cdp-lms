@@ -123,7 +123,9 @@ export function ActivityCharts({
               Program progress
             </h2>
             <p className="text-sm text-[#5a5f58]">
-              Day {currentDay} of {totalDays}
+              {currentDay <= totalDays
+                ? `Day ${currentDay} of ${totalDays}`
+                : `Day ${currentDay}`}
             </p>
           </div>
 

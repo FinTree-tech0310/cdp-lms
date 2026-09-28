@@ -2,7 +2,11 @@ import Link from "next/link";
 
 import type { TrackProgress } from "@cdp/types";
 
+import { careerHref, careerIdForTrack } from "@/lib/career-tracks";
 import { cn } from "@/lib/utils";
+
+const ROW_CLASS =
+  "group/l grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-2 px-2 py-3.5 sm:grid-cols-[minmax(0,170px)_minmax(0,1fr)_auto_130px] sm:gap-x-6";
 
 export function TracksCard({ tracks }: { tracks: TrackProgress[] }) {
   return (
@@ -20,33 +24,33 @@ export function TracksCard({ tracks }: { tracks: TrackProgress[] }) {
         </p>
       </div>
 
-      <div className="mt-3">
+      <div className="-mx-2 mt-3">
         {tracks.map((track) => {
           const percent =
             track.totalModules > 0
               ? Math.round((track.completedModules / track.totalModules) * 100)
               : 0;
           const locked = track.status === "locked";
-          // Only In progress, Started or Open tracks link to Careers.
+          // Only In progress, Started or Open tracks link to their career.
           const clickable = !locked;
+          const careerId = careerIdForTrack(track.id);
+          // Open that career's syllabus directly — same view as clicking
+          // its card on /careers.
+          const href = careerId ? careerHref(careerId) : "/careers";
 
-          return (
-            <div
-              key={track.id}
-              className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-2 py-3.5 sm:grid-cols-[minmax(0,170px)_minmax(0,1fr)_auto_130px] sm:gap-x-6"
-            >
-              {clickable ? (
-                <Link
-                  href="/careers"
-                  className="truncate text-sm font-medium text-[#0e0e0e] underline-offset-4 transition hover:underline hover:decoration-[#1ed2f4]"
-                >
-                  {track.title}
-                </Link>
-              ) : (
-                <p className="truncate text-sm font-medium text-[#0e0e0e]">
-                  {track.title}
-                </p>
-              )}
+          const title = clickable ? (
+            <span className="truncate text-sm font-medium text-[#0e0e0e] underline-offset-4 transition group-hover/l:underline group-hover/l:decoration-[#1ed2f4]">
+              {track.title}
+            </span>
+          ) : (
+            <span className="truncate text-sm font-medium text-[#0e0e0e]">
+              {track.title}
+            </span>
+          );
+
+          const cells = (
+            <>
+              {title}
 
               <p
                 className={cn(
@@ -69,7 +73,26 @@ export function TracksCard({ tracks }: { tracks: TrackProgress[] }) {
               <p className="text-sm text-[#5a5f58] sm:col-start-3 sm:row-start-1 sm:text-right">
                 {track.completedModules} of {track.totalModules}
               </p>
-            </div>
+            </>
+          );
+
+          if (!clickable) {
+            return (
+              <div key={track.id} className={ROW_CLASS}>
+                {cells}
+              </div>
+            );
+          }
+
+          return (
+            <Link
+              key={track.id}
+              href={href}
+              aria-label={`Open ${track.title} career track`}
+              className={cn(ROW_CLASS, "rounded-xl transition hover:bg-[#f9fff6]")}
+            >
+              {cells}
+            </Link>
           );
         })}
       </div>

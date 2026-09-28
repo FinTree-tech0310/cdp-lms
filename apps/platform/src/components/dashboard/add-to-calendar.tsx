@@ -61,7 +61,24 @@ function outlookUrl(event: LiveExpinar, start: Date, end: Date): string {
   return `https://outlook.office.com/calendar/0/deeplink/compose?${params.toString()}`;
 }
 
-export function AddToCalendar({ expinar }: { expinar: LiveExpinar }) {
+interface AddToCalendarProps {
+  expinar: LiveExpinar;
+  /** ICS download URL; defaults to the next upcoming session's feed. */
+  icsHref?: string;
+  /** Menu direction — "top" fits inside containers that clip downward. */
+  side?: "top" | "bottom";
+  /** Menu alignment — "end" keeps right-placed triggers inside their box. */
+  align?: "start" | "end";
+  onOpenChange?: (open: boolean) => void;
+}
+
+export function AddToCalendar({
+  expinar,
+  icsHref = "/api/expinar/calendar",
+  side = "bottom",
+  align = "start",
+  onOpenChange,
+}: AddToCalendarProps) {
   const [copied, setCopied] = useState(false);
   const [downloaded, setDownloaded] = useState(false);
 
@@ -94,7 +111,7 @@ export function AddToCalendar({ expinar }: { expinar: LiveExpinar }) {
   }
 
   return (
-    <DropdownMenu>
+    <DropdownMenu onOpenChange={onOpenChange}>
       <DropdownMenuTrigger asChild>
         <button
           type="button"
@@ -105,8 +122,8 @@ export function AddToCalendar({ expinar }: { expinar: LiveExpinar }) {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent
-        side="bottom"
-        align="start"
+        side={side}
+        align={align}
         sideOffset={8}
         className="w-60 border-black/10 bg-white p-1.5 text-[#0e0e0e] shadow-2xl"
       >
@@ -146,7 +163,7 @@ export function AddToCalendar({ expinar }: { expinar: LiveExpinar }) {
 
         <DropdownMenuItem asChild>
           <a
-            href="/api/expinar/calendar"
+            href={icsHref}
             download
             onClick={handleDownload}
             className="gap-2.5 hover:bg-[#f8dc03] focus:bg-[#f8dc03]"

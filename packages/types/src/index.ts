@@ -54,7 +54,10 @@ export interface ExpinarEvent {
 export type ProgramDayState = 'done' | 'today' | 'upcoming';
 
 export interface ProgramDay {
+  /** Elapsed program day for this date (started_at = day 1). */
   day: number;
+  /** Calendar date of the cell, "YYYY-MM-DD" — the primary label. */
+  date: string;
   state: ProgramDayState;
   isExpinarDay: boolean;
 }
@@ -62,6 +65,8 @@ export interface ProgramDay {
 export interface ProgramPlan {
   totalDays: number;
   currentDay: number;
+  /** Rolling window label, e.g. "28 Sep – 27 Oct". */
+  rangeLabel: string;
   days: ProgramDay[];
 }
 
@@ -118,6 +123,8 @@ export interface BadgeInfo {
 
 export interface CareerFitReport {
   opensDay: number;
+  /** Display label for the opens date, e.g. "27 Oct". */
+  opensDateLabel: string;
   progressPercent: number;
   blurb: string;
 }

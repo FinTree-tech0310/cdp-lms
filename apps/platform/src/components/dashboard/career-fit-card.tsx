@@ -11,7 +11,9 @@ export function CareerFitCard({ report }: { report: CareerFitReport }) {
           Career-fit report
         </h2>
 
-        <p className="text-sm text-[#5a5f58]">Day {report.opensDay}</p>
+        <p className="text-sm text-[#5a5f58]">
+          Opens {report.opensDateLabel} (day {report.opensDay})
+        </p>
       </div>
 
       <p className="mt-2 text-sm leading-6 text-[#5a5f58]">{report.blurb}</p>

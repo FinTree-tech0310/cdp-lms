@@ -4,14 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  ExternalLink,
   LogOut,
   Menu,
   User,
 } from "lucide-react";
 
 import { createClient } from "@/lib/supabase/client";
-import { APP_CONFIG } from "@/lib/config";
 
 import { Button } from "@/components/ui/button";
 import { Avatar } from "@/components/ui/avatar";
@@ -94,12 +92,10 @@ export function AppHeader({ user, onMenuClick }: AppHeaderProps) {
 
         {/* Expinar — beside the logo. Always-on brand yellow against the
             black header, with a red pulsing live dot and glow so it reads
-            as the one thing worth clicking. */}
-        <a
-          href={APP_CONFIG.expinarUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Open Expinar"
+            as the one thing worth clicking. Opens the Expinars page. */}
+        <Link
+          href="/expinars"
+          title="Open Expinars"
           className="group ml-3 hidden h-10 items-center gap-2 rounded-full bg-[#f8dc03] px-4 text-sm font-semibold text-[#0e0e0e] shadow-[0_0_14px_rgba(248,220,3,0.35)] transition hover:-translate-y-0.5 hover:bg-[#ffe14a] hover:shadow-[0_8px_24px_rgba(248,220,3,0.6)] sm:ml-5 sm:inline-flex lg:ml-0"
         >
           <span className="relative flex h-2 w-2" aria-hidden>
@@ -107,8 +103,7 @@ export function AppHeader({ user, onMenuClick }: AppHeaderProps) {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#e50914]" />
           </span>
           Expinar
-          <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
-        </a>
+        </Link>
 
         {/* Search — beside the Expinar */}
         <HeaderSearch className="mx-auto hidden w-full max-w-xl md:block" />
@@ -118,7 +113,7 @@ export function AppHeader({ user, onMenuClick }: AppHeaderProps) {
           <DropdownMenuTrigger asChild>
             <button
               type="button"
-              className="ml-auto flex items-center gap-2 rounded-full outline-none transition hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#1ed2f4]/50"
+              className="ml-auto flex cursor-pointer items-center gap-2 rounded-full outline-none transition hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-[#1ed2f4]/50"
               aria-label="Open profile menu"
             >
               <Avatar
@@ -177,11 +172,9 @@ export function AppHeader({ user, onMenuClick }: AppHeaderProps) {
       <div className="flex gap-2 border-t border-white/10 px-4 py-3 md:hidden">
         <HeaderSearch className="min-w-0 flex-1" />
 
-        <a
-          href={APP_CONFIG.expinarUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Open Expinar"
+        <Link
+          href="/expinars"
+          title="Open Expinars"
           className="group inline-flex h-10 items-center justify-center gap-2 rounded-full bg-[#f8dc03] px-4 text-sm font-semibold text-[#0e0e0e] shadow-[0_0_14px_rgba(248,220,3,0.35)] transition hover:-translate-y-0.5 hover:bg-[#ffe14a] hover:shadow-[0_8px_24px_rgba(248,220,3,0.6)]"
         >
           <span className="relative flex h-2 w-2" aria-hidden>
@@ -189,8 +182,7 @@ export function AppHeader({ user, onMenuClick }: AppHeaderProps) {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#e50914]" />
           </span>
           Expinar
-          <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
-        </a>
+        </Link>
       </div>
     </header>
   );

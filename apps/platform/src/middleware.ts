@@ -17,7 +17,10 @@ export async function middleware(request: NextRequest) {
   const protectedRoute =
     pathname.startsWith("/dashboard") ||
     pathname.startsWith("/careers") ||
-    pathname.startsWith("/profile");
+    pathname.startsWith("/profile") ||
+    pathname.startsWith("/handbook") ||
+    pathname.startsWith("/community") ||
+    pathname.startsWith("/mini-games");
 
   if (!isConfigured) {
     return response;

@@ -7,6 +7,9 @@ import type {
 } from "@cdp/types";
 
 import { formatExpinarDate, formatShortWeekday } from "./dashboard-format";
+import { dateKey } from "./dates";
+
+export { dateKey } from "./dates";
 
 /**
  * Learning-activity computation: turns raw daily rows
@@ -30,14 +33,6 @@ export interface ActivityOptions {
   currentDay: number;
   totalDays: number;
   totalModules: number;
-}
-
-/** Local-time "YYYY-MM-DD" (avoids UTC off-by-one on date keys). */
-export function dateKey(date: Date): string {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
 }
 
 function keyToDate(key: string): Date {

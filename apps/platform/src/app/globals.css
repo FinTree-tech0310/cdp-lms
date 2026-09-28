@@ -282,6 +282,7 @@ input {
 
   .day-fill,
   .animate-fade-in,
+  .animate-rise-in,
   .animate-ping {
     animation: none;
   }
