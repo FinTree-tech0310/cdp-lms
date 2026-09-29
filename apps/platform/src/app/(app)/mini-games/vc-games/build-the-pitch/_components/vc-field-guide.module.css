@@ -1,0 +1,253 @@
+.guideButton {
+  position: fixed;
+  z-index: 70;
+  right: 24px;
+  bottom: 24px;
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-content: center;
+  gap: 0;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--orange);
+  color: #ffffff;
+  font: inherit;
+  box-shadow: 5px 5px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.bookIcon {
+  width: 25px;
+  height: 25px;
+  margin: 0 auto 2px;
+}
+
+.guideButton > small {
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.guideButton:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.guideButton:focus-visible,
+.closeButton:focus-visible,
+.searchInput:focus-visible {
+  outline: 4px solid rgb(41 60 211 / 30%);
+  outline-offset: 4px;
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  background: rgb(17 19 26 / 38%);
+}
+
+.drawer {
+  position: absolute;
+  inset: 0 0 0 auto;
+  display: flex;
+  width: 450px;
+  height: 100dvh;
+  flex-direction: column;
+  border-left: 2px solid var(--ink);
+  background: var(--cream);
+  box-shadow: -14px 0 32px rgb(17 19 26 / 18%);
+  color: var(--ink);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 24px 24px 18px;
+  border-bottom: 2px solid rgb(17 19 26 / 9%);
+  background: var(--lavender);
+}
+
+.header p,
+.header h2 {
+  margin: 0;
+}
+
+.header > div > p {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin-top: 5px;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+
+.closeButton {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 26px;
+  font-weight: 750;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.searchLabel {
+  grid-column: 1 / -1;
+  margin-top: 18px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.searchInput {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 7px;
+  padding: 12px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 13px;
+  background: #ffffff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.searchInput::placeholder {
+  color: rgb(17 19 26 / 45%);
+}
+
+.searchStatus {
+  grid-column: 1 / -1;
+  margin-top: 8px !important;
+  color: rgb(17 19 26 / 56%);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.content {
+  overflow-y: auto;
+  padding: 22px 24px 36px;
+}
+
+.guideSection + .guideSection {
+  margin-top: 30px;
+}
+
+.sectionHeading h3,
+.sectionHeading p {
+  margin: 0;
+}
+
+.sectionHeading h3 {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+}
+
+.sectionHeading p {
+  margin-top: 5px;
+  color: rgb(17 19 26 / 58%);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.termList,
+.formulaList {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.termCard,
+.formulaCard {
+  padding: 14px;
+  border: 1px solid rgb(17 19 26 / 13%);
+  border-radius: 15px;
+  background: #ffffff;
+}
+
+.termCard dt,
+.formulaCard dt {
+  color: var(--indigo);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.termCard dd,
+.formulaCard dd {
+  margin: 5px 0 0;
+  color: rgb(17 19 26 / 70%);
+  font-size: 12px;
+  font-weight: 620;
+  line-height: 1.45;
+}
+
+.termCard .vcLens {
+  margin-top: 9px;
+  padding-top: 9px;
+  border-top: 1px solid rgb(17 19 26 / 8%);
+}
+
+.vcLens strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--orange);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.formulaCard .formula {
+  color: var(--ink);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 900;
+}
+
+.emptyState {
+  padding: 32px 20px;
+  border: 2px dashed rgb(41 60 211 / 22%);
+  border-radius: 18px;
+  text-align: center;
+}
+
+.emptyState strong {
+  font-size: 16px;
+}
+
+.emptyState p {
+  margin: 7px 0 0;
+  color: rgb(17 19 26 / 60%);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

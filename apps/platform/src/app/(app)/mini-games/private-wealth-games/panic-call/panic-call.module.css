@@ -1,0 +1,656 @@
+.shellStatus {
+  margin: 0;
+  color: rgb(17 19 26 / 58%);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sectionEyebrow,
+.callStatus,
+.transcriptSpeaker,
+.outcomeStory > p,
+.pathCard > span {
+  margin: 0;
+  color: var(--indigo);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.introPanel,
+.incomingPanel,
+.connectedPanel,
+.outcomePanel,
+.comparisonPanel {
+  width: min(900px, 100%);
+  margin: 48px auto 0;
+  border: 2px solid rgb(17 19 26 / 10%);
+  border-radius: 30px;
+  background: var(--lavender);
+  box-shadow: 0 14px 34px rgb(17 19 26 / 9%);
+  animation: panelEnter 240ms ease-out both;
+}
+
+.introPanel {
+  width: min(800px, 100%);
+  padding: clamp(34px, 6vw, 64px);
+  text-align: center;
+}
+
+.introCallMark {
+  position: relative;
+  display: grid;
+  width: 104px;
+  height: 104px;
+  place-items: center;
+  margin: 0 auto 28px;
+  border: 2px solid rgb(17 19 26 / 18%);
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: 6px 7px 0 rgb(244 98 42 / 15%);
+}
+
+.introCallMark span:first-child {
+  width: 46px;
+  height: 46px;
+  border: 8px solid var(--indigo);
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  rotate: 45deg;
+}
+
+.introCallMark span:nth-child(2),
+.introCallMark span:nth-child(3) {
+  position: absolute;
+  width: 8px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--orange);
+}
+
+.introCallMark span:nth-child(2) { left: 15px; rotate: -22deg; }
+.introCallMark span:nth-child(3) { right: 15px; rotate: 22deg; }
+
+.introPanel h1,
+.incomingPanel h1,
+.connectedHeader h1,
+.strategyArea h2,
+.outcomePanel h1,
+.comparisonPanel h1,
+.pathCard h2 {
+  color: var(--ink);
+  font-weight: var(--vc-display-weight);
+  letter-spacing: var(--vc-display-tracking);
+  line-height: var(--vc-display-leading);
+}
+
+.introPanel h1 {
+  max-width: 660px;
+  margin: 18px auto 0;
+  font-size: clamp(44px, 6vw, 68px);
+}
+
+.introCopy {
+  max-width: 570px;
+  margin: 22px auto 0;
+  color: rgb(17 19 26 / 72%);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.introDetails {
+  display: grid;
+  gap: 5px;
+  margin: 25px 0;
+  color: rgb(17 19 26 / 60%);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.introDetails p { margin: 0; }
+
+.incomingPanel {
+  position: relative;
+  display: flex;
+  min-height: 570px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(38px, 6vw, 68px);
+  text-align: center;
+}
+
+.callStatus {
+  color: var(--orange);
+}
+
+.ringingPortrait {
+  position: relative;
+  display: grid;
+  width: 210px;
+  height: 226px;
+  place-items: center;
+  margin: 28px auto 22px;
+}
+
+.ring {
+  position: absolute;
+  inset: 20px 10px;
+  border: 2px solid rgb(41 60 211 / 28%);
+  border-radius: 38px;
+  animation: callRing 2s ease-out infinite;
+}
+
+.ring:nth-child(2) { animation-delay: 900ms; }
+
+.incomingAvatar {
+  position: relative;
+  z-index: 1;
+  transform-origin: 50% 82%;
+  animation: incomingVibration 1.35s ease-in-out infinite;
+}
+
+.incomingAvatar > span:first-child {
+  width: 150px;
+  height: 170px;
+  border-width: 3px;
+  border-radius: 28px;
+  box-shadow: 7px 8px 0 rgb(244 98 42 / 15%), 0 14px 28px rgb(17 19 26 / 12%);
+}
+
+.incomingPanel h1 {
+  max-width: 650px;
+  margin: 0;
+  font-size: clamp(31px, 4vw, 46px);
+}
+
+.incomingPrompt {
+  margin: 12px 0 0;
+  color: rgb(17 19 26 / 62%);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.callActions {
+  display: grid;
+  width: min(520px, 100%);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.callAction,
+.strategyButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 2px solid rgb(17 19 26 / 18%);
+  background: #ffffff;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 820;
+  box-shadow: 0 5px 0 rgb(17 19 26 / 12%);
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.callAction kbd,
+.strategyButton kbd {
+  display: inline-grid;
+  min-width: 27px;
+  height: 27px;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0 6px;
+  border: 1px solid rgb(17 19 26 / 17%);
+  border-radius: 7px;
+  background: var(--cream);
+  color: var(--indigo);
+  font: inherit;
+  font-size: 10px;
+  font-weight: 850;
+  line-height: 1;
+  box-shadow: 0 2px 0 rgb(17 19 26 / 10%);
+}
+
+.callAction:active:not(:disabled) kbd,
+.strategyButton:active:not(:disabled) kbd {
+  border-color: rgb(255 255 255 / 40%);
+  background: rgb(255 255 255 / 16%);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.callAction {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 62px;
+  justify-content: center;
+  padding: 13px 52px 13px 18px;
+  border-radius: 18px;
+  font-size: 17px;
+}
+
+.callAction > span {
+  min-width: 0;
+  text-align: center;
+}
+
+.callAction kbd {
+  position: absolute;
+  right: 14px;
+}
+
+.callAction:hover:not(:disabled),
+.strategyButton:hover:not(:disabled) {
+  border-color: var(--orange);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 rgb(17 19 26 / 12%);
+}
+
+.callAction:active:not(:disabled),
+.strategyButton:active:not(:disabled) {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #ffffff;
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 rgb(17 19 26 / 18%);
+}
+
+.callAction:focus-visible,
+.strategyButton:focus-visible,
+.ttsButton:focus-visible,
+.rateControl select:focus-visible {
+  outline: 4px solid rgb(41 60 211 / 28%);
+  outline-offset: 3px;
+}
+
+.callAction:disabled,
+.strategyButton:disabled { cursor: default; opacity: 0.55; }
+
+.incomingConnecting .ring { animation-play-state: paused; }
+.incomingConnecting .incomingAvatar,
+.incomingConnecting h1,
+.incomingConnecting .callActions { animation: connectSettle 220ms ease-in both; }
+
+.connectedPanel {
+  padding: clamp(24px, 4vw, 40px);
+}
+
+.connectedHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(17 19 26 / 11%);
+}
+
+.connectedIdentity {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 14px;
+}
+
+.connectedAvatar { flex: 0 0 auto; }
+.connectedAvatar > span:first-child {
+  width: 62px;
+  height: 68px;
+  border-width: 2px;
+  border-radius: 17px;
+  box-shadow: 3px 4px 0 rgb(41 60 211 / 11%);
+}
+
+.connectedStatus {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 5px;
+  color: var(--indigo);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.connectedStatus span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.connectedHeader h1 {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 30px);
+}
+
+.callMode {
+  margin: 0;
+  color: rgb(17 19 26 / 50%);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.callWorkspace {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.65fr) minmax(0, 1.8fr);
+  gap: 20px;
+  margin-top: 24px;
+  animation: callWorkspaceEnter 200ms ease-out both;
+}
+
+.marketUpdate,
+.transcriptBlock {
+  border-radius: 20px;
+}
+
+.marketUpdate {
+  padding: 20px;
+  border: 1px solid rgb(41 60 211 / 12%);
+  background: var(--cream);
+}
+
+.marketUpdate > p:last-child {
+  margin: 13px 0 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.transcriptBlock {
+  padding: clamp(22px, 3.5vw, 30px);
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgb(17 19 26 / 7%);
+}
+
+.transcriptSpeaker { color: var(--orange); }
+
+.transcriptMessage {
+  margin: 13px 0 0;
+  color: var(--ink);
+  font-size: clamp(20px, 2.7vw, 28px);
+  font-weight: 690;
+  letter-spacing: -0.025em;
+  line-height: 1.38;
+}
+
+.voiceControls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.ttsButton,
+.rateControl {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  border: 2px solid rgb(17 19 26 / 16%);
+  border-radius: 999px;
+  background: var(--cream);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ttsButton {
+  gap: 8px;
+  padding: 9px 13px;
+  color: var(--indigo);
+  cursor: pointer;
+}
+
+.ttsButton:disabled,
+.rateControl:has(select:disabled) { cursor: not-allowed; opacity: 0.52; }
+
+.voiceBars { display: inline-flex; height: 14px; align-items: center; gap: 2px; }
+.voiceBars span { width: 2px; height: 7px; border-radius: 9px; background: currentcolor; }
+.voiceBars span:nth-child(2) { height: 13px; }
+
+.rateControl { gap: 7px; padding: 7px 9px 7px 12px; color: rgb(17 19 26 / 62%); }
+.rateControl select {
+  min-height: 25px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--lavender);
+  color: var(--indigo);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 850;
+}
+
+.strategyArea { margin-top: 30px; }
+.strategyArea h2 { margin: 8px 0 0; font-size: clamp(25px, 3.5vw, 36px); }
+.strategyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 17px;
+}
+
+.strategyButton {
+  min-height: 76px;
+  padding: 15px 18px;
+  border-radius: 18px;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.choiceNote {
+  margin: 14px 0 0;
+  color: rgb(17 19 26 / 50%);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.connectedResolving { animation: callExit 280ms ease-in both; }
+
+.declineTransition {
+  display: grid;
+  min-height: 420px;
+  place-items: center;
+  width: min(760px, 100%);
+  margin: 48px auto 0;
+  border-radius: 30px;
+  background: var(--lavender);
+  animation: callExit 280ms ease-in both;
+}
+
+.declineTransition p {
+  color: rgb(17 19 26 / 58%);
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.outcomePanel,
+.comparisonPanel {
+  padding: clamp(32px, 5vw, 56px);
+}
+
+.outcomePanel h1,
+.comparisonPanel h1 {
+  max-width: 720px;
+  margin: 13px 0 0;
+  font-size: clamp(40px, 5.5vw, 64px);
+}
+
+.outcomeStory {
+  margin: 30px 0 22px;
+  padding: clamp(24px, 4vw, 34px);
+  border-left: 5px solid var(--orange);
+  border-radius: 0 22px 22px 0;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgb(17 19 26 / 7%);
+}
+
+.outcomeStory > p { color: var(--orange); }
+.outcomeStory > div {
+  margin-top: 13px;
+  color: var(--ink);
+  font-size: clamp(19px, 2.5vw, 24px);
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.outcomeNote,
+.comparisonIntro {
+  color: rgb(17 19 26 / 62%);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.outcomeNote { margin: 0 0 24px; }
+.comparisonIntro { max-width: 650px; margin: 18px 0 0; }
+
+.outcomeActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pathGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+  perspective: 1100px;
+}
+
+.pathCard {
+  padding: 23px;
+  border: 2px solid rgb(17 19 26 / 10%);
+  border-radius: 21px;
+  background: #ffffff;
+  box-shadow: 0 7px 18px rgb(17 19 26 / 6%);
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  animation: pathFlipEnter 380ms cubic-bezier(0.2, 0.72, 0.28, 1) both;
+}
+
+.pathCard:nth-child(2) { animation-delay: 65ms; }
+.pathCard:nth-child(3) { animation-delay: 130ms; }
+.pathCard:nth-child(4) { animation-delay: 195ms; }
+
+.pathCard[data-chosen="true"] {
+  border-color: var(--orange);
+  box-shadow: 0 7px 0 rgb(244 98 42 / 15%);
+}
+
+.pathCard h2 { margin: 10px 0 0; font-size: 23px; }
+.pathCard p {
+  margin: 15px 0 0;
+  color: rgb(17 19 26 / 70%);
+  font-size: 14px;
+  font-weight: 620;
+  line-height: 1.5;
+}
+
+.comparisonAction { margin-top: 28px; text-align: center; }
+
+@keyframes panelEnter {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes callRing {
+  0% { opacity: 0.55; transform: scale(0.76); }
+  80%, 100% { opacity: 0; transform: scale(1.14); }
+}
+
+@keyframes incomingVibration {
+  0%, 15%, 43%, 100% { transform: translateX(0) rotate(0); }
+  20% { transform: translateX(-2px) rotate(-0.8deg); }
+  25% { transform: translateX(2px) rotate(0.8deg); }
+  30% { transform: translateX(-1.5px) rotate(-0.55deg); }
+  35% { transform: translateX(1.5px) rotate(0.55deg); }
+  40% { transform: translateX(-0.5px) rotate(-0.2deg); }
+}
+
+@keyframes connectSettle {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0.35; transform: scale(0.97); }
+}
+
+@keyframes callWorkspaceEnter {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes callExit {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-6px); }
+}
+
+@keyframes pathFlipEnter {
+  from {
+    opacity: 0;
+    transform: translateY(7px) rotateY(-82deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .callWorkspace,
+  .strategyGrid,
+  .pathGrid { grid-template-columns: 1fr; }
+
+  .connectedHeader { align-items: flex-start; }
+  .callMode { display: none; }
+  .voiceControls { align-items: stretch; flex-direction: column; }
+  .ttsButton, .rateControl { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .callActions { grid-template-columns: 1fr; }
+  .incomingPanel { min-height: 520px; padding-inline: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .introPanel,
+  .incomingPanel,
+  .connectedPanel,
+  .outcomePanel,
+  .comparisonPanel,
+  .callWorkspace,
+  .connectedResolving,
+  .declineTransition,
+  .pathCard,
+  .incomingConnecting .incomingAvatar,
+  .incomingConnecting h1,
+  .incomingConnecting .callActions,
+  .incomingAvatar,
+  .ring {
+    animation: none;
+  }
+
+  .ring { opacity: 0.3; }
+  .callAction,
+  .strategyButton { transition: none; }
+  .callAction:hover:not(:disabled),
+  .strategyButton:hover:not(:disabled),
+  .callAction:active:not(:disabled),
+  .strategyButton:active:not(:disabled) { transform: none; }
+}

@@ -1,0 +1,23 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  color: #293cd3;
+  font-family: "Rethink Sans", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link:focus-visible {
+  outline: 3px solid #293cd3;
+  outline-offset: 3px;
+}

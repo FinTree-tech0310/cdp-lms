@@ -1,17 +1,31 @@
-import { Gamepad2 } from "lucide-react";
+import type { Metadata } from "next";
 
-import { InTheWorksPage } from "@/components/placeholder/in-the-works-page";
+import { MiniGamesBoard } from "@/components/mini-games/mini-games-board";
+import { getMiniGameProgress } from "@/lib/mini-games-server";
+import { createClient } from "@/lib/supabase/server";
 
-export default function MiniGamesPage() {
-  return (
-    <InTheWorksPage
-      eyebrow="Practice"
-      title="Learn by playing."
-      intro="Five-minute games that drill the fundamentals — markets, valuation and the math underneath them."
-      icon={Gamepad2}
-      heading="Mini games in the works"
-      body="The first games are in production. Until they ship, the quizzes inside the Investment Banking syllabus are the quickest way to test yourself."
-      cta={{ href: "/careers", label: "Try a syllabus quiz" }}
-    />
-  );
+export const metadata: Metadata = {
+  title: "Mini Games | Rarewise",
+  description:
+    "Twenty-six interactive mini-games across five finance career pathways — screens, negotiations, pitches and market calls.",
+};
+
+/**
+ * /mini-games — the catalogue for all 26 ported mini-games.
+ *
+ * Server component: reads this user's stored runs (Supabase, or
+ * `persisted: false` in demo mode) and hands them to the client board,
+ * which merges its local mirror when the backend has nothing yet.
+ */
+export default async function MiniGamesPage() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const progress = user
+    ? await getMiniGameProgress(user.id)
+    : { persisted: false, items: [] };
+
+  return <MiniGamesBoard initialProgress={progress} />;
 }

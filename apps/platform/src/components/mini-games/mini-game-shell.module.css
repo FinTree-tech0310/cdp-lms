@@ -1,0 +1,78 @@
+.page {
+  --orange: #f4622a;
+  --indigo: #293cd3;
+  --ink: #11131a;
+  --lavender: #e9ecff;
+  --cream: #fff5e8;
+  --vc-display-weight: 820;
+  --vc-display-tracking: -0.052em;
+  --vc-display-leading: 0.96;
+  --vc-heading-weight: 820;
+  --vc-heading-tracking: -0.04em;
+  --vc-eyebrow-weight: 800;
+  --vc-eyebrow-tracking: 0.18em;
+  min-height: 100vh;
+  padding: 30px 44px 52px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-rethink), "Rethink Sans", Arial, sans-serif;
+  word-spacing: 0.02em;
+}
+
+.topBar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding-bottom: 28px;
+  border-bottom: 2px solid rgb(17 19 26 / 10%);
+}
+
+.backLink,
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38em;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--indigo);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+  word-spacing: 0.05em;
+}
+
+.backLink:hover,
+.backButton:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.backLink:focus-visible,
+.backButton:focus-visible {
+  outline: 4px solid rgb(41 60 211 / 28%);
+  outline-offset: 4px;
+}
+
+.gameLabel {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  word-spacing: 0.08em;
+}
+
+.rightContent {
+  display: flex;
+  min-height: 1px;
+  align-items: center;
+  justify-content: flex-end;
+}

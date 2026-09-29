@@ -1,0 +1,160 @@
+.page {
+  --orange: #f4622a;
+  --indigo: #293cd3;
+  --ink: #11131a;
+  --lavender: #e9ecff;
+  --cream: #fff5e8;
+  min-height: 100dvh;
+  padding: 30px 44px 52px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-rethink), "Rethink Sans", Arial, sans-serif;
+  line-height: 1.5;
+  word-spacing: .025em;
+}
+
+.page * { box-sizing: border-box; }
+.page button { font: inherit; }
+.page :focus-visible { outline: 4px solid var(--indigo); outline-offset: 4px; }
+
+.topBar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: min(1180px, 100%);
+  min-height: 50px;
+  margin: 0 auto;
+  padding-bottom: 26px;
+  border-bottom: 2px solid rgb(17 19 26 / 10%);
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--indigo);
+  cursor: pointer;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.backButton:hover { text-decoration: underline; text-underline-offset: 4px; }
+.gameLabel { margin: 0; font-size: 14px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.eyebrow,.panelLabel { margin: 0; color: var(--indigo); font-size: 12px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(300px, .83fr) minmax(410px, 1.17fr);
+  width: min(1180px, 100%);
+  min-height: min(610px, calc(100dvh - 168px));
+  margin: 28px auto 0;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: 28px;
+  background: var(--cream);
+  box-shadow: 10px 10px 0 rgb(17 19 26 / 10%);
+  animation: arrive 280ms ease-out both;
+}
+
+.introArt { display: grid; min-height: 430px; place-items: center; overflow: hidden; padding: 26px; background: var(--indigo); }
+.artTrack { position: relative; width: min(100%, 410px); aspect-ratio: 1.15; }
+.artCardOne,.artCardTwo,.artCardThree { position: absolute; display: flex; width: 57%; height: 25%; flex-direction: column; justify-content: center; gap: 12%; padding: 8%; border: 3px solid var(--ink); border-radius: 15px; background: var(--cream); box-shadow: 7px 7px 0 var(--ink); }
+.artCardOne { top: 6%; left: 4%; transform: rotate(-5deg); }
+.artCardTwo { top: 34%; left: 12%; background: var(--lavender); transform: rotate(3deg); }
+.artCardThree { top: 63%; left: 5%; transform: rotate(-2deg); }
+.artCardOne i,.artCardTwo i,.artCardThree i { display: block; width: 80%; height: 5px; border-radius: 99px; background: var(--ink); }
+.artCardOne i:nth-child(2),.artCardTwo i:nth-child(2),.artCardThree i:nth-child(2) { width: 52%; }
+.artCardOne i:nth-child(3),.artCardTwo i:nth-child(3),.artCardThree i:nth-child(3) { width: 68%; background: var(--orange); }
+.artJunction { position: absolute; top: 44%; right: 15%; width: 20%; aspect-ratio: 1; border: 3px solid var(--ink); border-radius: 50%; background: var(--orange); box-shadow: 6px 6px 0 var(--ink); }
+.artRouteOne,.artRouteTwo,.artRouteThree { position: absolute; right: -3%; width: 16%; height: 7%; border: 3px solid var(--ink); border-radius: 99px; background: var(--lavender); }
+.artRouteOne { top: 25%; }.artRouteTwo { top: 47%; background: var(--cream); }.artRouteThree { top: 69%; }
+
+.introCopy { display: flex; flex-direction: column; justify-content: center; padding: clamp(36px, 5vw, 62px); }
+.introCopy h1,.workspaceHeader h1,.resultsHeader h1 { max-width: 610px; margin: 12px 0 18px; font-size: clamp(39px, 4.6vw, 60px); font-weight: 800; letter-spacing: -.025em; line-height: 1.06; text-wrap: balance; }
+.introDescription { max-width: 550px; margin: 0; color: rgb(17 19 26 / 75%); font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; }
+.introBrief { margin: 26px 0; padding: 18px 22px; border-left: 5px solid var(--orange); border-radius: 0 14px 14px 0; background: var(--lavender); }
+.introBrief p { margin: 0; font-size: 15px; line-height: 1.55; }.introBrief p + p { margin-top: 8px; }
+.primaryButton { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; padding: 12px 25px; border: 2px solid var(--ink); border-radius: 12px; background: var(--orange); box-shadow: 5px 5px 0 var(--ink); color: var(--ink); cursor: pointer; font-size: 15px !important; font-weight: 800 !important; transition: transform 150ms ease, box-shadow 150ms ease; }
+.primaryButton:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+.primaryButton:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+.primaryButton:disabled { cursor: not-allowed; opacity: .5; box-shadow: none; }
+.introCopy .primaryButton { align-self: flex-start; }
+
+.workspace { width: min(1180px, 100%); margin: 30px auto 0; animation: arrive 260ms ease-out both; }
+.workspaceHeader,.resultsHeader { max-width: 780px; margin-bottom: 26px; }
+.workspaceHeader h1,.resultsHeader h1 { margin: 9px 0 13px; font-size: clamp(36px, 4.2vw, 54px); }
+.workspaceHeader h1:focus,.resultsHeader h1:focus { outline: none; }
+.workspaceHeader > p:last-child,.resultsHeader > p:last-child { max-width: 690px; margin: 0; color: rgb(17 19 26 / 72%); font-size: 17px; line-height: 1.55; }
+.queueContext { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 24px; margin-bottom: 24px; padding: 24px 28px; border: 2px solid var(--ink); border-radius: 20px; background: var(--lavender); }
+.queueContext > div:first-child > p:last-child,.resultsContext > p:last-child { max-width: 72ch; margin: 8px 0 0; font-size: 17px; line-height: 1.55; }
+.progressPanel { display: grid; min-width: 205px; gap: 7px; padding-left: 24px; border-left: 1px solid rgb(17 19 26 / 20%); }
+.progressPanel strong { font-size: 23px; font-weight: 800; letter-spacing: -.02em; }
+.transactionList { display: grid; gap: 20px; }
+.transactionCard,.resultCard { padding: clamp(22px, 3vw, 32px); border: 2px solid var(--ink); border-radius: 22px; background: var(--lavender); }
+.transactionHeading,.resultCardHeading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.transactionHeading h2,.resultCardHeading h2 { margin: 0; font-size: clamp(23px, 2.6vw, 29px); font-weight: 800; letter-spacing: -.025em; line-height: 1.2; }
+.assignmentStatus { max-width: 50%; font-size: 14px; font-weight: 750; text-align: right; }
+.signalGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 13px; margin: 24px 0; }
+.signal { min-width: 0; padding: 16px 18px; border: 1px solid rgb(17 19 26 / 20%); border-radius: 13px; background: #fff; }
+.signal dt,.reviewComparison dt { color: rgb(17 19 26 / 70%); font-size: 12px; font-weight: 750; letter-spacing: .04em; }
+.signal dd,.reviewComparison dd { margin: 7px 0 0; overflow-wrap: anywhere; font-size: 16px; font-weight: 750; line-height: 1.45; font-variant-numeric: tabular-nums; }
+.decisionGroup { min-width: 0; margin: 0; padding: 0; border: 0; }
+.decisionGroup legend { margin-bottom: 11px; font-size: 16px; font-weight: 800; }
+.choiceGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.choice { position: relative; display: block; cursor: pointer; }
+.choice input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.choiceSurface { display: flex; min-height: 58px; align-items: center; gap: 12px; padding: 12px 15px; border: 2px solid rgb(17 19 26 / 32%); border-radius: 12px; background: #fff; font-size: 15px; font-weight: 750; line-height: 1.35; transition: background 140ms ease, border-color 140ms ease; }
+.radioMark { display: block; width: 19px; height: 19px; flex: none; border: 2px solid var(--ink); border-radius: 50%; background: #fff; }
+.choice input:checked + .choiceSurface { border-color: var(--ink); background: var(--orange); }
+.choice input:checked + .choiceSurface .radioMark { border-width: 6px; }
+.choice input:focus-visible + .choiceSurface { outline: 4px solid var(--indigo); outline-offset: 4px; }
+.choice:hover .choiceSurface { border-color: var(--indigo); }
+.submitPanel { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 24px; padding: 24px 28px; border: 2px solid var(--ink); border-radius: 20px; background: var(--cream); }
+.submitPanel p { margin: 0; font-size: 15px; line-height: 1.5; }
+
+.resultsContext { margin-bottom: 22px; padding: 22px 26px; border-left: 5px solid var(--orange); border-radius: 0 16px 16px 0; background: var(--lavender); }
+.resultPill { max-width: 50%; padding: 8px 12px; border: 1px solid var(--ink); border-radius: 99px; background: var(--cream); font-size: 13px; font-weight: 800; text-align: center; }
+.reviewComparison { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; }
+.reviewComparison > div { padding: 17px 18px; border: 1px solid rgb(17 19 26 / 20%); border-radius: 13px; background: #fff; }
+.reasoning { margin-top: 18px; padding: 18px 20px; border-left: 5px solid var(--orange); border-radius: 0 13px 13px 0; background: var(--cream); }
+.reasoning h3 { margin: 0 0 7px; font-size: 15px; font-weight: 800; }
+.reasoning p { max-width: 75ch; margin: 0; font-size: 16px; line-height: 1.6; }
+.resultActions { display: flex; justify-content: flex-end; margin-top: 28px; }
+@keyframes arrive { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+
+@media (max-width: 860px) {
+  .intro { grid-template-columns: 1fr; }
+  .introArt { min-height: 210px; }
+  .artTrack { max-width: 260px; }
+  .queueContext { grid-template-columns: 1fr; }
+  .progressPanel { padding: 14px 0 0; border-top: 1px solid rgb(17 19 26 / 20%); border-left: 0; }
+}
+
+@media (max-width: 650px) {
+  .page { padding: 20px 18px 42px; }
+  .topBar { grid-template-columns: 1fr; gap: 8px; }
+  .topBar > div:last-child { display: none; }
+  .gameLabel { font-size: 12px; }
+  .intro { margin-top: 22px; border-radius: 20px; }
+  .introArt { min-height: 170px; }
+  .introCopy { padding: 28px 24px 34px; }
+  .introCopy h1 { font-size: 39px; }
+  .workspace { margin-top: 22px; }
+  .transactionHeading,.resultCardHeading { align-items: flex-start; flex-direction: column; gap: 9px; }
+  .assignmentStatus,.resultPill { max-width: 100%; text-align: left; }
+  .signalGrid { grid-template-columns: 1fr; }
+  .choiceGrid,.reviewComparison { grid-template-columns: 1fr; }
+  .submitPanel { align-items: stretch; flex-direction: column; }
+  .resultActions .primaryButton,.submitPanel .primaryButton { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro,.workspace { animation: none; }
+  .primaryButton,.choiceSurface { transition: none; }
+  .primaryButton:hover:not(:disabled),.primaryButton:active:not(:disabled) { transform: none; }
+}

@@ -192,3 +192,51 @@ export interface SearchResult {
   type: SearchResultType;
   href: string;
 }
+
+/* ---------------- Mini games (/mini-games) ---------------- */
+
+/** Route segment of a hub under /mini-games. */
+export type MiniGameHub =
+  | 'investment-banking-games'
+  | 'equity-research-games'
+  | 'private-wealth-games'
+  | 'vc-games'
+  | 'future-of-finance-games';
+
+/** One stored run-summary for a single game (public.mini_game_progress). */
+export interface MiniGameProgress {
+  hub: MiniGameHub;
+  gameId: string;
+  plays: number;
+  bestScore: number | null;
+  lastScore: number | null;
+  /** Authored ending id of the most recent run, e.g. 'convinced'. */
+  lastOutcome: string | null;
+  bestStreak: number | null;
+  completedRuns: number;
+  firstPlayedAt: string | null;
+  lastPlayedAt: string | null;
+}
+
+/** Payload returned by GET /api/mini-games/progress. */
+export interface MiniGameProgressPayload {
+  persisted: boolean;
+  items: MiniGameProgress[];
+}
+
+/** Client → POST /api/mini-games/progress when a run finishes. */
+export interface MiniGameResultInput {
+  hub: MiniGameHub;
+  gameId: string;
+  score?: number | null;
+  outcome?: string | null;
+  streak?: number | null;
+  completed?: boolean;
+}
+
+/** Aggregates shown on the /mini-games catalogue header. */
+export interface MiniGameStats {
+  gamesPlayed: number;
+  totalGames: number;
+  totalPlays: number;
+}

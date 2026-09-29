@@ -287,3 +287,63 @@ input {
     animation: none;
   }
 }
+
+/* ---------------- Mini-games (ported from cdp-minigames) ----------------
+   The 26 mini-games under /mini-games carry their own module.css palettes
+   (each game defines --cream/--indigo/etc. locally), so the only globals
+   they need are the two font variables plus a scoped typography base that
+   mirrors the original app's body/h1-h6 rules — scoped so the rest of the
+   platform keeps Archivo. */
+:root {
+  --font-rethink: "Rethink Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-lato: "Lato", ui-sans-serif, system-ui, sans-serif;
+}
+
+.mini-games-scope {
+  font-family: var(--font-lato);
+  font-variant-numeric: tabular-nums;
+}
+
+.mini-games-scope :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-rethink);
+}
+
+/* The /mini-games catalogue itself is platform UI: keep it on the
+   platform font stack. Declared after the scope rule so it wins. */
+.mini-games-catalog {
+  font-family:
+    "Archivo",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  font-variant-numeric: normal;
+}
+
+.mini-games-catalog :is(h1, h2, h3, h4, h5, h6) {
+  font-family: inherit;
+}
+
+/* Same focus indicator the games were built against. */
+.mini-games-scope :focus-visible {
+  outline: 2px solid var(--color-primary, #293cd3);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.mini-games-scope :focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mini-games-scope *,
+  .mini-games-scope *::before,
+  .mini-games-scope *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

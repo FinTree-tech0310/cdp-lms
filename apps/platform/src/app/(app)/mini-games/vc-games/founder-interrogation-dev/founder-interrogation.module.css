@@ -1,0 +1,586 @@
+.modeLabel {
+  justify-self: end;
+  margin: 0;
+  color: rgb(17 19 26 / 62%);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: var(--vc-eyebrow-weight);
+  letter-spacing: var(--vc-eyebrow-tracking);
+  text-transform: uppercase;
+}
+
+.introPanel {
+  position: relative;
+  display: flex;
+  width: min(940px, 100%);
+  min-height: 540px;
+  align-items: center;
+  justify-content: center;
+  margin: 34px auto 0;
+  overflow: hidden;
+  padding: 64px 72px;
+  border: 2px solid rgb(17 19 26 / 8%);
+  border-radius: 30px;
+  background: var(--lavender);
+  text-align: center;
+}
+
+.introContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.introMotif {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  width: 220px;
+  height: 165px;
+  opacity: 0;
+  pointer-events: none;
+  animation: founderMotifSettle 360ms cubic-bezier(0.2, 0.72, 0.28, 1) 70ms forwards;
+}
+
+.introMotif img {
+  object-fit: contain;
+  object-position: right top;
+}
+
+.introContent > .eyebrow,
+.introContent > h1,
+.introContent > .introCopy,
+.introContent > .introMechanics,
+.introContent > button {
+  opacity: 0;
+  animation: founderLibraryRise 280ms ease-out forwards;
+}
+
+.introContent > h1 {
+  animation-delay: 50ms;
+}
+
+.introContent > .introCopy {
+  animation-delay: 100ms;
+}
+
+.introContent > .introMechanics {
+  animation-delay: 145ms;
+}
+
+.introContent > button {
+  animation-delay: 190ms;
+}
+
+.introPanel h1 {
+  max-width: 780px;
+  margin: 16px 0 0;
+  font-size: clamp(52px, 5.5vw, 80px);
+  font-weight: var(--vc-display-weight);
+  letter-spacing: var(--vc-display-tracking);
+  line-height: var(--vc-display-leading);
+  text-wrap: balance;
+}
+
+.introCopy {
+  max-width: 660px;
+  margin: 23px 0 0;
+  color: rgb(17 19 26 / 68%);
+  font-size: 18px;
+  font-weight: 620;
+  line-height: 1.52;
+}
+
+.introMechanics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px;
+  margin: 18px 0 0;
+  padding: 7px 11px;
+  border: 1px solid rgb(244 98 42 / 34%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 60%);
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.library {
+  position: relative;
+  width: min(1120px, 100%);
+  margin: 34px auto 0;
+  padding-bottom: 48px;
+}
+
+.libraryHeader {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+}
+
+.libraryHeader > .eyebrow,
+.libraryHeader > h1,
+.libraryHeader > p:last-child,
+.pitchCard {
+  opacity: 0;
+  animation: founderLibraryRise 280ms ease-out forwards;
+}
+
+.libraryHeader > h1 {
+  animation-delay: 50ms;
+}
+
+.libraryHeader > p:last-child {
+  animation-delay: 100ms;
+}
+
+.libraryHeader h1 {
+  margin: 12px 0 0;
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: var(--vc-display-weight);
+  letter-spacing: var(--vc-display-tracking);
+  line-height: var(--vc-display-leading);
+  text-wrap: balance;
+}
+
+.libraryHeader > p:last-child {
+  max-width: 660px;
+  margin: 18px 0 0;
+  color: rgb(17 19 26 / 68%);
+  font-size: 17px;
+  font-weight: 620;
+  line-height: 1.5;
+}
+
+.pitchGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.pitchCard {
+  display: flex;
+  min-height: 340px;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: 24px;
+  background: #ffffff;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  box-shadow: 7px 7px 0 var(--indigo);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  animation-delay: 155ms;
+}
+
+.pitchCard:nth-child(2) {
+  animation-delay: 205ms;
+}
+
+.pitchCard:nth-child(3) {
+  animation-delay: 255ms;
+}
+
+.pitchCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 0 var(--orange);
+}
+
+.pitchCard:focus-visible {
+  outline: 5px solid rgb(41 60 211 / 30%);
+  outline-offset: 4px;
+}
+
+.pitchPreview {
+  display: grid;
+  min-height: 215px;
+  place-items: center;
+  border-bottom: 2px solid var(--ink);
+  background-color: var(--lavender);
+  background-position: center;
+  background-size: cover;
+}
+
+.pitchPreview > span {
+  padding: 8px 12px;
+  border: 1px solid rgb(17 19 26 / 16%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 70%);
+  color: var(--indigo);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pitchCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 20px 0;
+}
+
+.pitchCardFooter strong {
+  font-size: 27px;
+  font-weight: var(--vc-heading-weight);
+  letter-spacing: var(--vc-heading-tracking);
+  line-height: 1.02;
+}
+
+.watchedBadge {
+  padding: 5px 8px;
+  border: 1px solid rgb(17 19 26 / 16%);
+  border-radius: 999px;
+  color: rgb(17 19 26 / 62%);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.watchPrompt {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 14px 20px 19px;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.playerStage,
+.revealStage {
+  width: min(1080px, 100%);
+  margin: 24px auto 0;
+  padding-bottom: 48px;
+}
+
+.playerStage {
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: 27px;
+  background: #ffffff;
+  box-shadow: 8px 8px 0 var(--indigo);
+}
+
+.playerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 26px;
+}
+
+.playerHeader h1 {
+  margin: 6px 0 0;
+  font-size: 30px;
+  font-weight: var(--vc-heading-weight);
+  letter-spacing: var(--vc-heading-tracking);
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.playerHeader > span {
+  padding: 7px 10px;
+  border: 1px solid rgb(17 19 26 / 15%);
+  border-radius: 999px;
+  color: rgb(17 19 26 / 58%);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.disclaimer {
+  margin: 0;
+  padding: 14px 26px;
+  border-block: 1px solid rgb(17 19 26 / 12%);
+  background: var(--cream);
+  color: rgb(17 19 26 / 75%);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.videoFrame {
+  padding: 20px 24px 0;
+  background: #ffffff;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  max-height: min(540px, calc(100vh - 290px));
+  aspect-ratio: 16 / 9;
+  border-radius: 17px;
+  background: var(--ink);
+  object-fit: contain;
+}
+
+.endPitchArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 26px 22px;
+}
+
+.endPitchArea p {
+  margin: 0;
+  color: rgb(17 19 26 / 60%);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.endPitchButton {
+  flex: none;
+  padding: 11px 16px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 850;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.endPitchButton:hover,
+.endPitchButton:focus-visible {
+  background: var(--lavender);
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 rgb(41 60 211 / 22%);
+}
+
+.endPitchButton:active {
+  transform: translateY(0) scale(0.992);
+  box-shadow: 1px 1px 0 rgb(41 60 211 / 18%);
+}
+
+.decisionPanel {
+  padding: 24px 26px 28px;
+  text-align: center;
+}
+
+.decisionPanel h2 {
+  margin: 8px 0 0;
+  font-size: 29px;
+  font-weight: var(--vc-heading-weight);
+  letter-spacing: var(--vc-heading-tracking);
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.decisionPanel h2:focus,
+.revealHero h1:focus {
+  outline: none;
+}
+
+.decisionButtons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  max-width: 600px;
+  margin: 20px auto 0;
+}
+
+.decisionButtons button {
+  padding: 16px 24px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--lavender);
+  color: var(--ink);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.decisionButtons button:last-child {
+  background: var(--cream);
+}
+
+.decisionButtons button:hover {
+  background: var(--ink);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 0 var(--orange);
+}
+
+.decisionButtons button:active {
+  transform: translateY(-1px) scale(0.992);
+  box-shadow: 2px 2px 0 var(--orange);
+}
+
+.decisionButtons button:focus-visible,
+.endPitchButton:focus-visible {
+  outline: 4px solid rgb(41 60 211 / 28%);
+  outline-offset: 4px;
+}
+
+.revealHero {
+  padding: 52px 58px;
+  border: 2px solid var(--ink);
+  border-radius: 29px;
+  background: var(--indigo);
+  color: #ffffff;
+  box-shadow: 9px 9px 0 var(--orange);
+}
+
+.decisionReceipt {
+  width: fit-content;
+  margin: 0;
+  padding: 8px 11px;
+  border: 1px solid rgb(255 255 255 / 28%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 10%);
+  color: #ffbea1;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.revealLead {
+  margin: 32px 0 0;
+  color: rgb(255 255 255 / 70%);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.revealHero h1 {
+  max-width: 900px;
+  margin: 8px 0 0;
+  font-size: clamp(48px, 6vw, 82px);
+  font-weight: var(--vc-display-weight);
+  letter-spacing: var(--vc-display-tracking);
+  line-height: var(--vc-display-leading);
+  text-wrap: balance;
+}
+
+.outcomePanel {
+  max-width: 900px;
+  margin-top: 34px;
+  padding: 21px 23px;
+  border: 1px solid rgb(255 255 255 / 24%);
+  border-radius: 17px;
+  background: rgb(255 255 255 / 9%);
+}
+
+.outcomePanel span {
+  color: #ffbea1;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.outcomePanel p {
+  margin: 8px 0 0;
+  font-size: 17px;
+  font-weight: 620;
+  line-height: 1.55;
+}
+
+.reflectionNote {
+  margin: 18px 0 0;
+  color: rgb(255 255 255 / 60%);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.revealActions {
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes founderLibraryRise {
+  from {
+    opacity: 0;
+    translate: 0 7px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes founderMotifSettle {
+  from {
+    opacity: 0;
+    transform: translate3d(8px, -5px, 0) scale(0.97);
+  }
+
+  to {
+    opacity: 0.68;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .introContent > .eyebrow,
+  .introContent > h1,
+  .introContent > .introCopy,
+  .introContent > .introMechanics,
+  .introContent > button,
+  .introMotif,
+  .libraryHeader > .eyebrow,
+  .libraryHeader > h1,
+  .libraryHeader > p:last-child,
+  .pitchCard {
+    opacity: 1;
+    translate: none;
+    transform: none;
+    animation: none;
+  }
+
+  .introMotif {
+    opacity: 0.68;
+  }
+
+  .pitchCard {
+    transition: none;
+  }
+
+  .endPitchButton,
+  .decisionButtons button {
+    transition: none;
+  }
+
+  .endPitchButton:hover,
+  .endPitchButton:focus-visible,
+  .endPitchButton:active,
+  .decisionButtons button:hover,
+  .decisionButtons button:active {
+    transform: none;
+  }
+}

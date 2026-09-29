@@ -1,0 +1,47 @@
+.beam {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  padding: var(--border-width);
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.beam::before {
+  position: absolute;
+  inset: 0;
+  border: var(--border-width) solid rgb(41 60 211 / 55%);
+  border-radius: inherit;
+  content: "";
+}
+
+.sweep {
+  position: absolute;
+  top: -150%;
+  left: -50%;
+  width: 200%;
+  height: 400%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 250deg,
+    color-mix(in srgb, var(--light-color) 30%, transparent) 278deg,
+    var(--light-color) 302deg,
+    transparent 326deg 360deg
+  );
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sweep {
+    display: none;
+  }
+}

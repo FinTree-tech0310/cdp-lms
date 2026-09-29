@@ -1,0 +1,190 @@
+.decisionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.binary {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.decisionButton {
+  display: flex;
+  min-height: 84px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  border: 3px solid currentColor;
+  border-radius: 18px;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 23px;
+  font-weight: 850;
+}
+
+.decisionButton:focus-visible {
+  outline: 4px solid rgb(41 60 211 / 28%);
+  outline-offset: 4px;
+}
+
+.decisionButton kbd,
+.shortcutLegend kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+  font-family: inherit;
+  font-weight: 850;
+}
+
+.decisionButton kbd {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+.shortcutKeys,
+.legendKeys {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fund {
+  color: var(--orange);
+}
+
+.pass {
+  color: var(--ink);
+}
+
+.maybe {
+  color: var(--indigo);
+}
+
+.orange {
+  color: var(--orange);
+}
+
+.ink {
+  color: var(--ink);
+}
+
+.indigo {
+  color: var(--indigo);
+}
+
+.decisionButton:not(:disabled):hover {
+  background: rgb(255 255 255 / 46%);
+}
+
+.decisionButton:disabled {
+  cursor: default;
+}
+
+.decisionButton:not(.selected):disabled {
+  opacity: 0.38;
+}
+
+.selected {
+  background: currentColor;
+  animation: decisionFlash 400ms ease-out both;
+}
+
+.selected > span,
+.selected kbd {
+  color: #ffffff;
+}
+
+.rapid .decisionButton {
+  min-height: 80px;
+  border-width: 2px;
+  box-shadow: 0 5px 12px rgb(17 19 26 / 7%);
+  transition:
+    transform 170ms ease,
+    box-shadow 170ms ease,
+    background-color 170ms ease;
+}
+
+.rapid .decisionButton:not(:disabled):hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 20px rgb(17 19 26 / 12%),
+    0 0 0 1px currentColor;
+}
+
+.rapid .decisionButton:not(:disabled):active {
+  transform: translateY(-1px) scale(0.992);
+  box-shadow:
+    0 3px 8px rgb(17 19 26 / 10%),
+    0 0 0 1px currentColor;
+}
+
+.rapid .selected {
+  box-shadow: 0 3px 9px rgb(17 19 26 / 13%);
+  animation: dealDecisionRecorded 300ms ease-out both;
+}
+
+.shortcutLegend {
+  display: flex;
+  gap: 24px;
+  margin-top: 42px;
+  color: rgb(17 19 26 / 65%);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.shortcutLegend kbd {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.legendKeys {
+  margin-right: 6px;
+}
+
+@keyframes decisionFlash {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  45% {
+    filter: brightness(1.28);
+  }
+}
+
+@keyframes dealDecisionRecorded {
+  0% {
+    filter: brightness(1);
+    transform: translateY(0) scale(1);
+  }
+
+  45% {
+    filter: brightness(1.15);
+    transform: translateY(-2px) scale(1.008);
+  }
+
+  100% {
+    filter: brightness(1);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rapid .decisionButton {
+    transition: none;
+  }
+
+  .rapid .decisionButton:not(:disabled):hover,
+  .rapid .decisionButton:not(:disabled):active,
+  .rapid .selected {
+    transform: none;
+    animation: none;
+  }
+}

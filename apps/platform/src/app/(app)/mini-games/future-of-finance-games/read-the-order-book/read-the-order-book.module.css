@@ -1,0 +1,198 @@
+.page {
+  --orange: #f4622a;
+  --indigo: #293cd3;
+  --ink: #11131a;
+  --lavender: #e9ecff;
+  --cream: #fff5e8;
+  min-height: 100dvh;
+  padding: 30px 44px 52px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-rethink), "Rethink Sans", Arial, sans-serif;
+  line-height: 1.5;
+  word-spacing: .025em;
+}
+
+.page * { box-sizing: border-box; }
+.page button { font: inherit; }
+.page :focus-visible { outline: 4px solid var(--indigo); outline-offset: 4px; }
+
+.topBar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: min(1180px, 100%);
+  min-height: 50px;
+  margin: 0 auto;
+  padding-bottom: 26px;
+  border-bottom: 2px solid rgb(17 19 26 / 10%);
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--indigo);
+  cursor: pointer;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.backButton:hover { text-decoration: underline; text-underline-offset: 4px; }
+.gameLabel { margin: 0; font-size: 14px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.eyebrow,.panelLabel { margin: 0; color: var(--indigo); font-size: 12px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(300px, .83fr) minmax(410px, 1.17fr);
+  width: min(1180px, 100%);
+  min-height: min(610px, calc(100dvh - 168px));
+  margin: 28px auto 0;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: 28px;
+  background: var(--cream);
+  box-shadow: 10px 10px 0 rgb(17 19 26 / 10%);
+  animation: arrive 280ms ease-out both;
+}
+
+.introArt { display: grid; min-height: 430px; place-items: center; overflow: hidden; padding: 26px; background: var(--indigo); }
+.introIllustration { width: min(100%, 460px); height: auto; }
+.artBoard { fill: var(--cream); stroke: var(--ink); stroke-width: 5; }
+.artHeading { fill: var(--lavender); stroke: var(--ink); stroke-width: 3; }
+.artSellBar { fill: var(--indigo); stroke: var(--ink); stroke-width: 2; }
+.artBuyBar { fill: var(--orange); stroke: var(--ink); stroke-width: 2; }
+.artDivider { stroke: var(--ink); stroke-width: 5; }
+.artPrice { fill: var(--orange); stroke: var(--ink); stroke-width: 5; }
+.artDot { fill: var(--ink); }
+
+.introCopy { display: flex; flex-direction: column; justify-content: center; padding: clamp(36px, 5vw, 62px); }
+.introCopy h1,.workspaceHeader h1,.resultsHeader h1 {
+  max-width: 610px;
+  margin: 12px 0 18px;
+  font-size: clamp(39px, 4.6vw, 60px);
+  font-weight: 800;
+  letter-spacing: -.025em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+.introDescription { max-width: 550px; margin: 0; color: rgb(17 19 26 / 75%); font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; }
+.introBrief { margin: 26px 0; padding: 18px 22px; border-left: 5px solid var(--orange); border-radius: 0 14px 14px 0; background: var(--lavender); }
+.introBrief p { margin: 0; font-size: 15px; line-height: 1.55; }
+.introBrief p + p { margin-top: 8px; }
+.primaryButton {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 25px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  background: var(--orange);
+  box-shadow: 5px 5px 0 var(--ink);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.primaryButton:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+.primaryButton:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+.primaryButton:disabled { cursor: not-allowed; opacity: .5; box-shadow: none; }
+.introCopy .primaryButton { align-self: flex-start; }
+
+.workspace { width: min(1180px, 100%); margin: 30px auto 0; animation: arrive 260ms ease-out both; }
+.resultsWorkspace { max-width: 900px; }
+.workspaceHeader,.resultsHeader { max-width: 780px; margin-bottom: 26px; }
+.workspaceHeader h1,.resultsHeader h1 { margin: 9px 0 13px; font-size: clamp(36px, 4.2vw, 54px); }
+.resultsHeader h1 { font-size: clamp(34px, 3.5vw, 44px); }
+.workspaceHeader h1:focus,.resultsHeader h1:focus { outline: none; }
+.workspaceHeader > p:last-child,.resultsHeader > p:last-child { max-width: 690px; margin: 0; color: rgb(17 19 26 / 72%); font-size: 17px; line-height: 1.55; }
+.contextPanel,.resultContext { margin-bottom: 24px; padding: 22px 26px; border: 2px solid var(--ink); border-radius: 18px; background: var(--lavender); }
+.contextPanel > p:last-child,.resultContext > p:last-child { max-width: 72ch; margin: 8px 0 0; font-size: 17px; line-height: 1.55; }
+.analysisGrid { display: grid; grid-template-columns: minmax(0, 1.85fr) minmax(320px, .9fr); align-items: start; gap: 22px; }
+
+.chartFigure { min-width: 0; margin: 0; padding: 22px; border: 2px solid var(--ink); border-radius: 22px; background: var(--lavender); }
+.chartHeading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.chartHeading h2 { margin: 7px 0 0; font-size: clamp(23px, 2.4vw, 28px); font-weight: 800; letter-spacing: -.025em; line-height: 1.2; }
+.chartHeading > p { margin: 0; color: rgb(17 19 26 / 70%); font-size: 13px; }
+.currentPriceReadout { white-space: nowrap; }
+.currentPriceReadout strong { margin-left: 6px; color: var(--ink); font-size: 17px; font-variant-numeric: tabular-nums; }
+.mobileChartHint { display: none; margin: 0 0 10px; color: rgb(17 19 26 / 70%); font-size: 13px; }
+.chartScroll { overflow-x: auto; border: 1px solid rgb(17 19 26 / 17%); border-radius: 14px; background: #fff; }
+.orderBookSvg { display: block; width: 100%; min-width: 700px; height: auto; }
+.chartSideLabel { fill: var(--ink); font-family: inherit; font-size: 17px; font-weight: 800; letter-spacing: .06em; }
+.chartColumnLabel { fill: rgb(17 19 26 / 65%); font-family: inherit; font-size: 13px; font-weight: 750; letter-spacing: .04em; }
+.chartNumber { fill: var(--ink); font-family: inherit; font-size: 19px; font-weight: 750; font-variant-numeric: tabular-nums; }
+.sellBar { fill: var(--indigo); stroke: var(--ink); stroke-width: 1.5; }
+.buyBar { fill: var(--ink); stroke: var(--indigo); stroke-width: 1.5; }
+.currentPriceLine { stroke: var(--indigo); stroke-width: 3; }
+.currentPricePlate { fill: var(--cream); stroke: var(--indigo); stroke-width: 2; }
+.currentPriceLabel { fill: var(--ink); font-family: inherit; font-size: 17px; font-weight: 800; font-variant-numeric: tabular-nums; }
+
+.answerPanel { min-width: 0; padding: 24px; border: 2px solid var(--ink); border-radius: 22px; background: var(--cream); }
+.answerGroup { min-width: 0; margin: 12px 0 0; padding: 0; border: 0; }
+.answerGroup legend { max-width: 42ch; font-size: 19px; font-weight: 800; line-height: 1.4; }
+.answerList { display: grid; gap: 11px; margin-top: 18px; }
+.answerChoice { position: relative; display: block; cursor: pointer; }
+.answerChoice input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.answerSurface { display: flex; min-height: 62px; align-items: center; gap: 12px; padding: 14px; border: 2px solid rgb(17 19 26 / 32%); border-radius: 12px; background: #fff; font-size: 15px; font-weight: 750; line-height: 1.4; transition: background 140ms ease, border-color 140ms ease; }
+.radioMark { display: block; width: 19px; height: 19px; flex: none; border: 2px solid var(--ink); border-radius: 50%; background: #fff; }
+.answerChoice input:checked + .answerSurface { border-color: var(--ink); background: var(--orange); }
+.answerChoice input:checked + .answerSurface .radioMark { border-width: 6px; }
+.answerChoice input:focus-visible + .answerSurface { outline: 4px solid var(--indigo); outline-offset: 4px; }
+.answerChoice:hover .answerSurface { border-color: var(--indigo); }
+.submitHelp { margin: 20px 0 14px; color: rgb(17 19 26 / 72%); font-size: 14px; line-height: 1.45; }
+.answerPanel .primaryButton { width: 100%; }
+
+.resultComparison { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.resultComparison article { min-width: 0; padding: 20px 22px; border: 2px solid var(--ink); border-radius: 18px; background: var(--lavender); }
+.resultComparison article > p:last-child { margin: 12px 0 0; overflow-wrap: anywhere; font-size: 17px; font-weight: 750; line-height: 1.45; }
+.explanationPanel { margin: 18px 0 24px; padding: 20px 24px; border-left: 5px solid var(--orange); border-radius: 0 16px 16px 0; background: var(--lavender); }
+.explanationPanel h2 { margin: 0 0 8px; font-size: 17px; font-weight: 800; }
+.explanationPanel p { max-width: 75ch; margin: 0; font-size: 16px; line-height: 1.6; }
+.resultActions { display: flex; justify-content: flex-end; margin-top: 28px; }
+
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+@keyframes arrive { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+
+@media (max-width: 1030px) {
+  .analysisGrid { grid-template-columns: 1fr; }
+  .answerPanel { max-width: 760px; }
+}
+
+@media (max-width: 860px) {
+  .intro { grid-template-columns: 1fr; }
+  .introArt { min-height: 220px; }
+  .introIllustration { max-width: 320px; }
+}
+
+@media (max-width: 650px) {
+  .page { padding: 20px 18px 42px; }
+  .topBar { grid-template-columns: 1fr; gap: 8px; }
+  .topBar > div:last-child { display: none; }
+  .gameLabel { font-size: 12px; }
+  .intro { margin-top: 22px; border-radius: 20px; }
+  .introArt { min-height: 170px; }
+  .introIllustration { max-width: 250px; }
+  .introCopy { padding: 28px 24px 34px; }
+  .introCopy h1 { font-size: 39px; }
+  .workspace { margin-top: 22px; }
+  .chartFigure,.answerPanel { padding: 18px; }
+  .chartHeading { align-items: start; flex-direction: column; gap: 5px; }
+  .mobileChartHint { display: block; }
+  .currentPricePlate,.currentPriceLabel { display: none; }
+  .resultComparison { grid-template-columns: 1fr; }
+  .resultActions .primaryButton { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro,.workspace { animation: none; }
+  .primaryButton,.answerSurface { transition: none; }
+  .primaryButton:hover:not(:disabled),.primaryButton:active:not(:disabled) { transform: none; }
+}

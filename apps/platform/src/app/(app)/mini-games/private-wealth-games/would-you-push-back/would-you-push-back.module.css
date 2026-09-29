@@ -1,0 +1,695 @@
+.shellStatus {
+  margin: 0;
+  color: rgb(17 19 26 / 58%);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.introPanel,
+.resultsPanel {
+  width: min(800px, 100%);
+  margin: 54px auto 0;
+  padding: clamp(34px, 6vw, 64px);
+  border: 2px solid rgb(17 19 26 / 10%);
+  border-radius: 30px;
+  background: var(--lavender);
+  box-shadow: 0 14px 34px rgb(17 19 26 / 9%);
+  animation: panelEnter 260ms ease-out both;
+}
+
+.introPanel {
+  text-align: center;
+}
+
+.introMessageMark {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  width: 116px;
+  margin: 0 auto 28px;
+  padding: 20px;
+  border: 2px solid rgb(17 19 26 / 72%);
+  border-radius: 22px 22px 22px 7px;
+  background: var(--cream);
+  box-shadow: 6px 7px 0 rgb(244 98 42 / 14%);
+  animation: messageMarkEnter 320ms cubic-bezier(0.2, 0.72, 0.28, 1) both;
+}
+
+.introMessageMark::after {
+  position: absolute;
+  bottom: -13px;
+  left: 14px;
+  border-top: 15px solid rgb(17 19 26 / 72%);
+  border-right: 15px solid transparent;
+  content: "";
+}
+
+.introMessageMark span {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--indigo);
+}
+
+.introMessageMark span:last-child {
+  width: 68%;
+  background: var(--orange);
+}
+
+.eyebrow,
+.decisionPrompt,
+.reviewLabel,
+.reviewDecision span,
+.advisorPerspective p {
+  margin: 0;
+  color: var(--indigo);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.introPanel h1,
+.resultsPanel h1,
+.contactCopy h1 {
+  margin: 0;
+  color: var(--ink);
+  font-weight: var(--vc-display-weight);
+  letter-spacing: var(--vc-display-tracking);
+  line-height: var(--vc-display-leading);
+}
+
+.introPanel h1 {
+  max-width: 660px;
+  margin: 18px auto 0;
+  font-size: clamp(44px, 6vw, 68px);
+}
+
+.introCopy {
+  max-width: 550px;
+  margin: 22px auto 0;
+  color: rgb(17 19 26 / 72%);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.introDetails {
+  display: grid;
+  gap: 5px;
+  margin-top: 26px;
+  color: rgb(17 19 26 / 60%);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.introDetails p {
+  margin: 0;
+}
+
+.startButton,
+.playAgainButton {
+  min-width: 188px;
+}
+
+.playPanel {
+  width: min(880px, 100%);
+  margin: 36px auto 0;
+}
+
+.roundMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+  color: rgb(17 19 26 / 63%);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.roundMeta p {
+  margin: 0;
+}
+
+.roundMeta strong {
+  color: var(--ink);
+}
+
+.messagingWorkspace {
+  min-height: 344px;
+  margin-top: 16px;
+  padding: clamp(22px, 3.5vw, 32px);
+  overflow: hidden;
+  border: 1px solid rgb(17 19 26 / 10%);
+  border-radius: 24px;
+  background: rgb(255 255 255 / 72%);
+  box-shadow: 0 10px 24px rgb(17 19 26 / 7%);
+}
+
+.contactHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  animation: contactArrive 140ms ease-out both;
+}
+
+.contactIdentity {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 13px;
+}
+
+.contactAvatar {
+  position: relative;
+  width: 58px;
+  height: 62px;
+  flex: 0 0 auto;
+}
+
+.contactAvatar > span:first-child {
+  width: 58px;
+  height: 62px;
+  border-width: 2px;
+  border-radius: 16px;
+  box-shadow: 3px 4px 0 rgb(41 60 211 / 10%), 0 6px 12px rgb(17 19 26 / 8%);
+}
+
+.contactCopy {
+  min-width: 0;
+}
+
+.contactCopy h1 {
+  font-size: 19px;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.contactCopy p {
+  margin: 6px 0 0;
+  color: rgb(17 19 26 / 56%);
+  font-size: 12px;
+  font-weight: 720;
+}
+
+.messageStatus {
+  flex: 0 0 auto;
+  color: rgb(17 19 26 / 48%);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.timerDock {
+  margin-top: 18px;
+  padding: 9px 11px;
+  border-radius: 12px;
+  background: var(--cream);
+}
+
+.timerDock > div {
+  margin-top: 0;
+}
+
+.statusDot {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 14px;
+  height: 14px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.messageLane {
+  min-width: 0;
+  margin-top: 24px;
+  animation: messageArrive 160ms cubic-bezier(0.2, 0.72, 0.28, 1) 20ms both;
+}
+
+.messageBubble {
+  width: min(660px, 88%);
+  padding: clamp(18px, 3vw, 24px) clamp(19px, 3.2vw, 27px);
+  border: 1px solid rgb(41 60 211 / 13%);
+  border-radius: 8px 22px 22px 22px;
+  background: var(--lavender);
+  box-shadow: 0 7px 17px rgb(41 60 211 / 8%);
+}
+
+.messageBubble p {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(18px, 2.3vw, 23px);
+  font-weight: 680;
+  letter-spacing: -0.02em;
+  line-height: 1.38;
+}
+
+.voiceControls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 11px;
+}
+
+.workspaceResolving .contactHeader,
+.workspaceResolving .messageLane {
+  animation: messageExit 260ms ease-in 80ms both;
+}
+
+.ttsButton,
+.speechRateControl {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  border: 2px solid rgb(17 19 26 / 18%);
+  border-radius: 999px;
+  background: #ffffff;
+  font: inherit;
+  font-weight: 800;
+}
+
+.ttsButton {
+  gap: 7px;
+  padding: 10px 13px;
+  color: var(--indigo);
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 160ms ease, transform 160ms ease, border-color 160ms ease;
+}
+
+.ttsButton:hover:not(:disabled) {
+  border-color: var(--indigo);
+  transform: translateY(-2px);
+}
+
+.ttsButton:active:not(:disabled) {
+  transform: translateY(0) scale(0.99);
+}
+
+.ttsButton:focus-visible,
+.speechRateControl select:focus-visible,
+.decisionButton:focus-visible {
+  outline: 4px solid rgb(41 60 211 / 28%);
+  outline-offset: 3px;
+}
+
+.ttsButton:disabled,
+.speechRateControl:has(select:disabled),
+.speechRateControl select:disabled {
+  color: rgb(17 19 26 / 42%);
+  cursor: not-allowed;
+}
+
+.speechRateControl {
+  gap: 7px;
+  padding: 8px 10px 8px 12px;
+  color: rgb(17 19 26 / 62%);
+  font-size: 11px;
+}
+
+.speechRateControl select {
+  min-height: 24px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--lavender);
+  color: var(--indigo);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.voiceIndicator {
+  display: inline-flex;
+  height: 14px;
+  align-items: center;
+  gap: 2px;
+}
+
+.voiceIndicator span {
+  width: 2px;
+  height: 5px;
+  border-radius: 999px;
+  background: currentcolor;
+}
+
+.voiceIndicator span:nth-child(2) {
+  height: 10px;
+}
+
+.voiceIndicatorActive span:first-child,
+.voiceIndicatorActive span:last-child {
+  height: 8px;
+}
+
+.voiceIndicatorActive span:nth-child(2) {
+  height: 13px;
+}
+
+.decisionArea {
+  min-height: 166px;
+  margin-top: 36px;
+}
+
+.decisionPrompt {
+  margin-bottom: 12px;
+  color: rgb(17 19 26 / 62%);
+}
+
+.decisionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.decisionControlStack {
+  display: grid;
+  gap: 12px;
+}
+
+.decisionButton {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 18px;
+  border: 2px solid rgb(17 19 26 / 18%);
+  border-radius: 17px;
+  background: #ffffff;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 820;
+  line-height: 1.15;
+  box-shadow: 0 5px 0 rgb(17 19 26 / 12%);
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.decisionShortcutKeys {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 5px;
+}
+
+.decisionShortcutKeys kbd {
+  display: inline-grid;
+  min-width: 25px;
+  height: 25px;
+  place-items: center;
+  padding: 0 5px;
+  border: 1px solid rgb(17 19 26 / 17%);
+  border-radius: 7px;
+  background: var(--cream);
+  color: var(--indigo);
+  font: inherit;
+  font-size: 10px;
+  font-weight: 850;
+  line-height: 1;
+  box-shadow: 0 2px 0 rgb(17 19 26 / 10%);
+}
+
+.decisionSelected .decisionShortcutKeys kbd {
+  border-color: rgb(255 255 255 / 38%);
+  background: rgb(255 255 255 / 16%);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.keyHelper {
+  margin: 0;
+  color: rgb(17 19 26 / 48%);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.045em;
+  text-align: center;
+}
+
+.keyHelper span {
+  margin-inline: 5px;
+  color: rgb(17 19 26 / 35%);
+  font-weight: 650;
+}
+
+.decisionButton:hover:not(:disabled) {
+  border-color: var(--orange);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 rgb(17 19 26 / 12%);
+}
+
+.decisionButton:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 rgb(17 19 26 / 12%);
+}
+
+.decisionButton:disabled {
+  cursor: default;
+}
+
+.decisionButton:disabled:not(.decisionSelected) {
+  opacity: 0.48;
+}
+
+.decisionSelected,
+.decisionSelected:hover {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #ffffff;
+  box-shadow: 0 4px 0 rgb(17 19 26 / 22%);
+  transform: translateY(1px);
+}
+
+.feedback {
+  min-height: 22px;
+  margin: 14px 0 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 750;
+  text-align: center;
+}
+
+.resultsPanel {
+  width: min(920px, 100%);
+}
+
+.resultsPanel h1 {
+  max-width: 690px;
+  margin-top: 16px;
+  font-size: clamp(42px, 5vw, 63px);
+}
+
+.resultsIntro {
+  max-width: 650px;
+  margin: 18px 0 0;
+  color: rgb(17 19 26 / 70%);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.reviewList {
+  display: grid;
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.reviewCard {
+  padding: 24px;
+  border: 2px solid rgb(17 19 26 / 11%);
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 7px 18px rgb(17 19 26 / 7%);
+  animation: reviewEnter 220ms ease-out both;
+}
+
+.reviewCard:nth-child(2) {
+  animation-delay: 45ms;
+}
+
+.reviewClientName {
+  margin: 7px 0 0;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: -0.025em;
+}
+
+.reviewMessage {
+  position: relative;
+  margin-top: 12px;
+  padding: 18px 20px;
+  border-radius: 18px 18px 18px 6px;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.reviewDecision {
+  display: grid;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.reviewDecision span {
+  color: rgb(17 19 26 / 56%);
+}
+
+.reviewDecision strong {
+  color: var(--orange);
+  font-size: 18px;
+  font-weight: 850;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.advisorPerspective {
+  display: grid;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 17px 18px;
+  border-left: 4px solid var(--indigo);
+  border-radius: 0 14px 14px 0;
+  background: var(--lavender);
+}
+
+.advisorPerspective span {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+@keyframes panelEnter {
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes messageMarkEnter {
+  from {
+    opacity: 0;
+    transform: translateY(9px) rotate(-3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes contactArrive {
+  from {
+    opacity: 0;
+    transform: translate3d(-5px, 3px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes messageArrive {
+  from {
+    opacity: 0;
+    transform: translate3d(-8px, 6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes messageExit {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(7px, -3px, 0);
+  }
+}
+
+@keyframes reviewEnter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .roundMeta {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .messageBubble {
+    width: 100%;
+  }
+
+  .decisionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .decisionArea {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .voiceControls {
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .speechRateControl,
+  .ttsButton {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .introPanel,
+  .resultsPanel,
+  .introMessageMark,
+  .contactHeader,
+  .messageLane,
+  .workspaceResolving .contactHeader,
+  .workspaceResolving .messageLane,
+  .reviewCard {
+    animation: none;
+  }
+
+  .ttsButton,
+  .decisionButton {
+    transition: none;
+  }
+
+  .ttsButton:hover:not(:disabled),
+  .ttsButton:active:not(:disabled),
+  .decisionButton:hover:not(:disabled),
+  .decisionButton:active:not(:disabled) {
+    transform: none;
+  }
+}
