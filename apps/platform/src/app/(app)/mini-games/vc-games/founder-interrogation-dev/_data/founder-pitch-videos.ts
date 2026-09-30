@@ -43,8 +43,32 @@ export const FOUNDER_PITCH_VIDEOS: readonly FounderPitchVideo[] = [
     id: "pitch-5",
     videoUrl: "/pitch-videos/pitch-05.mp4",
     thumbnailUrl: "/pitch-videos/thumbnails/pitch-05.jpg",
-    realCompanyName: "Zoomcar",
+    realCompanyName: "GoZoomo",
     outcome:
-      "The idea became Zoomcar, a car-sharing platform. It completed a business combination and began trading on Nasdaq in December 2023; Nasdaq later announced the delisting of its securities in 2026 after trading had been suspended.",
+      "The idea became GoZoomo, a peer-to-peer used-car marketplace. In 2016, the founders shut down the business after its unit economics proved unsustainable and decided to return the remaining capital to investors.",
+  },
+  {
+    id: "pitch-6",
+    videoUrl: "/pitch-videos/pitch-06.mp4",
+    thumbnailUrl: "/pitch-videos/thumbnails/pitch-06.jpg",
+    realCompanyName: "Nykaa",
+    outcome:
+      "The idea became Nykaa, a beauty and personal-care retailer. Its parent company, FSN E-Commerce Ventures, completed an IPO and listed on India's NSE and BSE in November 2021.",
+  },
+  {
+    id: "pitch-7",
+    videoUrl: "/pitch-videos/pitch-07.mp4",
+    thumbnailUrl: "/pitch-videos/thumbnails/pitch-07.jpg",
+    realCompanyName: "Zerodha",
+    outcome:
+      "The idea became Zerodha, a technology-led brokerage. The company grew without external funding and reported revenue of Rs. 8,320 crore and profit of Rs. 4,700 crore for the financial year 2023-24.",
+  },
+  {
+    id: "pitch-8",
+    videoUrl: "/pitch-videos/pitch-08.mp4",
+    thumbnailUrl: "/pitch-videos/thumbnails/pitch-08.jpg",
+    realCompanyName: "Stayzilla",
+    outcome:
+      "The idea became Stayzilla, an accommodation and homestay marketplace. In February 2017, it suspended new bookings and halted operations in their existing form while its founders proposed a different business model. The founder cited the cost of building both supply and demand and heavy discounting as challenges.",
   },
 ];

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FormEvent, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -26,7 +26,6 @@ async function withSignInTimeout(request: Promise<any>): Promise<any> {
 }
 
 export function LoginForm() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -78,11 +77,11 @@ export function LoginForm() {
     if (typeof window !== "undefined") {
       document.cookie = "cdp_demo_user=alex.hunter@fintree.dev; path=/";
     }
-    const redirectTo = searchParams.get("redirectTo") || "/dashboard";
-    setTimeout(() => {
-      router.push(redirectTo);
-      setLoading(false);
-    }, 350);
+    const requestedPath = searchParams.get("redirectTo");
+    const redirectTo = requestedPath?.startsWith("/") && !requestedPath.startsWith("//")
+      ? requestedPath
+      : "/dashboard";
+    window.location.replace(redirectTo);
   }
 
   return (

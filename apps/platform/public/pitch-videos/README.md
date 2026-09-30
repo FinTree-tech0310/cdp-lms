@@ -1,60 +1,39 @@
 # Founder Interrogation video assets
 
-Place Founder Interrogation pitch videos in this folder. Use browser-friendly MP4 files encoded with H.264 video; AAC audio is recommended when a production video includes sound.
+These canonical MP4 files are tracked with Git LFS. Run `git lfs install` and `git lfs pull` after cloning, and ensure build checkouts fetch LFS media. The duplicate `updated pitches/` folder was removed after exact-copy verification; the source mapping below is historical.
 
-Suggested filenames use the neutral pitch number, for example:
+The live manifest is `src/app/(app)/mini-games/vc-games/founder-interrogation-dev/_data/founder-pitch-videos.ts` relative to `apps/platform`. The public route is `/mini-games/vc-games/founder-interrogation`; the implementation folder is not a separate development route.
 
-```text
-pitch-07.mp4
-thumbnails/pitch-07.jpg
-```
+See [the verified update handoff](../../../../docs/mini-games/FOUNDER-VIDEO-UPDATE.md) for exact source filenames, media properties, historical reveal sources, tests and review limits.
 
-Then add one object to `app/vc-games/founder-interrogation-dev/_data/founder-pitch-videos.ts`:
+## Current library
 
-```ts
-{
-  id: "pitch-7",
-  videoUrl: "/pitch-videos/pitch-07.mp4",
-  thumbnailUrl: "/pitch-videos/thumbnails/pitch-07.jpg",
-  realCompanyName: "...",
-  outcome: "...",
-}
-```
+| ID | Video | Company revealed after decision |
+| --- | --- | --- |
+| pitch-1 | pitch-01.mp4 | Flipkart |
+| pitch-2 | pitch-02.mp4 | Koo |
+| pitch-3 | pitch-03.mp4 | LocalOye |
+| pitch-4 | pitch-04.mp4 | PepperTap |
+| pitch-5 | pitch-05.mp4 | GoZoomo |
+| pitch-6 | pitch-06.mp4 | Nykaa |
+| pitch-7 | pitch-07.mp4 | Zerodha |
+| pitch-8 | pitch-08.mp4 | Stayzilla |
 
-The library renders directly from that array. Adding a file and data entry requires no component or routing changes.
+Every entry uses a matching `thumbnails/pitch-NN.jpg`. On 2026-09-30, the eight supplied files in `updated pitches/` were copied byte-for-byte to these neutral filenames. The sources remain intact. All are 1920x1080 H.264/AAC MP4; no conversion was needed. Existing thumbnails 01-05 remain; thumbnails 06-08 were extracted from the new recordings.
 
 ## Playback contract
 
-- Selecting a pitch requests native HTML5 autoplay and keeps standard play, pause, seek, replay, and volume controls available.
-- Production videos should include their intended audio. The player does not force mute; browsers may therefore block autoplay until the learner presses Play.
-- Pausing never exposes the investment decision. `Accept` and `Reject` become available only after the video reaches its natural end, is sought to its natural end, or the learner explicitly chooses `End Pitch & Decide`.
-- Every selected pitch must show this exact pre-playback framing: **This is an original re-presentation of a real startup's idea, performed by our team — not the original founder.**
+- Selection requests unmuted native autoplay, which the browser may block until Play is pressed. Native controls remain available.
+- Pause does not advance the game. Natural end, seek to the end, or **End Pitch & Decide** enables Accept/Reject.
+- Replay does not clear already-enabled decisions. Returning to the library and reopening starts a fresh attempt.
+- Accept/Reject reveals company and historical outcome, then records a watched badge. The result is context, not correctness scoring.
+- All eight pitches remain manually selectable. There is no unseen-until-exhausted rotation.
+- Only the selected video is mounted; the library displays thumbnails without preloading all MP4s.
 
-## Pre-reveal anonymity
+## Content and identity
 
-Videos and thumbnails must not contain a real company name, real founder name, recognizable company logo, branded wordmark, trademark graphic, or identifying caption text. Performers must not imply that they are the original founder. Captions, titles, metadata intended for display, and thumbnail copy must remain anonymous. The plain-text company identity belongs only in `realCompanyName`, which is rendered after the learner decides.
+Production data consists of `id`, `videoUrl`, `thumbnailUrl`, `realCompanyName` and `outcome`. The current engine has no script, transcript or interrogation-question screen. User-provided new scripts/Q&A are preserved in the documentation source notes rather than exposed before the reveal.
 
-## Installed pitch library
+Keep production filenames, titles and thumbnails anonymous. Video framing continues to explain that the pitch is a team re-presentation, not footage of the original founder. Do not expose company/founder identity in pre-decision captions or text.
 
-Five supplied MOV masters were converted to 1280x720 H.264/AAC MP4 with anonymous filenames. The MOV masters remain in the separate source folder and are excluded from Git. The public library maps `pitch-01` through `pitch-05` to Flipkart, Koo, LocalOye, PepperTap, and Zoomcar in that order. Matching anonymous JPEG thumbnails are in `thumbnails/`. The development-only `test-pitch.mp4` and its test data entry have been removed.
-
-The reveal copy in `founder-pitch-videos.ts` is a factual draft for review. The source material used for those drafts is [Walmart's Flipkart announcement](https://corporate.walmart.com/news/2018/08/18/walmart-and-flipkart-announce-completion-of-walmart-investment-in-flipkart-indias-leading-marketplace-ecommerce-platform), [Koo's co-founder announcement](https://www.linkedin.com/posts/mayank-bidawatka-028b2a1_heres-the-final-update-from-aprameya-radhakrishna-activity-7214153721419563008-2k1W), [LocalOye founder's 2016 restructuring account](https://inc42.com/buzz/localoyes-restructuring/), [PepperTap founder's 2016 statement](https://yourstory.com/2016/04/peppertap-shutdown), [Zoomcar's 2023 listing announcement](https://investor-relations.zoomcar.com/zoomcar-the-worlds-largest-emerging-market-focused-car-sharing-platform-announces-completion-of-its-business-combination-with-innovative-international-acquisition-corporation-ioac-and-ant/), and [Nasdaq's 2026 delisting notice](https://ir.nasdaq.com/node/109286/pdf).
-
-Before external publication, listen to each complete clip to confirm the spoken audio does not reveal the startup or founder identity before the decision. Sampled video frames and anonymous filenames do not establish audio anonymity.
-
-## Paused handoff — 2026-09-19
-
-Founder Interrogation is intentionally paused while the editor trims the opening company-name mentions from the five MOV masters. Continue other games without changing this library's mechanics or reveal flow. Do not deploy the current MP4 exports as finished production media.
-
-When the edited clips arrive:
-
-1. Confirm the editor removed every spoken company name, founder name, brand reference, logo, wordmark, identifying caption, and identifying metadata—not only the first sentence.
-2. Keep the master-to-library order fixed: Flipkart, Koo, LocalOye, PepperTap, Zoomcar.
-3. Re-export as `pitch-01.mp4` through `pitch-05.mp4`, using 1280x720 H.264/YUV420p video, AAC audio, and fast-start metadata. Replace the existing public MP4s rather than adding company-named files.
-4. Regenerate the five anonymous thumbnails from frames that contain no identifying content.
-5. Listen to every complete exported MP4 and inspect the beginning, middle, end, captions, thumbnails, and metadata for identity leaks.
-6. Review and approve the factual draft `outcome` text in `founder-pitch-videos.ts`.
-7. Verify all five library cards, full playback, End Pitch & Decide, natural-end decision gating, Accept/Reject locking, company reveal, Back to Videos, Watched persistence, keyboard focus, and reduced motion.
-8. Run targeted ESLint, platform TypeScript, media decoding, and HTTP checks for both Founder Interrogation routes plus every MP4 and thumbnail.
-
-The original source folder is intentionally Git-ignored. It is working media, not a deployable application asset.
+The previous 2026-09-19 handoff concerned older MOV-derived exports and incorrectly identified pitch 5 as Zoomcar. These replacement files supersede those exports, and the user explicitly approved correcting pitch 5 to GoZoomo. This is not evidence that complete spoken-audio anonymity has been reviewed. Complete audio/content review remains unverified; decoding, sampled frames and anonymous paths do not prove it. No deployment was performed.
