@@ -98,6 +98,13 @@
   color: #ffffff;
 }
 
+.selected.fund > span,
+.selected.fund kbd,
+.selected.orange > span,
+.selected.orange kbd {
+  color: #0e0e0e;
+}
+
 .rapid .decisionButton {
   min-height: 80px;
   border-width: 2px;

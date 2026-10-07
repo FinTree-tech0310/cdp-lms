@@ -11,7 +11,7 @@
   border: 2px solid var(--ink);
   border-radius: 50%;
   background: var(--orange);
-  color: #ffffff;
+  color: #0e0e0e;
   font: inherit;
   box-shadow: 5px 5px 0 var(--ink);
   cursor: pointer;

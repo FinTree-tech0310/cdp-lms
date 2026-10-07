@@ -75,7 +75,7 @@
   border: 3px solid #11131a;
   border-radius: 50%;
   background: #f8dc03;
-  color: white;
+  color: #0e0e0e;
 }
 
 .handshakeMark svg { width: 46px; height: 46px; }
@@ -131,7 +131,7 @@
   border: 2px solid #11131a;
   border-radius: 999px;
   background: #f8dc03;
-  color: white;
+  color: #0e0e0e;
   font: inherit;
   font-size: 15px;
   font-weight: 850;

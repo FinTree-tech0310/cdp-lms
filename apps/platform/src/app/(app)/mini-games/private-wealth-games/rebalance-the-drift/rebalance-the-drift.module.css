@@ -550,7 +550,7 @@
   padding: 9px 14px;
   border: 1px solid var(--orange);
   background: var(--orange);
-  color: #ffffff;
+  color: #0e0e0e;
 }
 
 .guideSkip:hover { color: var(--ink); }

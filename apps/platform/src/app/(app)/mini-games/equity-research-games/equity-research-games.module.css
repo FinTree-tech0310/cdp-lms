@@ -115,7 +115,7 @@ a.gameCard:focus-visible {
   transform: translateY(-3px);
 }
 
-.orangeCard { background: var(--orange); color: #fff; }
+.orangeCard { background: var(--orange); color: #0e0e0e; }
 .whiteCard { background: #fff; }
 .indigoCard { background: var(--indigo); color: #fff; }
 .lavenderCard { background: var(--lavender); color: var(--indigo); }
@@ -145,7 +145,7 @@ a.gameCard:focus-visible {
 
 .inkCard[data-status="coming-soon"] .cardBadge {
   background: var(--orange);
-  color: #fff;
+  color: #0e0e0e;
 }
 
 .cardArt {
@@ -260,7 +260,7 @@ a.gameCard:focus-visible .cardArt { transform: translate(4px, -3px) rotate(1deg)
   word-spacing: 0.025em;
 }
 
-.orangeCard .cardDescription { color: rgb(255 255 255 / 83%); }
+.orangeCard .cardDescription { color: #0e0e0e; }
 .indigoCard .cardDescription,
 .inkCard .cardDescription { color: rgb(255 245 232 / 80%); }
 

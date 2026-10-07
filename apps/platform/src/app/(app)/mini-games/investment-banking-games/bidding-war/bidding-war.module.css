@@ -7,7 +7,7 @@
 .bidSheet span,.bidSheet b { font-size: 12px; font-weight: 900; letter-spacing: .1em; }
 .bidSheet strong { color: #1ed2f4; font-size: clamp(48px,7vw,82px); line-height: 1; letter-spacing: -.015em; }
 .bidSheet i { height: 10px; border-bottom: 2px solid #11131a; }
-.gavelMark { position: absolute; right: 24px; bottom: 24px; display: grid; width: 86px; height: 86px; place-items: center; border: 3px solid #11131a; border-radius: 50%; background: #f8dc03; color: white; }
+.gavelMark { position: absolute; right: 24px; bottom: 24px; display: grid; width: 86px; height: 86px; place-items: center; border: 3px solid #11131a; border-radius: 50%; background: #f8dc03; color: #0e0e0e; }
 .gavelMark svg { width: 42px; height: 42px; }
 .introCopy { display: flex; flex-direction: column; justify-content: center; padding: clamp(36px,6vw,68px); }
 .introCopy h1 { max-width: 700px; margin: 12px 0 18px; font-size: clamp(44px,5.2vw,70px); font-weight: 820; letter-spacing: -.015em; line-height: .96; }
@@ -18,7 +18,7 @@
 .introBrief li + li { margin-top: 7px; }
 
 .primaryButton,.secondaryButton,.walkButton { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; gap: 9px; padding: 12px 22px; border: 2px solid #11131a; border-radius: 12px; font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; transition: transform 150ms ease,box-shadow 150ms ease; }
-.primaryButton { position: relative; align-self: flex-start; overflow: hidden; background: #f8dc03; color: white; box-shadow: 5px 5px 0 #11131a; }
+.primaryButton { position: relative; align-self: flex-start; overflow: hidden; background: #f8dc03; color: #0e0e0e; box-shadow: 5px 5px 0 #11131a; }
 .primaryButton > * { position: relative; z-index: 1; }
 .secondaryButton { background: white; color: #11131a; }
 .walkButton { background: #fff5e8; color: #11131a; }

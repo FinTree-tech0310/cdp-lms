@@ -421,7 +421,7 @@
 .decisionSelected .decisionShortcutKeys kbd {
   border-color: rgb(255 255 255 / 38%);
   background: rgb(255 255 255 / 16%);
-  color: #ffffff;
+  color: #0e0e0e;
   box-shadow: none;
 }
 
@@ -463,7 +463,7 @@
 .decisionSelected:hover {
   border-color: var(--orange);
   background: var(--orange);
-  color: #ffffff;
+  color: #0e0e0e;
   box-shadow: 0 4px 0 rgb(17 19 26 / 22%);
   transform: translateY(1px);
 }

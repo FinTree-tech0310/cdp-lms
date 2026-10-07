@@ -122,7 +122,7 @@ a.gameCard:focus-visible {
 
 .orangeCard {
   background: var(--orange);
-  color: #fff;
+  color: #0e0e0e;
 }
 
 .creamCard { background: var(--cream); }
@@ -170,7 +170,7 @@ a.gameCard:focus-visible {
 
 .inkCard .comingSoonBadge {
   background: var(--orange);
-  color: #fff;
+  color: #0e0e0e;
 }
 
 .cardArt {
@@ -261,7 +261,7 @@ a.gameCard:focus-visible .cardArt svg {
 }
 
 .orangeCard .cardDescription {
-  color: rgb(255 255 255 / 82%);
+  color: #0e0e0e;
 }
 
 .indigoCard .cardDescription,
