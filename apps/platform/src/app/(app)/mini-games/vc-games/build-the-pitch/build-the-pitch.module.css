@@ -106,7 +106,7 @@
   width: fit-content;
   margin: 18px auto 0;
   padding: 7px 11px;
-  border: 1px solid rgb(244 98 42 / 34%);
+  border: 1px solid rgb(248 220 3 / 34%);
   border-radius: 999px;
   background: rgb(255 255 255 / 60%);
   color: var(--orange);
@@ -184,7 +184,7 @@
   justify-content: center;
   gap: 5px;
   padding: 8px 10px;
-  border: 1px solid rgb(41 60 211 / 13%);
+  border: 1px solid rgb(30 210 244 / 13%);
   border-radius: 16px;
   background: rgb(255 255 255 / 68%);
 }
@@ -267,7 +267,7 @@
   align-items: center;
   gap: 6px 14px;
   padding: 9px 14px;
-  border: 2px dashed rgb(41 60 211 / 30%);
+  border: 2px dashed rgb(30 210 244 / 30%);
   border-radius: 18px;
   background: var(--cream);
   transition: border-color 140ms ease, background-color 140ms ease, transform 140ms ease;
@@ -275,13 +275,13 @@
 
 .metricSlot[data-over="true"] {
   border-color: var(--orange);
-  background: rgb(244 98 42 / 8%);
+  background: rgb(248 220 3 / 8%);
   transform: translateY(-3px);
 }
 
 .metricSlot[data-click-ready="true"] {
   border-color: var(--orange);
-  background: rgb(244 98 42 / 8%);
+  background: rgb(248 220 3 / 8%);
 }
 
 .slotClickTarget {
@@ -295,7 +295,7 @@
 }
 
 .slotClickTarget:focus-visible {
-  outline: 4px solid rgb(244 98 42 / 28%);
+  outline: 4px solid rgb(248 220 3 / 28%);
   outline-offset: 3px;
 }
 
@@ -438,7 +438,7 @@
   font-size: 13px;
   font-weight: 850;
   letter-spacing: -0.02em;
-  box-shadow: 3px 3px 0 rgb(41 60 211 / 24%);
+  box-shadow: 3px 3px 0 rgb(30 210 244 / 24%);
   text-align: center;
 }
 
@@ -459,11 +459,11 @@
   transform: translateY(-3px);
   box-shadow:
     0 9px 16px rgb(17 19 26 / 12%),
-    3px 3px 0 rgb(41 60 211 / 30%);
+    3px 3px 0 rgb(30 210 244 / 30%);
 }
 
 .metricTile:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 24%);
+  outline: 4px solid rgb(30 210 244 / 24%);
   outline-offset: 3px;
 }
 
@@ -472,7 +472,7 @@
   transform: translateY(-1px) scale(0.985);
   box-shadow:
     0 3px 7px rgb(17 19 26 / 10%),
-    2px 2px 0 rgb(41 60 211 / 28%);
+    2px 2px 0 rgb(30 210 244 / 28%);
 }
 
 .metricTile[data-dragging="true"] {
@@ -481,7 +481,7 @@
 
 .metricTile[data-selected="true"] {
   border-color: var(--orange);
-  background: rgb(244 98 42 / 10%);
+  background: rgb(248 220 3 / 10%);
   box-shadow: 3px 3px 0 var(--orange);
   animation: metricTileRecorded 280ms ease-out both;
 }
@@ -493,7 +493,7 @@
 .dragOverlay {
   width: 170px;
   border-color: var(--orange);
-  box-shadow: 7px 7px 0 rgb(41 60 211 / 30%);
+  box-shadow: 7px 7px 0 rgb(30 210 244 / 30%);
   cursor: grabbing;
 }
 

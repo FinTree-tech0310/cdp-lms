@@ -44,7 +44,7 @@
   border-bottom-color: var(--ink);
   border-radius: 50%;
   background: var(--cream);
-  box-shadow: 6px 7px 0 rgb(244 98 42 / 15%);
+  box-shadow: 6px 7px 0 rgb(248 220 3 / 15%);
   rotate: -12deg;
 }
 
@@ -143,7 +143,7 @@
 
 .helpButton {
   padding: 8px 11px;
-  border: 1px solid rgb(41 60 211 / 24%);
+  border: 1px solid rgb(30 210 244 / 24%);
   border-radius: 999px;
   background: rgb(255 255 255 / 68%);
   color: var(--indigo);
@@ -161,7 +161,7 @@
 }
 
 .helpButton:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 28%);
+  outline: 4px solid rgb(30 210 244 / 28%);
   outline-offset: 3px;
 }
 
@@ -262,7 +262,7 @@
 .donutSegment[data-active="true"] {
   stroke-width: 48;
   cursor: grabbing;
-  filter: drop-shadow(0 0 5px rgb(244 98 42 / 45%));
+  filter: drop-shadow(0 0 5px rgb(248 220 3 / 45%));
 }
 
 .donutSegment[data-status="within"] { stroke: var(--orange); }
@@ -271,7 +271,7 @@
 .donutSegment:focus-visible {
   outline: none;
   stroke-width: 48;
-  filter: drop-shadow(0 0 5px rgb(41 60 211 / 58%));
+  filter: drop-shadow(0 0 5px rgb(30 210 244 / 58%));
 }
 
 .donutCenter {
@@ -323,7 +323,7 @@
 
 .allocationRow[data-active="true"] {
   border-color: var(--orange);
-  box-shadow: 0 5px 0 rgb(244 98 42 / 12%);
+  box-shadow: 0 5px 0 rgb(248 220 3 / 12%);
   transform: translateY(-1px);
 }
 
@@ -371,7 +371,7 @@
 }
 
 .allocationRow input[type="range"]:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 28%);
+  outline: 4px solid rgb(30 210 244 / 28%);
   outline-offset: 3px;
   border-radius: 999px;
 }
@@ -417,8 +417,8 @@
 }
 
 .guideLayer {
-  --orange: #f4622a;
-  --indigo: #293cd3;
+  --orange: #f8dc03;
+  --indigo: #1ed2f4;
   --ink: #11131a;
   --lavender: #e9ecff;
   --cream: #fff5e8;
@@ -560,7 +560,7 @@
 .guideSkip:focus-visible,
 .guideBack:focus-visible,
 .guideNext:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 30%);
+  outline: 4px solid rgb(30 210 244 / 30%);
   outline-offset: 3px;
 }
 

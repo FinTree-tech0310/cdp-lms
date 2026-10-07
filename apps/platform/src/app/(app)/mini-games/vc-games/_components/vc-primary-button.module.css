@@ -11,7 +11,7 @@
   font: inherit;
   font-size: 16px;
   font-weight: 850;
-  box-shadow: 0 7px 16px rgb(244 98 42 / 18%);
+  box-shadow: 0 7px 16px rgb(248 220 3 / 18%);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
@@ -31,7 +31,7 @@
 
 .button:focus-visible,
 .button:focus {
-  outline: 4px solid rgb(41 60 211 / 28%);
+  outline: 4px solid rgb(30 210 244 / 28%);
   outline-offset: 4px;
 }
 

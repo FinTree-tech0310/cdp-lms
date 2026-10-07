@@ -50,7 +50,7 @@
   border: 2px solid rgb(17 19 26 / 18%);
   border-radius: 50%;
   background: var(--cream);
-  box-shadow: 6px 7px 0 rgb(244 98 42 / 15%);
+  box-shadow: 6px 7px 0 rgb(248 220 3 / 15%);
 }
 
 .introCallMark span:first-child {
@@ -142,7 +142,7 @@
 .ring {
   position: absolute;
   inset: 20px 10px;
-  border: 2px solid rgb(41 60 211 / 28%);
+  border: 2px solid rgb(30 210 244 / 28%);
   border-radius: 38px;
   animation: callRing 2s ease-out infinite;
 }
@@ -161,7 +161,7 @@
   height: 170px;
   border-width: 3px;
   border-radius: 28px;
-  box-shadow: 7px 8px 0 rgb(244 98 42 / 15%), 0 14px 28px rgb(17 19 26 / 12%);
+  box-shadow: 7px 8px 0 rgb(248 220 3 / 15%), 0 14px 28px rgb(17 19 26 / 12%);
 }
 
 .incomingPanel h1 {
@@ -269,7 +269,7 @@
 .strategyButton:focus-visible,
 .ttsButton:focus-visible,
 .rateControl select:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 28%);
+  outline: 4px solid rgb(30 210 244 / 28%);
   outline-offset: 3px;
 }
 
@@ -307,7 +307,7 @@
   height: 68px;
   border-width: 2px;
   border-radius: 17px;
-  box-shadow: 3px 4px 0 rgb(41 60 211 / 11%);
+  box-shadow: 3px 4px 0 rgb(30 210 244 / 11%);
 }
 
 .connectedStatus {
@@ -358,7 +358,7 @@
 
 .marketUpdate {
   padding: 20px;
-  border: 1px solid rgb(41 60 211 / 12%);
+  border: 1px solid rgb(30 210 244 / 12%);
   background: var(--cream);
 }
 
@@ -553,7 +553,7 @@
 
 .pathCard[data-chosen="true"] {
   border-color: var(--orange);
-  box-shadow: 0 7px 0 rgb(244 98 42 / 15%);
+  box-shadow: 0 7px 0 rgb(248 220 3 / 15%);
 }
 
 .pathCard h2 { margin: 10px 0 0; font-size: 23px; }

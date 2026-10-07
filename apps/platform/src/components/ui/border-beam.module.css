@@ -19,7 +19,7 @@
 .beam::before {
   position: absolute;
   inset: 0;
-  border: var(--border-width) solid rgb(41 60 211 / 55%);
+  border: var(--border-width) solid rgb(30 210 244 / 55%);
   border-radius: inherit;
   content: "";
 }

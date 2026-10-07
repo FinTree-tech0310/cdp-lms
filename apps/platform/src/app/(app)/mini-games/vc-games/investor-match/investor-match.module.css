@@ -106,7 +106,7 @@
   width: fit-content;
   margin: 18px auto 0;
   padding: 7px 11px;
-  border: 1px solid rgb(244 98 42 / 34%);
+  border: 1px solid rgb(248 220 3 / 34%);
   border-radius: 999px;
   background: rgb(255 255 255 / 60%);
   color: var(--orange);
@@ -195,7 +195,7 @@
 .offerCard[data-archetype="patient"] {
   --card-accent: var(--indigo);
   --card-bg: #fffdf8;
-  box-shadow: 6px 6px 0 rgb(41 60 211 / 24%);
+  box-shadow: 6px 6px 0 rgb(30 210 244 / 24%);
 }
 
 .offerCard[data-archetype="network"] {
@@ -212,7 +212,7 @@
 }
 
 .offerCard:focus-visible {
-  outline: 5px solid rgb(41 60 211 / 30%);
+  outline: 5px solid rgb(30 210 244 / 30%);
   outline-offset: 4px;
   transform: translateY(-4px);
 }
@@ -492,7 +492,7 @@
 }
 
 .revealPathsButton:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 28%);
+  outline: 4px solid rgb(30 210 244 / 28%);
   outline-offset: 4px;
 }
 

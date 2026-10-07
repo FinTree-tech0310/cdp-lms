@@ -329,7 +329,7 @@ input {
 
 /* Same focus indicator the games were built against. */
 .mini-games-scope :focus-visible {
-  outline: 2px solid var(--color-primary, #293cd3);
+  outline: 2px solid var(--color-primary, #1ed2f4);
   outline-offset: 2px;
   border-radius: 8px;
 }

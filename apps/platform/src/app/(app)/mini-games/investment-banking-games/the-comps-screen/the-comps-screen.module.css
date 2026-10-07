@@ -246,7 +246,7 @@
 .primaryButton:focus-visible,
 .dragHandle:focus-visible,
 .assignmentActions button:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 32%);
+  outline: 4px solid rgb(30 210 244 / 32%);
   outline-offset: 4px;
 }
 
@@ -392,7 +392,7 @@
   border: 2px solid var(--ink);
   border-radius: 16px;
   background: var(--lavender);
-  box-shadow: 5px 5px 0 rgb(41 60 211 / 14%);
+  box-shadow: 5px 5px 0 rgb(30 210 244 / 14%);
 }
 
 .taskStrip h2 {
@@ -448,7 +448,7 @@
 
 .dropZone[data-over="true"] {
   background: #fff;
-  box-shadow: 0 0 0 5px rgb(41 60 211 / 22%), 7px 7px 0 var(--indigo);
+  box-shadow: 0 0 0 5px rgb(30 210 244 / 22%), 7px 7px 0 var(--indigo);
   transform: translateY(-2px);
 }
 
@@ -859,7 +859,7 @@
     padding-bottom: 4px;
     overflow-y: auto;
     overscroll-behavior: contain;
-    scrollbar-color: rgb(41 60 211 / 46%) transparent;
+    scrollbar-color: rgb(30 210 244 / 46%) transparent;
     scrollbar-width: thin;
   }
 
@@ -869,7 +869,7 @@
 
   .decisionZones .zoneCards::-webkit-scrollbar-thumb {
     border-radius: 999px;
-    background: rgb(41 60 211 / 42%);
+    background: rgb(30 210 244 / 42%);
   }
 
   .submitArea {

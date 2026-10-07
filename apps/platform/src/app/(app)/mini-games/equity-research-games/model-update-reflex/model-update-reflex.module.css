@@ -3,7 +3,7 @@
 .game h1, .game h2, .game h3, .game p, .game dl, .game dd { margin: 0; }
 .game h1 { font-weight: 750; }
 .game button, .game input { font: inherit; }
-.game :focus-visible { outline: 3px solid #293cd3; outline-offset: 4px; }
+.game :focus-visible { outline: 3px solid #1ed2f4; outline-offset: 4px; }
 .workspace { max-width: 1240px; margin: 0 auto; animation: enter .2s ease-out; }
 .workspaceHeader { margin: 16px 0; }
 .workspaceHeader h1 { font-size: clamp(26px, 2.5vw, 36px); line-height: 1.2; letter-spacing: -.025em; margin-top: 8px; }
@@ -24,7 +24,7 @@
 .evidence { font-size: 15px; line-height: 1.55; margin-top: 8px !important; }
 .revisionValue { display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; font-size: 12px; }
 .revisionValue strong { font-size: 23px; font-variant-numeric: tabular-nums; line-height: 1.2; }
-.range { display: block; width: 100%; height: 28px; margin: 4px 0 0; accent-color: #f4622a; cursor: pointer; }
+.range { display: block; width: 100%; height: 28px; margin: 4px 0 0; accent-color: #f8dc03; cursor: pointer; }
 .rangeLabels { display: flex; justify-content: space-between; padding-top: 6px; font-size: 12px; line-height: 1.3; }
 .modelPanel { background: #e9ecff; border-radius: 20px; padding: 24px; position: sticky; top: 24px; }
 .outputTable { width: 100%; border-collapse: collapse; table-layout: fixed; font-variant-numeric: tabular-nums; }
@@ -37,7 +37,7 @@
 .outputTable tbody tr:last-child th, .outputTable tbody tr:last-child td { font-weight: 800; border-bottom: 0; }
 .modelLogic { margin: 14px 0; padding-top: 12px; border-top: 1px solid #11131a24; }
 .modelLogic p { font-size: 13px; line-height: 1.6; margin-top: 4px; }
-.primaryButton { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 12px 24px; border: 0; border-radius: 999px; background: #f4622a; color: #11131a; font-weight: 750 !important; cursor: pointer; line-height: 1.5; }
+.primaryButton { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 12px 24px; border: 0; border-radius: 999px; background: #f8dc03; color: #11131a; font-weight: 750 !important; cursor: pointer; line-height: 1.5; }
 .primaryButton:hover { box-shadow: 0 3px 0 #11131a33; }
 .primaryButton:disabled { opacity: .55; cursor: wait; }
 .modelPanel .primaryButton { width: 100%; }
@@ -46,8 +46,8 @@
 .introVisual { padding: 40px; background: #e9ecff; border-radius: 28px; min-width: 0; }
 .modelSketch { background: #fff5e8; padding: 28px; border: 1px solid #11131a30; border-radius: 16px; }
 .sketchTrack { height: 5px; position: relative; background: #11131a25; margin-top: 30px; }
-.sketchTrack i { position: absolute; width: 16px; height: 16px; border-radius: 50%; background: #f4622a; top: -6px; }
-.sketchArrow { display: block; text-align: center; font-size: 36px; margin: 12px 0; color: #293cd3; }
+.sketchTrack i { position: absolute; width: 16px; height: 16px; border-radius: 50%; background: #f8dc03; top: -6px; }
+.sketchArrow { display: block; text-align: center; font-size: 36px; margin: 12px 0; color: #1ed2f4; }
 .sketchOutputs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 14px; }
 .introCopy h1 { font-size: clamp(32px, 4vw, 52px); line-height: 1.12; letter-spacing: -.035em; margin: 16px 0; }
 .introCopy > p:not(.eyebrow) { font-size: 18px; line-height: 1.6; max-width: 48ch; }
@@ -58,7 +58,7 @@
 .reviewList { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .review { background: #e9ecff; border-radius: 16px; padding: 24px; }
 .reviewHeading h2 { font-size: 20px; line-height: 1.3; }
-.reviewHeading > p { display: inline-block; font-size: 12px; font-weight: 750; margin-top: 12px; border: 1px solid #293cd3; border-radius: 999px; padding: 5px 10px; }
+.reviewHeading > p { display: inline-block; font-size: 12px; font-weight: 750; margin-top: 12px; border: 1px solid #1ed2f4; border-radius: 999px; padding: 5px 10px; }
 .reviewValues { display: grid; gap: 12px; margin: 20px 0 !important; }
 .reviewValues > div { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .reviewValues dt { font-size: 13px; line-height: 1.5; }

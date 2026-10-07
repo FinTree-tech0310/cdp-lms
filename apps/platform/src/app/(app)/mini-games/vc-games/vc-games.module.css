@@ -1,6 +1,6 @@
 .arena {
-  --arena-orange: #f4622a;
-  --arena-indigo: #293cd3;
+  --arena-orange: #f8dc03;
+  --arena-indigo: #1ed2f4;
   --arena-ink: #11131a;
   --arena-lavender: #e9ecff;
   --arena-cream: #fff5e8;
@@ -122,7 +122,7 @@
 
 .card:focus-visible {
   z-index: 1;
-  outline: 4px solid rgb(41 60 211 / 28%);
+  outline: 4px solid rgb(30 210 244 / 28%);
   outline-offset: 4px;
   border-color: var(--arena-indigo);
   transform: translateY(-3px);
@@ -345,8 +345,8 @@
 }
 
 .placeholder {
-  --arena-orange: #f4622a;
-  --arena-indigo: #293cd3;
+  --arena-orange: #f8dc03;
+  --arena-indigo: #1ed2f4;
   --arena-ink: #11131a;
   display: flex;
   min-height: calc(100vh - 64px);
@@ -373,7 +373,7 @@
 
 .backLink:focus-visible {
   border-radius: 4px;
-  outline: 3px solid rgb(41 60 211 / 28%);
+  outline: 3px solid rgb(30 210 244 / 28%);
   outline-offset: 4px;
 }
 

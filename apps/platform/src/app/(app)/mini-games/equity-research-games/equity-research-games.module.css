@@ -1,6 +1,6 @@
 .arena {
-  --orange: #f4622a;
-  --indigo: #293cd3;
+  --orange: #f8dc03;
+  --indigo: #1ed2f4;
   --ink: #11131a;
   --lavender: #e9ecff;
   --cream: #fff5e8;
@@ -109,7 +109,7 @@ a.gameCard:active {
 
 a.gameCard:focus-visible {
   z-index: 1;
-  outline: 4px solid rgb(41 60 211 / 28%);
+  outline: 4px solid rgb(30 210 244 / 28%);
   outline-offset: 4px;
   border-color: var(--indigo);
   transform: translateY(-3px);

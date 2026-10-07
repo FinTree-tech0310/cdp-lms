@@ -3,7 +3,7 @@
 .cardLabel,
 .resultEyebrow {
   margin: 0;
-  color: #293cd3;
+  color: #1ed2f4;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -41,7 +41,7 @@
   place-items: center;
   overflow: hidden;
   padding: 42px;
-  background: #293cd3;
+  background: #1ed2f4;
 }
 
 .introVisual::before,
@@ -58,7 +58,7 @@
   height: 84px;
   transform: rotate(-12deg);
   border-radius: 999px;
-  background: #f4622a;
+  background: #f8dc03;
 }
 
 .introVisual::after {
@@ -102,7 +102,7 @@
   width: 44px;
   height: 10px;
   border-radius: 999px;
-  background: #293cd3;
+  background: #1ed2f4;
 }
 
 .introDocument > p {
@@ -119,16 +119,16 @@
 .introDocument .introMarkedLine {
   width: 96%;
   height: 18px;
-  border-left: 6px solid #f4622a;
+  border-left: 6px solid #f8dc03;
   border-radius: 0 5px 5px 0;
-  background: rgb(244 98 42 / 18%);
+  background: rgb(248 220 3 / 18%);
 }
 
 .introEditMark {
   position: absolute;
   right: 22px;
   bottom: 18px;
-  color: #f4622a;
+  color: #f8dc03;
   font-size: 11px;
   font-weight: 850;
   letter-spacing: 0.1em;
@@ -168,7 +168,7 @@
 .introBrief {
   margin: 22px 0 24px;
   padding: 16px 18px;
-  border-left: 5px solid #f4622a;
+  border-left: 5px solid #f8dc03;
   border-radius: 0 14px 14px 0;
   background: #e9ecff;
 }
@@ -185,7 +185,7 @@
   padding: 13px 24px;
   border: 2px solid #11131a;
   border-radius: 12px;
-  background: #f4622a;
+  background: #f8dc03;
   color: #fff;
   cursor: pointer;
   font: inherit;
@@ -209,7 +209,7 @@
 
 .primaryButton:focus-visible,
 .lineToggle:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 36%);
+  outline: 4px solid rgb(30 210 244 / 36%);
   outline-offset: 4px;
 }
 
@@ -269,7 +269,7 @@
 
 .documentKicker {
   margin: 0 0 7px;
-  color: #293cd3;
+  color: #1ed2f4;
   font-size: 10px;
   font-weight: 850;
   letter-spacing: 0.12em;
@@ -290,8 +290,8 @@
   flex: 0 0 auto;
   padding: 7px 11px;
   transform: rotate(2deg);
-  border: 2px solid #f4622a;
-  color: #f4622a;
+  border: 2px solid #f8dc03;
+  color: #f8dc03;
   font-size: 11px;
   font-weight: 850;
   letter-spacing: 0.12em;
@@ -301,7 +301,7 @@
 .noteContext {
   margin: 24px 30px 0;
   padding: 17px 19px;
-  border-left: 5px solid #293cd3;
+  border-left: 5px solid #1ed2f4;
   background: rgb(255 255 255 / 70%);
 }
 
@@ -329,7 +329,7 @@
 }
 
 .noteLine:last-child { border-bottom: 1px solid rgb(17 19 26 / 17%); }
-.noteLine[data-flagged] { background: rgb(244 98 42 / 10%); }
+.noteLine[data-flagged] { background: rgb(248 220 3 / 10%); }
 
 .lineNumber {
   padding: 20px 8px 20px 0;
@@ -357,7 +357,7 @@
 }
 
 .lineToggle:hover { background: rgb(255 255 255 / 55%); }
-.noteLine[data-flagged] .lineToggle { border-left-color: #f4622a; }
+.noteLine[data-flagged] .lineToggle { border-left-color: #f8dc03; }
 
 .lineText {
   font-size: 16px;
@@ -391,7 +391,7 @@
 }
 
 .noteLine[data-flagged] .flagState { color: #11131a; }
-.noteLine[data-flagged] .flagMark { background: #f4622a; box-shadow: inset 0 0 0 2px #fff; }
+.noteLine[data-flagged] .flagMark { background: #f8dc03; box-shadow: inset 0 0 0 2px #fff; }
 
 .editorialRail {
   position: sticky;
@@ -400,7 +400,7 @@
   border: 2px solid #11131a;
   border-radius: 20px;
   background: #fff5e8;
-  box-shadow: 7px 7px 0 #293cd3;
+  box-shadow: 7px 7px 0 #1ed2f4;
 }
 
 .editorialRail h2 {
@@ -437,9 +437,9 @@
   padding: clamp(30px, 4vw, 44px);
   border: 2px solid #11131a;
   border-radius: 25px;
-  background: #293cd3;
+  background: #1ed2f4;
   color: #fff;
-  box-shadow: 9px 9px 0 #f4622a;
+  box-shadow: 9px 9px 0 #f8dc03;
 }
 
 .resultEyebrow,
@@ -463,8 +463,8 @@
   background: #fff;
 }
 
-.resultLine[data-matched="true"] { border-left-color: #293cd3; }
-.resultLine[data-matched="false"] { border-left-color: #f4622a; }
+.resultLine[data-matched="true"] { border-left-color: #1ed2f4; }
+.resultLine[data-matched="false"] { border-left-color: #f8dc03; }
 
 .resultLineHeading {
   display: flex;
@@ -486,7 +486,7 @@
   word-spacing: 0.07em;
 }
 
-.resultLineHeading p { color: #293cd3; }
+.resultLineHeading p { color: #1ed2f4; }
 
 .resultLine blockquote {
   margin: 0;
@@ -511,13 +511,13 @@
 }
 
 .reviewFacts div { padding: 14px; background: #fff5e8; }
-.reviewFacts dt { color: #293cd3; font-size: 10px; font-weight: 850; letter-spacing: 0.09em; text-transform: uppercase; }
+.reviewFacts dt { color: #1ed2f4; font-size: 10px; font-weight: 850; letter-spacing: 0.09em; text-transform: uppercase; }
 .reviewFacts dd { margin: 6px 0 0; font-size: 14px; font-weight: 760; line-height: 1.45; word-spacing: 0.035em; }
 
 .reasoning {
   margin: 20px 22px 22px;
   padding: 17px 18px;
-  border-left: 5px solid #f4622a;
+  border-left: 5px solid #f8dc03;
   background: #fff5e8;
 }
 

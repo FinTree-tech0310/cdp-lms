@@ -44,10 +44,10 @@ const SKIN_TONES = [
   "#6f432f",
 ] as const;
 
-const HAIR_TONES = ["#11131a", "#51352f", "#293cd3", "#713e2f"] as const;
+const HAIR_TONES = ["#11131a", "#51352f", "#1ed2f4", "#713e2f"] as const;
 const SENIOR_HAIR_TONES = ["#777b85", "#aaa9a3", "#d6d2c8"] as const;
-const SHIRT_TONES = ["#fff5e8", "#e9ecff", "#f4622a"] as const;
-const JACKET_TONES = ["#293cd3", "#11131a", "#f4622a"] as const;
+const SHIRT_TONES = ["#fff5e8", "#e9ecff", "#f8dc03"] as const;
+const JACKET_TONES = ["#1ed2f4", "#11131a", "#f8dc03"] as const;
 const BACKDROP_TONES = ["#fff5e8", "#e9ecff", "#ffffff"] as const;
 
 function getAge(stats: readonly string[] | undefined): number | null {

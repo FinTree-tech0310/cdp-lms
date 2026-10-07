@@ -36,7 +36,7 @@ const HUBS: readonly HubMeta[] = [
   {
     slug: "investment-banking-games",
     label: "Investment Banking",
-    accent: "#293cd3",
+    accent: "#1ed2f4",
     accentBg: "#eef0fe",
   },
   {

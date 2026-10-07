@@ -1,4 +1,4 @@
-.page{--orange:#f4622a;--indigo:#293cd3;--ink:#11131a;--lavender:#e9ecff;--cream:#fff5e8;min-height:100vh;padding:30px 44px 60px;background:var(--cream);color:var(--ink);font-family:var(--font-rethink),"Rethink Sans",Arial,sans-serif;line-height:1.5}
+.page{--orange:#f8dc03;--indigo:#1ed2f4;--ink:#11131a;--lavender:#e9ecff;--cream:#fff5e8;min-height:100vh;padding:30px 44px 60px;background:var(--cream);color:var(--ink);font-family:var(--font-rethink),"Rethink Sans",Arial,sans-serif;line-height:1.5}
 .page *{box-sizing:border-box}
 .page :focus-visible{outline:4px solid var(--indigo);outline-offset:4px}
 .topBar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;width:min(1180px,100%);min-height:50px;margin:0 auto;padding-bottom:26px;border-bottom:2px solid rgb(17 19 26 / 10%)}

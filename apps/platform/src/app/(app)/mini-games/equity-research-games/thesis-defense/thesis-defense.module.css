@@ -5,7 +5,7 @@
 .resultEyebrow,
 .transcriptSpeaker {
   margin: 0;
-  color: #293cd3;
+  color: #1ed2f4;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -37,7 +37,7 @@
   place-items: center;
   overflow: hidden;
   padding: 42px;
-  background: #293cd3;
+  background: #1ed2f4;
 }
 
 .introVisual::before,
@@ -53,7 +53,7 @@
   width: 170px;
   height: 170px;
   border-radius: 50%;
-  background: #f4622a;
+  background: #f8dc03;
 }
 
 .introVisual::after {
@@ -96,7 +96,7 @@
 
 .pmSeat {
   top: -28px;
-  background: #f4622a;
+  background: #f8dc03;
 }
 
 .analystSeat {
@@ -165,7 +165,7 @@
 .introBrief {
   margin: 22px 0 24px;
   padding: 16px 18px;
-  border-left: 5px solid #f4622a;
+  border-left: 5px solid #f8dc03;
   border-radius: 0 14px 14px 0;
   background: #e9ecff;
 }
@@ -188,7 +188,7 @@
   padding: 13px 23px;
   border: 2px solid #11131a;
   border-radius: 12px;
-  background: #f4622a;
+  background: #f8dc03;
   color: #fff;
   cursor: pointer;
   font: inherit;
@@ -215,7 +215,7 @@
 
 .primaryButton:focus-visible,
 .answerOption:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 36%);
+  outline: 4px solid rgb(30 210 244 / 36%);
   outline-offset: 4px;
 }
 
@@ -276,7 +276,7 @@
 
 .questionCount {
   margin: 0;
-  color: #293cd3;
+  color: #1ed2f4;
   font-size: 12px;
   font-weight: 850;
   letter-spacing: 0.13em;
@@ -301,13 +301,13 @@
 }
 
 .progressSteps li[data-state="complete"] {
-  border-color: #293cd3;
-  background: #293cd3;
+  border-color: #1ed2f4;
+  background: #1ed2f4;
 }
 
 .progressSteps li[data-state="current"] {
   border-color: #11131a;
-  background: #f4622a;
+  background: #f8dc03;
 }
 
 .pmQuestionPanel,
@@ -337,7 +337,7 @@
   place-items: center;
   border: 2px solid #11131a;
   border-radius: 50%;
-  background: #293cd3;
+  background: #1ed2f4;
   color: #fff;
   font-size: 12px;
   font-weight: 850;
@@ -424,7 +424,7 @@
 
 .answerOption:hover:not(:disabled) {
   transform: translateY(-1px);
-  border-color: #293cd3;
+  border-color: #1ed2f4;
 }
 
 .answerOption:disabled {
@@ -434,7 +434,7 @@
 
 .answerOption[data-selected="true"] {
   border-color: #11131a;
-  background: #f4622a;
+  background: #f8dc03;
   box-shadow: 3px 3px 0 #11131a;
   opacity: 1;
 }
@@ -454,7 +454,7 @@
 
 .reactionPanel {
   padding: clamp(24px, 3vw, 32px);
-  border-left: 8px solid #293cd3;
+  border-left: 8px solid #1ed2f4;
   background: #e9ecff;
   animation: reactionEnter 220ms ease-out both;
 }
@@ -490,9 +490,9 @@
   padding: clamp(32px, 4.5vw, 50px);
   border: 2px solid #11131a;
   border-radius: 26px;
-  background: #293cd3;
+  background: #1ed2f4;
   color: #fff;
-  box-shadow: 9px 9px 0 #f4622a;
+  box-shadow: 9px 9px 0 #f8dc03;
 }
 
 .assessmentHeader::after {
@@ -513,7 +513,7 @@
 }
 
 .assessmentHeader[data-ending="skeptical"] {
-  background: #293cd3;
+  background: #1ed2f4;
 }
 
 .resultEyebrow,
@@ -611,7 +611,7 @@
 
 .transcriptNumber {
   margin: 2px 0 0;
-  color: #293cd3;
+  color: #1ed2f4;
   font-size: 11px;
   font-weight: 850;
   letter-spacing: 0.11em;

@@ -20,7 +20,7 @@
 }
 
 .shellSwitchButton:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 25%);
+  outline: 4px solid rgb(30 210 244 / 25%);
   outline-offset: 3px;
 }
 
@@ -226,7 +226,7 @@
   width: fit-content;
   margin: 15px auto 0;
   padding: 7px 11px;
-  border: 1px solid rgb(244 98 42 / 34%);
+  border: 1px solid rgb(248 220 3 / 34%);
   border-radius: 999px;
   background: rgb(255 255 255 / 60%);
   color: var(--orange);
@@ -316,7 +316,7 @@
 }
 
 .judgmentActions button:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 25%);
+  outline: 4px solid rgb(30 210 244 / 25%);
   outline-offset: 3px;
 }
 
@@ -335,7 +335,7 @@
   height: 9px;
   border-radius: 50%;
   background: var(--orange);
-  box-shadow: 0 0 0 5px rgb(244 98 42 / 13%);
+  box-shadow: 0 0 0 5px rgb(248 220 3 / 13%);
 }
 
 .liveInstruction {
@@ -378,7 +378,7 @@
 }
 
 .liveToolbar button:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 26%);
+  outline: 4px solid rgb(30 210 244 / 26%);
   outline-offset: 3px;
 }
 
@@ -460,7 +460,7 @@
 }
 
 .nextMessageButton:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 24%);
+  outline: 4px solid rgb(30 210 244 / 24%);
   outline-offset: 3px;
 }
 
@@ -514,7 +514,7 @@
 .transcriptLine[data-active] {
   border-color: var(--ink);
   color: var(--ink);
-  box-shadow: 5px 5px 0 rgb(41 60 211 / 22%);
+  box-shadow: 5px 5px 0 rgb(30 210 244 / 22%);
 }
 
 .transcriptLine[data-flagged] {
@@ -583,7 +583,7 @@
 
 .flagButton:focus-visible {
   border-radius: 8px;
-  outline: 4px solid rgb(244 98 42 / 28%);
+  outline: 4px solid rgb(248 220 3 / 28%);
   outline-offset: 7px;
 }
 

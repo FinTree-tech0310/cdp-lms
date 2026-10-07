@@ -208,7 +208,7 @@ export function ThePitchSprint() {
               <p className={styles.inputHint}>Click or use keyboard</p>
               <VcPrimaryButton
                 beam
-                beamColor="#f4622a"
+                beamColor="#f8dc03"
                 className={styles.startButton}
                 onClick={startSprint}
               >

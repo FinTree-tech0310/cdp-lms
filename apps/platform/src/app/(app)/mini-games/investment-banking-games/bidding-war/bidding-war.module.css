@@ -1,24 +1,24 @@
 .shellStatus { margin: 0; font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
-.eyebrow { margin: 0; color: #293cd3; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.eyebrow { margin: 0; color: #1ed2f4; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
 
 .intro { display: grid; grid-template-columns: minmax(300px,.82fr) minmax(430px,1.18fr); width: min(1180px,100%); min-height: min(700px,calc(100dvh - 168px)); margin: 0 auto; overflow: hidden; border: 2px solid #11131a; border-radius: 28px; background: #fff5e8; box-shadow: 12px 12px 0 rgba(17,19,26,.12); }
-.introArt { position: relative; display: grid; min-height: 500px; place-items: center; overflow: hidden; background: #293cd3; }
-.bidSheet { display: grid; width: min(72%,340px); padding: 28px; transform: rotate(-3deg); border: 3px solid #11131a; border-radius: 18px; background: #fff5e8; box-shadow: 12px 12px 0 #f4622a; gap: 15px; }
+.introArt { position: relative; display: grid; min-height: 500px; place-items: center; overflow: hidden; background: #1ed2f4; }
+.bidSheet { display: grid; width: min(72%,340px); padding: 28px; transform: rotate(-3deg); border: 3px solid #11131a; border-radius: 18px; background: #fff5e8; box-shadow: 12px 12px 0 #f8dc03; gap: 15px; }
 .bidSheet span,.bidSheet b { font-size: 12px; font-weight: 900; letter-spacing: .1em; }
-.bidSheet strong { color: #293cd3; font-size: clamp(48px,7vw,82px); line-height: 1; letter-spacing: -.015em; }
+.bidSheet strong { color: #1ed2f4; font-size: clamp(48px,7vw,82px); line-height: 1; letter-spacing: -.015em; }
 .bidSheet i { height: 10px; border-bottom: 2px solid #11131a; }
-.gavelMark { position: absolute; right: 24px; bottom: 24px; display: grid; width: 86px; height: 86px; place-items: center; border: 3px solid #11131a; border-radius: 50%; background: #f4622a; color: white; }
+.gavelMark { position: absolute; right: 24px; bottom: 24px; display: grid; width: 86px; height: 86px; place-items: center; border: 3px solid #11131a; border-radius: 50%; background: #f8dc03; color: white; }
 .gavelMark svg { width: 42px; height: 42px; }
 .introCopy { display: flex; flex-direction: column; justify-content: center; padding: clamp(36px,6vw,68px); }
 .introCopy h1 { max-width: 700px; margin: 12px 0 18px; font-size: clamp(44px,5.2vw,70px); font-weight: 820; letter-spacing: -.015em; line-height: .96; }
 .introCopy > p:not(.eyebrow) { margin: 0; color: rgba(17,19,26,.75); font-size: clamp(18px,2vw,22px); line-height: 1.5; }
-.introBrief { margin: 26px 0; padding: 18px 22px; border-left: 5px solid #f4622a; border-radius: 0 15px 15px 0; background: #e9ecff; }
+.introBrief { margin: 26px 0; padding: 18px 22px; border-left: 5px solid #f8dc03; border-radius: 0 15px 15px 0; background: #e9ecff; }
 .introBrief strong { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
 .introBrief ul { margin: 10px 0 0; padding-left: 20px; color: rgba(17,19,26,.76); font-size: 15px; line-height: 1.5; }
 .introBrief li + li { margin-top: 7px; }
 
 .primaryButton,.secondaryButton,.walkButton { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; gap: 9px; padding: 12px 22px; border: 2px solid #11131a; border-radius: 12px; font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; transition: transform 150ms ease,box-shadow 150ms ease; }
-.primaryButton { position: relative; align-self: flex-start; overflow: hidden; background: #f4622a; color: white; box-shadow: 5px 5px 0 #11131a; }
+.primaryButton { position: relative; align-self: flex-start; overflow: hidden; background: #f8dc03; color: white; box-shadow: 5px 5px 0 #11131a; }
 .primaryButton > * { position: relative; z-index: 1; }
 .secondaryButton { background: white; color: #11131a; }
 .walkButton { background: #fff5e8; color: #11131a; }
@@ -26,22 +26,22 @@
 .primaryButton:hover { box-shadow: 7px 7px 0 #11131a; }
 .primaryButton:active,.secondaryButton:active,.walkButton:active { transform: translateY(1px); }
 .primaryButton svg,.secondaryButton svg,.walkButton svg { width: 18px; height: 18px; }
-.primaryButton:focus-visible,.secondaryButton:focus-visible,.walkButton:focus-visible,.rangeInput:focus-visible { outline: 4px solid rgba(41,60,211,.32); outline-offset: 4px; }
+.primaryButton:focus-visible,.secondaryButton:focus-visible,.walkButton:focus-visible,.rangeInput:focus-visible { outline: 4px solid rgba(30,210,244,.32); outline-offset: 4px; }
 
 .bidDesk,.endingPage { width: min(1360px,100%); margin: 18px auto 38px; }
 .pageHeading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
 .pageHeading h1 { margin: 4px 0 0; font-size: clamp(44px,5vw,70px); font-weight: 820; letter-spacing: -.015em; line-height: .95; }
 .roundProgress { display: flex; align-items: center; gap: 8px; }
 .roundProgress span { display: grid; width: 32px; height: 32px; place-items: center; border: 2px solid rgba(17,19,26,.24); border-radius: 50%; color: rgba(17,19,26,.55); font-size: 13px; font-weight: 850; }
-.roundProgress span.roundActive { border-color: #11131a; background: #f4622a; color: #11131a; }
+.roundProgress span.roundActive { border-color: #11131a; background: #f8dc03; color: #11131a; }
 .roundProgress strong { margin-left: 6px; font-size: 14px; }
 .deskGrid { display: grid; grid-template-columns: minmax(285px,325px) minmax(0,1fr); align-items: start; gap: 22px; }
 .referenceRail { position: sticky; top: 18px; display: grid; gap: 16px; }
 .assetCard,.authorizationCard,.auctionPanel,.bidEditor,.walkConfirmation,.responsePanel,.forcedPanel,.dropPanel,.compactHistory,.fullHistory,.valuationReveal { border: 1px solid rgba(17,19,26,.13); border-radius: 22px; box-shadow: 0 12px 34px rgba(17,19,26,.08); }
 .assetCard,.authorizationCard { padding: 24px; background: #fff5e8; }
-.authorizationCard { border: 2px solid #11131a; background: #f4622a; box-shadow: 5px 5px 0 #11131a; }
+.authorizationCard { border: 2px solid #11131a; background: #f8dc03; box-shadow: 5px 5px 0 #11131a; }
 .panelHeading { display: flex; align-items: flex-start; gap: 12px; }
-.panelHeading svg { flex: 0 0 auto; width: 22px; height: 22px; color: #293cd3; }
+.panelHeading svg { flex: 0 0 auto; width: 22px; height: 22px; color: #1ed2f4; }
 .authorizationCard .panelHeading svg { color: #11131a; }
 .panelHeading p { margin: 0 0 3px; font-size: 11px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
 .panelHeading h2 { margin: 0; font-size: 20px; line-height: 1.15; }
@@ -52,7 +52,7 @@
 
 .auctionPanel { display: flex; min-height: 430px; flex-direction: column; align-items: center; justify-content: center; padding: clamp(26px,3.5vw,42px); border: 2px solid #11131a; background: white; text-align: center; }
 .auctionPanel h2 { margin: 5px 0 0; font-size: 22px; font-weight: 820; }
-.leadingBid { margin: 22px 0 4px; color: #293cd3; font-size: clamp(72px,9.5vw,128px); font-weight: 850; letter-spacing: -.018em; line-height: .88; }
+.leadingBid { margin: 22px 0 4px; color: #1ed2f4; font-size: clamp(72px,9.5vw,128px); font-weight: 850; letter-spacing: -.018em; line-height: .88; }
 .leadingOwner { margin: 14px 0 26px; color: rgba(17,19,26,.64); font-size: 15px; }
 .decisionActions { display: flex; justify-content: center; gap: 12px; }
 .decisionActions .primaryButton,.decisionActions .walkButton { min-width: 170px; }
@@ -60,22 +60,22 @@
 .bidEditor,.walkConfirmation { padding: clamp(24px,4vw,40px); background: white; }
 .bidEditor > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid rgba(17,19,26,.1); }
 .bidEditor h3,.walkConfirmation h3 { margin: 5px 0 0; font-size: clamp(28px,3vw,38px); letter-spacing: -.018em; }
-.bidEditor > header > strong { color: #293cd3; font-size: clamp(34px,5vw,58px); letter-spacing: -.015em; }
+.bidEditor > header > strong { color: #1ed2f4; font-size: clamp(34px,5vw,58px); letter-spacing: -.015em; }
 .bidBounds { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin: 20px 0; }
 .bidBounds div { padding: 14px 16px; border-radius: 12px; background: #e9ecff; }
 .bidBounds dt { color: rgba(17,19,26,.57); font-size: 11px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
 .bidBounds dd { margin: 5px 0 0; font-size: 20px; font-weight: 820; }
 .rangeLabel { display: block; font-size: 13px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
-.rangeInput { width: 100%; height: 32px; margin: 16px 0 2px; accent-color: #f4622a; cursor: pointer; }
+.rangeInput { width: 100%; height: 32px; margin: 16px 0 2px; accent-color: #f8dc03; cursor: pointer; }
 .rangeEnds { display: flex; justify-content: space-between; color: rgba(17,19,26,.6); font-size: 13px; font-weight: 750; }
 .editorActions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
 .walkConfirmation > p { max-width: 650px; margin: 16px 0 0; color: rgba(17,19,26,.72); font-size: 16px; line-height: 1.55; }
 
-.responsePanel,.forcedPanel,.dropPanel { position: relative; display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 22px; overflow: hidden; padding: clamp(24px,3vw,34px); border: 2px solid #11131a; background: #e9ecff; box-shadow: 8px 8px 0 #293cd3; animation: event-in 260ms cubic-bezier(.2,.8,.2,1) both; }
-.responsePanel::before,.forcedPanel::before,.dropPanel::before { position: absolute; inset: 0 auto 0 0; width: 7px; background: #293cd3; content: ""; }
-.forcedPanel::before { background: #f4622a; }
-.dropPanel::before { background: #f4622a; }
-.responseIcon { display: grid; width: 54px; height: 54px; place-items: center; border: 2px solid #11131a; border-radius: 50%; background: #f4622a; box-shadow: 3px 3px 0 #11131a; }
+.responsePanel,.forcedPanel,.dropPanel { position: relative; display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 22px; overflow: hidden; padding: clamp(24px,3vw,34px); border: 2px solid #11131a; background: #e9ecff; box-shadow: 8px 8px 0 #1ed2f4; animation: event-in 260ms cubic-bezier(.2,.8,.2,1) both; }
+.responsePanel::before,.forcedPanel::before,.dropPanel::before { position: absolute; inset: 0 auto 0 0; width: 7px; background: #1ed2f4; content: ""; }
+.forcedPanel::before { background: #f8dc03; }
+.dropPanel::before { background: #f8dc03; }
+.responseIcon { display: grid; width: 54px; height: 54px; place-items: center; border: 2px solid #11131a; border-radius: 50%; background: #f8dc03; box-shadow: 3px 3px 0 #11131a; }
 .responseIcon svg { width: 26px; height: 26px; }
 .responsePanel h2,.forcedPanel h2,.dropPanel h2 { margin: 5px 0 8px; font-size: clamp(30px,4vw,48px); font-weight: 830; letter-spacing: -.024em; }
 .responsePanel h2:focus,.forcedPanel h2:focus,.dropPanel h2:focus { outline: none; }
@@ -91,17 +91,17 @@
 .historyGrid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
 .historyCard { min-width: 0; padding: 16px; border: 1px solid rgba(17,19,26,.14); border-radius: 14px; background: white; }
 .historyCard header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-bottom: 10px; border-bottom: 1px solid rgba(17,19,26,.1); }
-.historyCard header span { color: #293cd3; font-size: 10px; font-weight: 850; text-align: right; text-transform: uppercase; }
+.historyCard header span { color: #1ed2f4; font-size: 10px; font-weight: 850; text-align: right; text-transform: uppercase; }
 .historyCard dl { display: grid; gap: 8px; margin: 11px 0 0; }
 .historyCard dl div { display: flex; justify-content: space-between; gap: 12px; }
 .historyCard dt { color: rgba(17,19,26,.58); font-size: 12px; }
 .historyCard dd { margin: 0; font-size: 14px; font-weight: 800; text-align: right; }
 
 .endingPage { display: grid; max-width: 1160px; gap: 22px; animation: event-in 300ms cubic-bezier(.2,.8,.2,1) both; }
-.endingHero { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 26px; padding: clamp(32px,5vw,58px); border: 2px solid #11131a; border-radius: 28px; background: #293cd3; color: white; box-shadow: 10px 10px 0 #f4622a; }
+.endingHero { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 26px; padding: clamp(32px,5vw,58px); border: 2px solid #11131a; border-radius: 28px; background: #1ed2f4; color: white; box-shadow: 10px 10px 0 #f8dc03; }
 .endingHero[data-outcome="walked-away"] { background: #e9ecff; color: #11131a; }
 .endingHero .eyebrow { color: inherit; opacity: .72; }
-.endingIcon { display: grid; width: 82px; height: 82px; place-items: center; border: 2px solid #11131a; border-radius: 50%; background: #f4622a; color: #11131a; }
+.endingIcon { display: grid; width: 82px; height: 82px; place-items: center; border: 2px solid #11131a; border-radius: 50%; background: #f8dc03; color: #11131a; }
 .endingIcon svg { width: 40px; height: 40px; }
 .endingHero h1 { margin: 8px 0 13px; font-size: clamp(42px,6vw,72px); font-weight: 830; letter-spacing: -.015em; line-height: .94; }
 .endingHero h1:focus { outline: none; }

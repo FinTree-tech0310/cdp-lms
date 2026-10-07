@@ -9,7 +9,7 @@
 
 .eyebrow {
   margin: 0;
-  color: #293cd3;
+  color: #1ed2f4;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.11em;
@@ -35,7 +35,7 @@
   min-height: 500px;
   place-items: center;
   overflow: hidden;
-  background: #293cd3;
+  background: #1ed2f4;
 }
 
 .termSheet {
@@ -46,7 +46,7 @@
   border: 3px solid #11131a;
   border-radius: 18px;
   background: #fff5e8;
-  box-shadow: 12px 12px 0 #f4622a;
+  box-shadow: 12px 12px 0 #f8dc03;
   gap: 18px;
 }
 
@@ -74,7 +74,7 @@
   place-items: center;
   border: 3px solid #11131a;
   border-radius: 50%;
-  background: #f4622a;
+  background: #f8dc03;
   color: white;
 }
 
@@ -108,7 +108,7 @@
 .introBrief {
   margin: 28px 0;
   padding: 22px 24px;
-  border-left: 5px solid #f4622a;
+  border-left: 5px solid #f8dc03;
   border-radius: 0 15px 15px 0;
   background: #e9ecff;
 }
@@ -130,7 +130,7 @@
   padding: 0 24px;
   border: 2px solid #11131a;
   border-radius: 999px;
-  background: #f4622a;
+  background: #f8dc03;
   color: white;
   font: inherit;
   font-size: 15px;
@@ -149,7 +149,7 @@
 .primaryButton:focus-visible,
 .segmentedControl button:focus-visible,
 .rangeInput:focus-visible {
-  outline: 4px solid #293cd3;
+  outline: 4px solid #1ed2f4;
   outline-offset: 4px;
 }
 
@@ -170,7 +170,7 @@
 .roundHeader h1 { margin: 4px 0 0; color: #11131a; font-size: clamp(44px, 5vw, 70px); font-weight: 820; line-height: 0.95; letter-spacing: -0.015em; }
 .roundProgress { display: flex; align-items: center; gap: 8px; }
 .roundProgress span { display: grid; width: 32px; height: 32px; place-items: center; border: 2px solid rgba(17,19,26,.25); border-radius: 50%; color: rgba(17,19,26,.55); font-size: .82rem; font-weight: 850; }
-.roundProgress span.roundActive { border-color: #11131a; background: #f4622a; color: #11131a; }
+.roundProgress span.roundActive { border-color: #11131a; background: #f8dc03; color: #11131a; }
 .roundProgress strong { margin-left: 8px; font-size: 14px; }
 
 .deskGrid { display: grid; grid-template-columns: minmax(285px, 325px) minmax(0, 1fr); align-items: start; gap: 22px; }
@@ -193,12 +193,12 @@
 .sellerPriorities {
   border: 2px solid #11131a;
   border-radius: 22px;
-  background: #f4622a;
+  background: #f8dc03;
   box-shadow: 5px 5px 0 #11131a;
 }
 .buyerNote { background: #e9ecff; }
 .panelHeading { display: flex; align-items: center; gap: 12px; }
-.panelHeading svg { width: 22px; height: 22px; color: #293cd3; }
+.panelHeading svg { width: 22px; height: 22px; color: #1ed2f4; }
 .panelHeading p { margin: 0 0 2px; color: rgba(17,19,26,.58); font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .panelHeading h2 { margin: 0; font-size: 20px; font-weight: 820; }
 .contextText,
@@ -221,28 +221,28 @@
 .leverHeader label,
 .leverHeader legend { padding: 0; color: rgba(17,19,26,.68); font-size: 13px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
 .leverHeader strong { color: #11131a; font-size: clamp(20px, 2vw, 25px); text-align: right; }
-.rangeInput { width: 100%; height: 30px; margin: 24px 0 4px; accent-color: #f4622a; cursor: pointer; }
+.rangeInput { width: 100%; height: 30px; margin: 24px 0 4px; accent-color: #f8dc03; cursor: pointer; }
 .rangeInput:disabled { cursor: default; opacity: .65; }
 .rangeLabels { display: flex; justify-content: space-between; color: rgba(17,19,26,.62); font-size: 13px; font-weight: 750; }
 .segmentedControl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 20px; }
 .segmentedControl button { display: flex; min-height: 56px; align-items: center; justify-content: center; gap: 8px; padding: 9px 12px; border: 1px solid rgba(17,19,26,.2); border-radius: 12px; background: white; color: #11131a; font: inherit; font-size: 15px; font-weight: 780; cursor: pointer; transition: transform 140ms ease, border-color 140ms ease, background 140ms ease; }
-.segmentedControl button:hover:not(:disabled) { transform: translateY(-2px); border-color: #293cd3; }
-.segmentedControl button.segmentActive { border: 2px solid #11131a; background: #f4622a; box-shadow: 3px 3px 0 #11131a; }
+.segmentedControl button:hover:not(:disabled) { transform: translateY(-2px); border-color: #1ed2f4; }
+.segmentedControl button.segmentActive { border: 2px solid #11131a; background: #f8dc03; box-shadow: 3px 3px 0 #11131a; }
 .segmentedControl button:disabled { cursor: default; opacity: .8; }
 .submitRow { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 24px; }
 .submitRow p { max-width: 470px; margin: 0; color: rgba(17,19,26,.64); font-size: 15px; line-height: 1.5; }
 
 .responseRegion { scroll-margin-top: 24px; }
-.responsePanel { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 22px; overflow: hidden; padding: clamp(24px, 3vw, 34px); border: 2px solid #11131a; border-radius: 22px; background: #e9ecff; color: #11131a; box-shadow: 8px 8px 0 #293cd3; animation: response-in 260ms cubic-bezier(.2,.8,.2,1) both; }
-.responsePanel::before { position: absolute; inset: 0 auto 0 0; width: 7px; background: #293cd3; content: ""; }
-.responseIcon { display: grid; width: 54px; height: 54px; place-items: center; border: 2px solid #11131a; border-radius: 50%; background: #f4622a; color: #11131a; box-shadow: 3px 3px 0 #11131a; }
+.responsePanel { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 22px; overflow: hidden; padding: clamp(24px, 3vw, 34px); border: 2px solid #11131a; border-radius: 22px; background: #e9ecff; color: #11131a; box-shadow: 8px 8px 0 #1ed2f4; animation: response-in 260ms cubic-bezier(.2,.8,.2,1) both; }
+.responsePanel::before { position: absolute; inset: 0 auto 0 0; width: 7px; background: #1ed2f4; content: ""; }
+.responseIcon { display: grid; width: 54px; height: 54px; place-items: center; border: 2px solid #11131a; border-radius: 50%; background: #f8dc03; color: #11131a; box-shadow: 3px 3px 0 #11131a; }
 .responseIcon svg { width: 26px; height: 26px; }
-.responsePanel .eyebrow { color: #293cd3; }
+.responsePanel .eyebrow { color: #1ed2f4; }
 .responseBody h2 { margin: 5px 0 10px; color: #11131a; font-size: clamp(27px, 3vw, 38px); font-weight: 820; letter-spacing: -.012em; }
 .responseBody h2:focus { outline: none; }
 .responseCopy { margin: 0; color: rgba(17,19,26,.82); font-size: clamp(16px, 1.4vw, 18px); line-height: 1.58; }
 .responseGuidance { margin: 12px 0 0; color: rgba(17,19,26,.62); font-size: 14px; }
-.responsePanel .primaryButton { flex-shrink: 0; background: #f4622a; box-shadow: 4px 4px 0 #11131a; }
+.responsePanel .primaryButton { flex-shrink: 0; background: #f8dc03; box-shadow: 4px 4px 0 #11131a; }
 
 .compactHistory,
 .fullHistory { padding: 24px; }
@@ -251,15 +251,15 @@
 .historyGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .historyCard { min-width: 0; padding: 16px; border: 1px solid rgba(17,19,26,.13); border-radius: 14px; background: white; }
 .historyCard header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-bottom: 11px; border-bottom: 1px solid rgba(17,19,26,.1); }
-.historyCard header span { color: #293cd3; font-size: 11px; font-weight: 850; text-align: right; text-transform: uppercase; }
+.historyCard header span { color: #1ed2f4; font-size: 11px; font-weight: 850; text-align: right; text-transform: uppercase; }
 .historyCard dl { display: grid; gap: 9px; margin: 12px 0 0; }
 .historyCard dl div { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .historyCard dt { color: rgba(17,19,26,.6); font-size: 12px; }
 .historyCard dd { margin: 0; font-size: 14px; font-weight: 800; text-align: right; }
 
 .endingPage { display: grid; gap: 22px; max-width: 1160px; animation: response-in 300ms cubic-bezier(.2,.8,.2,1) both; }
-.endingHero { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 26px; padding: clamp(30px, 5vw, 60px); border: 2px solid #11131a; border-radius: 28px; background: #11131a; color: white; box-shadow: 10px 10px 0 #f4622a; }
-.endingIcon { display: grid; width: 86px; height: 86px; place-items: center; border-radius: 50%; background: #f4622a; color: #11131a; }
+.endingHero { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 26px; padding: clamp(30px, 5vw, 60px); border: 2px solid #11131a; border-radius: 28px; background: #11131a; color: white; box-shadow: 10px 10px 0 #f8dc03; }
+.endingIcon { display: grid; width: 86px; height: 86px; place-items: center; border-radius: 50%; background: #f8dc03; color: #11131a; }
 .endingIcon svg { width: 42px; height: 42px; }
 .endingHero .eyebrow { color: #aeb7ff; }
 .endingHero h1 { margin: 8px 0 13px; color: white; font-size: clamp(42px, 6vw, 72px); font-weight: 820; line-height: .94; letter-spacing: -.015em; }
@@ -270,7 +270,7 @@
   padding: 24px 28px;
   border: 2px solid #11131a;
   border-radius: 20px;
-  background: #f4622a;
+  background: #f8dc03;
   box-shadow: 6px 6px 0 #11131a;
 }
 .endingPriorities h2 { margin: 5px 0 10px; font-size: 24px; font-weight: 820; }

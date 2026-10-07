@@ -2,8 +2,8 @@ import type { InvestmentBankingGameSlug } from "../_data/games";
 import styles from "../investment-banking-games.module.css";
 
 const INK = "#11131a";
-const ORANGE = "#f4622a";
-const INDIGO = "#293cd3";
+const ORANGE = "#f8dc03";
+const INDIGO = "#1ed2f4";
 const LAVENDER = "#e9ecff";
 const CREAM = "#fff5e8";
 const WHITE = "#ffffff";

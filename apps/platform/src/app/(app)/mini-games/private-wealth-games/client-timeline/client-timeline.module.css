@@ -68,7 +68,7 @@
   border: 5px solid var(--indigo);
   border-radius: 50%;
   background: var(--cream);
-  box-shadow: 3px 4px 0 rgb(41 60 211 / 14%);
+  box-shadow: 3px 4px 0 rgb(30 210 244 / 14%);
 }
 
 .introTimelineMark span:nth-child(2) {
@@ -130,7 +130,7 @@
   width: 150px;
   height: 168px;
   border-radius: 29px;
-  box-shadow: 7px 8px 0 rgb(244 98 42 / 15%), 0 14px 28px rgb(17 19 26 / 11%);
+  box-shadow: 7px 8px 0 rgb(248 220 3 / 15%), 0 14px 28px rgb(17 19 26 / 11%);
 }
 
 .clientIntroPanel h1 {
@@ -249,7 +249,7 @@
 .timelineRail li[data-status="current"] .markerDot {
   border-color: var(--orange);
   background: var(--orange);
-  box-shadow: 0 0 0 5px var(--lavender), 0 5px 0 rgb(244 98 42 / 18%);
+  box-shadow: 0 0 0 5px var(--lavender), 0 5px 0 rgb(248 220 3 / 18%);
 }
 
 .timelineRail li[data-status="completed"] { color: var(--indigo); }
@@ -286,7 +286,7 @@
   height: 69px;
   border-width: 2px;
   border-radius: 17px;
-  box-shadow: 3px 4px 0 rgb(41 60 211 / 11%);
+  box-shadow: 3px 4px 0 rgb(30 210 244 / 11%);
 }
 
 .stopIdentity p {
@@ -513,7 +513,7 @@
   width: 108px;
   height: 120px;
   border-radius: 23px;
-  box-shadow: 5px 6px 0 rgb(244 98 42 / 15%);
+  box-shadow: 5px 6px 0 rgb(248 220 3 / 15%);
 }
 
 .endingHeader h1 {
@@ -578,7 +578,7 @@
 .continueButton:focus-visible,
 .ttsButton:focus-visible,
 .rateControl select:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 30%);
+  outline: 4px solid rgb(30 210 244 / 30%);
   outline-offset: 3px;
 }
 

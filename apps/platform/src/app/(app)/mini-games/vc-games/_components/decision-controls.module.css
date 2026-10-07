@@ -24,7 +24,7 @@
 }
 
 .decisionButton:focus-visible {
-  outline: 4px solid rgb(41 60 211 / 28%);
+  outline: 4px solid rgb(30 210 244 / 28%);
   outline-offset: 4px;
 }
 
