@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { MiniGameCardLink } from "@/components/mini-games/MiniGameCardLink";
 import Image from "next/image";
 
 import type { VcGame } from "../_data/games";
@@ -10,7 +10,7 @@ interface VcGameCardProps {
 
 export function VcGameCard({ game }: VcGameCardProps) {
   return (
-    <Link
+    <MiniGameCardLink
       href={`/mini-games/vc-games/${game.slug}`}
       className={`${styles.card} ${styles[game.tone]}`}
       data-game={game.slug}
@@ -33,6 +33,6 @@ export function VcGameCard({ game }: VcGameCardProps) {
           <span className={styles.cardTitleAccent}>{game.titleLines[1]}</span>
         </span>
       </span>
-    </Link>
+    </MiniGameCardLink>
   );
 }

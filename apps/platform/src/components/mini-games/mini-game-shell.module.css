@@ -5,10 +5,10 @@
   --lavender: #e9ecff;
   --cream: #fff5e8;
   --vc-display-weight: 820;
-  --vc-display-tracking: -0.052em;
+  --vc-display-tracking: 0.01em;
   --vc-display-leading: 0.96;
   --vc-heading-weight: 820;
-  --vc-heading-tracking: -0.04em;
+  --vc-heading-tracking: 0.01em;
   --vc-eyebrow-weight: 800;
   --vc-eyebrow-tracking: 0.18em;
   min-height: 100vh;
@@ -75,4 +75,26 @@
   min-height: 1px;
   align-items: center;
   justify-content: flex-end;
+}
+
+@media (max-width: 720px) {
+  .topBar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+  }
+
+  .backLink,
+  .backButton {
+    white-space: normal;
+  }
+
+  .gameLabel {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .rightContent {
+    grid-column: 2;
+    grid-row: 1;
+  }
 }

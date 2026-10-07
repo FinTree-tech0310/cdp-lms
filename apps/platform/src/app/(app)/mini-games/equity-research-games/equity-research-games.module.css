@@ -38,7 +38,7 @@
   margin: 0;
   font-size: clamp(44px, 4.5vw, 68px);
   font-weight: 850;
-  letter-spacing: -0.032em;
+  letter-spacing: 0.01em;
   line-height: 0.95;
   word-spacing: 0.06em;
   animation-delay: 40ms;
@@ -240,7 +240,7 @@ a.gameCard:focus-visible .cardArt { transform: translate(4px, -3px) rotate(1deg)
   flex-direction: column;
   font-size: clamp(23px, 2.2vw, 31px);
   font-weight: 850;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.01em;
   line-height: 0.98;
   word-spacing: 0.07em;
 }

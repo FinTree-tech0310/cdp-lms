@@ -75,7 +75,7 @@
 .artRouteOne { top: 25%; }.artRouteTwo { top: 47%; background: var(--cream); }.artRouteThree { top: 69%; }
 
 .introCopy { display: flex; flex-direction: column; justify-content: center; padding: clamp(36px, 5vw, 62px); }
-.introCopy h1,.workspaceHeader h1,.resultsHeader h1 { max-width: 610px; margin: 12px 0 18px; font-size: clamp(39px, 4.6vw, 60px); font-weight: 800; letter-spacing: -.025em; line-height: 1.06; text-wrap: balance; }
+.introCopy h1,.workspaceHeader h1,.resultsHeader h1 { max-width: 610px; margin: 12px 0 18px; font-size: clamp(39px, 4.6vw, 60px); font-weight: 800; letter-spacing: 0.01em; line-height: 1.06; text-wrap: balance; }
 .introDescription { max-width: 550px; margin: 0; color: rgb(17 19 26 / 75%); font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; }
 .introBrief { margin: 26px 0; padding: 18px 22px; border-left: 5px solid var(--orange); border-radius: 0 14px 14px 0; background: var(--lavender); }
 .introBrief p { margin: 0; font-size: 15px; line-height: 1.55; }.introBrief p + p { margin-top: 8px; }
@@ -93,11 +93,11 @@
 .queueContext { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 24px; margin-bottom: 24px; padding: 24px 28px; border: 2px solid var(--ink); border-radius: 20px; background: var(--lavender); }
 .queueContext > div:first-child > p:last-child,.resultsContext > p:last-child { max-width: 72ch; margin: 8px 0 0; font-size: 17px; line-height: 1.55; }
 .progressPanel { display: grid; min-width: 205px; gap: 7px; padding-left: 24px; border-left: 1px solid rgb(17 19 26 / 20%); }
-.progressPanel strong { font-size: 23px; font-weight: 800; letter-spacing: -.02em; }
+.progressPanel strong { font-size: 23px; font-weight: 800; letter-spacing: 0.01em; }
 .transactionList { display: grid; gap: 20px; }
 .transactionCard,.resultCard { padding: clamp(22px, 3vw, 32px); border: 2px solid var(--ink); border-radius: 22px; background: var(--lavender); }
 .transactionHeading,.resultCardHeading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.transactionHeading h2,.resultCardHeading h2 { margin: 0; font-size: clamp(23px, 2.6vw, 29px); font-weight: 800; letter-spacing: -.025em; line-height: 1.2; }
+.transactionHeading h2,.resultCardHeading h2 { margin: 0; font-size: clamp(23px, 2.6vw, 29px); font-weight: 800; letter-spacing: 0.01em; line-height: 1.2; }
 .assignmentStatus { max-width: 50%; font-size: 14px; font-weight: 750; text-align: right; }
 .signalGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 13px; margin: 24px 0; }
 .signal { min-width: 0; padding: 16px 18px; border: 1px solid rgb(17 19 26 / 20%); border-radius: 13px; background: #fff; }

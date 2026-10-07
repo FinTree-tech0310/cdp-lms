@@ -59,7 +59,7 @@
   margin: 12px 0 18px;
   font-size: clamp(39px, 4.6vw, 60px);
   font-weight: 800;
-  letter-spacing: -.025em;
+  letter-spacing: 0.01em;
   line-height: 1.06;
   text-wrap: balance;
 }
@@ -101,7 +101,7 @@
 .reserveGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 17px 0 30px; }
 .reserveGrid > div { min-width: 0; padding: 17px 18px; border: 1px solid rgb(17 19 26 / 22%); border-radius: 13px; background: #fff; }
 .reserveGrid dt,.outputGrid dt,.resultMetrics dt { color: rgb(17 19 26 / 70%); font-size: 12px; font-weight: 750; letter-spacing: .04em; }
-.reserveGrid dd { margin: 5px 0 0; overflow-wrap: anywhere; font-size: clamp(19px, 2vw, 25px); font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.reserveGrid dd { margin: 5px 0 0; overflow-wrap: anywhere; font-size: clamp(19px, 2vw, 25px); font-weight: 800; letter-spacing: 0.01em; font-variant-numeric: tabular-nums; }
 .swapControl { padding-top: 23px; border-top: 1px solid rgb(17 19 26 / 20%); }
 .swapControlHeading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
 .swapControlHeading label { font-size: 16px; font-weight: 800; }
@@ -113,13 +113,13 @@
 .outputGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; margin: 17px 0 20px; }
 .outputGrid > div { min-width: 0; padding: 17px 18px; border: 1px solid rgb(17 19 26 / 22%); border-radius: 13px; background: #fff; }
 .outputGrid > div:first-child { grid-column: 1 / -1; }
-.outputGrid dd { margin: 7px 0 0; overflow-wrap: anywhere; font-size: clamp(22px, 2.4vw, 30px); font-weight: 800; letter-spacing: -.025em; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.outputGrid dd { margin: 7px 0 0; overflow-wrap: anywhere; font-size: clamp(22px, 2.4vw, 30px); font-weight: 800; letter-spacing: 0.01em; font-variant-numeric: tabular-nums; line-height: 1.2; }
 .outputGrid dd span,.resultMetrics dd span { font-size: .58em; letter-spacing: 0; }
 .modelNote,.submitHelp { max-width: 62ch; margin: 0; color: rgb(17 19 26 / 72%); font-size: 14px; line-height: 1.5; }
 .outputPanel > .primaryButton { margin-top: 24px; }
 .submitHelp { margin-top: 15px; }
 .resultPanel { margin-bottom: 24px; background: var(--cream); }
-.resultPanel > h2 { margin: 0 0 20px; font-size: clamp(22px, 2.5vw, 28px); font-weight: 800; letter-spacing: -.025em; }
+.resultPanel > h2 { margin: 0 0 20px; font-size: clamp(22px, 2.5vw, 28px); font-weight: 800; letter-spacing: 0.01em; }
 .resultMetrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; }
 .resultMetrics > div { min-width: 0; padding: 17px 18px; border: 1px solid rgb(17 19 26 / 22%); border-radius: 13px; background: #fff; }
 .resultMetrics dd { margin: 7px 0 0; overflow-wrap: anywhere; font-size: clamp(18px, 2vw, 24px); font-weight: 800; font-variant-numeric: tabular-nums; }

@@ -146,7 +146,7 @@
   color: #11131a;
   font-size: clamp(40px, 4.6vw, 60px);
   font-weight: 830;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.01em;
   line-height: 0.98;
   text-wrap: balance;
   word-spacing: 0.05em;
@@ -350,7 +350,7 @@
   color: #11131a;
   font-size: clamp(27px, 3vw, 39px);
   font-weight: 820;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.01em;
   line-height: 1.08;
   text-wrap: balance;
   word-spacing: 0.045em;
@@ -380,7 +380,7 @@
   color: #11131a;
   font-size: 21px;
   font-weight: 820;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
 }
 
 .lockedLabel {
@@ -464,7 +464,7 @@
   color: #11131a;
   font-size: 19px;
   font-weight: 820;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
 }
 
 .reactionPanel blockquote {
@@ -546,7 +546,7 @@
   color: #fff;
   font-size: clamp(31px, 4vw, 48px);
   font-weight: 820;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.01em;
   line-height: 1.08;
   text-wrap: balance;
   word-spacing: 0.045em;
@@ -582,7 +582,7 @@
   color: #11131a;
   font-size: clamp(29px, 3vw, 38px);
   font-weight: 830;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.01em;
 }
 
 .reviewHeading > p:last-child {

@@ -36,7 +36,7 @@
   margin: 0;
   font-size: clamp(54px, 5vw, 76px);
   font-weight: 850;
-  letter-spacing: -0.065em;
+  letter-spacing: 0.01em;
   line-height: 0.95;
   animation-delay: 40ms;
 }
@@ -263,7 +263,7 @@
   font-size: clamp(29px, 2.5vw, 37px);
   font-style: normal;
   font-weight: 850;
-  letter-spacing: -0.055em;
+  letter-spacing: 0.01em;
   line-height: 0.9;
 }
 

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { MiniGameCardLink } from "@/components/mini-games/MiniGameCardLink";
 
 import type { EquityResearchGame } from "../_data/games";
 import styles from "../equity-research-games.module.css";
@@ -47,12 +47,12 @@ export function EquityResearchGameCard({
   }
 
   return (
-    <Link
+    <MiniGameCardLink
       href={`/mini-games/equity-research-games/${game.slug}`}
       className={className}
       aria-label={game.title}
     >
       <CardContents game={game} />
-    </Link>
+    </MiniGameCardLink>
   );
 }

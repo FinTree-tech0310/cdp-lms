@@ -5,6 +5,7 @@ import type {
   MiniGameProgressPayload,
 } from "@cdp/types";
 import Link from "next/link";
+import { MiniGameCardLink } from "./MiniGameCardLink";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Gamepad2, Layers, RotateCcw } from "lucide-react";
 
@@ -53,7 +54,7 @@ const HUBS: readonly HubMeta[] = [
   },
   {
     slug: "vc-games",
-    label: "The Deal Room",
+    label: "Venture Capitalist",
     accent: "#f97316",
     accentBg: "#fff7ed",
   },
@@ -145,7 +146,7 @@ export function MiniGamesBoard({ initialProgress }: MiniGamesBoardProps) {
         <span className="inline-block rounded-md bg-[#f8dc03] px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#0e0e0e]">
           Practice
         </span>
-        <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-[#0e0e0e] sm:text-4xl lg:text-[42px] lg:leading-[1.05]">
+        <h1 className="mt-4 text-3xl font-extrabold tracking-[0.01em] text-[#0e0e0e] sm:text-4xl lg:text-[42px] lg:leading-[1.05]">
           Learn by playing.
         </h1>
         <div className="mt-3 h-[3px] w-12 rotate-[-3deg] rounded bg-[#f8dc03]" />
@@ -260,7 +261,7 @@ export function MiniGamesBoard({ initialProgress }: MiniGamesBoardProps) {
           const best = bestLabel(item);
 
           return (
-            <Link
+            <MiniGameCardLink
               key={game.gameId}
               href={game.href}
               className="group flex flex-col rounded-[28px] border-2 border-[#0e0e0e] bg-white p-5 shadow-[6px_6px_0_rgba(14,14,14,0.12)] transition-shadow duration-200 hover:shadow-[6px_6px_0_#f8dc03] sm:p-6"
@@ -310,7 +311,7 @@ export function MiniGamesBoard({ initialProgress }: MiniGamesBoardProps) {
                   />
                 </span>
               </div>
-            </Link>
+            </MiniGameCardLink>
           );
         })}
       </div>

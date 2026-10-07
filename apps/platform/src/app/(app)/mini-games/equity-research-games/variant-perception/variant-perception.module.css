@@ -3,7 +3,7 @@
 .game h1, .game h2, .game h3, .game p { margin: 0; }
 .game button, .game input { font: inherit; }
 .game :focus-visible { outline: 3px solid #1ed2f4; outline-offset: 5px; }
-.game h1 { font-size: clamp(30px, 3.5vw, 46px); font-weight: 750; line-height: 1.15; letter-spacing: -.025em; }
+.game h1 { font-size: clamp(30px, 3.5vw, 46px); font-weight: 750; line-height: 1.15; letter-spacing: 0.01em; }
 .eyebrow { font-size: 12px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; line-height: 1.5; }
 .workspace { max-width: 1180px; margin: 30px auto 0; animation: entrance .22s ease-out; }
 .heading { margin-bottom: 24px; }

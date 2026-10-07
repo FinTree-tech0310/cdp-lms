@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { MiniGameCardLink } from "@/components/mini-games/MiniGameCardLink";
 
 import type { FutureFinanceGame } from "../_data/games";
 import { FutureFinanceCardArt } from "./FutureFinanceCardArt";
@@ -20,9 +20,9 @@ export function FutureFinanceGameCard({ game, index }: { game: FutureFinanceGame
 
   const className = `${styles.gameCard} ${styles[`card${index + 1}`]}`;
   return game.available ? (
-    <Link className={className} href={`/mini-games/future-of-finance-games/${game.slug}`} aria-label={game.title}>
+    <MiniGameCardLink className={className} href={`/mini-games/future-of-finance-games/${game.slug}`} aria-label={game.title}>
       {content}
-    </Link>
+    </MiniGameCardLink>
   ) : (
     <article className={className} aria-label={`${game.title} — Coming soon`}>
       {content}

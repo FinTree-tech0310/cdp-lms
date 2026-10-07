@@ -6,7 +6,7 @@
 .game :focus-visible { outline: 3px solid #1ed2f4; outline-offset: 4px; }
 .workspace { max-width: 1240px; margin: 0 auto; animation: enter .2s ease-out; }
 .workspaceHeader { margin: 16px 0; }
-.workspaceHeader h1 { font-size: clamp(26px, 2.5vw, 36px); line-height: 1.2; letter-spacing: -.025em; margin-top: 8px; }
+.workspaceHeader h1 { font-size: clamp(26px, 2.5vw, 36px); line-height: 1.2; letter-spacing: 0.01em; margin-top: 8px; }
 .eyebrow { font-size: 12px; font-weight: 750; line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; }
 .context { display: grid; grid-template-columns: 1fr auto; gap: 28px; padding: 16px 24px; background: #e9ecff; border-radius: 16px; margin-bottom: 18px; }
 .event p { margin-top: 8px; font-size: 16px; line-height: 1.55; max-width: 70ch; }
@@ -49,11 +49,11 @@
 .sketchTrack i { position: absolute; width: 16px; height: 16px; border-radius: 50%; background: #f8dc03; top: -6px; }
 .sketchArrow { display: block; text-align: center; font-size: 36px; margin: 12px 0; color: #1ed2f4; }
 .sketchOutputs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 14px; }
-.introCopy h1 { font-size: clamp(32px, 4vw, 52px); line-height: 1.12; letter-spacing: -.035em; margin: 16px 0; }
+.introCopy h1 { font-size: clamp(32px, 4vw, 52px); line-height: 1.12; letter-spacing: 0.01em; margin: 16px 0; }
 .introCopy > p:not(.eyebrow) { font-size: 18px; line-height: 1.6; max-width: 48ch; }
 .introBrief { font-size: 15px; line-height: 1.6; margin: 20px 0 28px; max-width: 48ch; }
 .resultHeader { margin-bottom: 28px; }
-.resultHeader h1 { font-size: clamp(28px, 3vw, 42px); letter-spacing: -.025em; line-height: 1.15; margin: 10px 0 14px; }
+.resultHeader h1 { font-size: clamp(28px, 3vw, 42px); letter-spacing: 0.01em; line-height: 1.15; margin: 10px 0 14px; }
 .resultHeader > p:last-child { font-size: 16px; line-height: 1.6; }
 .reviewList { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .review { background: #e9ecff; border-radius: 16px; padding: 24px; }

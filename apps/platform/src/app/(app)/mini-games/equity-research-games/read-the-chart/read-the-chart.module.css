@@ -130,7 +130,7 @@
   color: #11131a;
   font-size: clamp(38px, 4.5vw, 58px);
   font-weight: 820;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.01em;
   line-height: 0.98;
   text-wrap: balance;
   word-spacing: 0.05em;
@@ -318,7 +318,7 @@
   color: #11131a;
   font-size: clamp(22px, 2.4vw, 29px);
   font-weight: 820;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.01em;
   line-height: 1.12;
   text-wrap: balance;
   word-spacing: 0.04em;
@@ -438,7 +438,7 @@
   color: #11131a;
   font-size: 21px;
   font-weight: 820;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.01em;
   line-height: 1.15;
   text-wrap: balance;
   word-spacing: 0.04em;
@@ -617,7 +617,7 @@
   color: #11131a;
   font-size: clamp(20px, 2.2vw, 27px);
   font-weight: 820;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.01em;
   line-height: 1.18;
   text-wrap: balance;
 }

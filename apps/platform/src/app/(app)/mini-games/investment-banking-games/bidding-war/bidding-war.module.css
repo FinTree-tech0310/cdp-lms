@@ -5,12 +5,12 @@
 .introArt { position: relative; display: grid; min-height: 500px; place-items: center; overflow: hidden; background: #1ed2f4; }
 .bidSheet { display: grid; width: min(72%,340px); padding: 28px; transform: rotate(-3deg); border: 3px solid #11131a; border-radius: 18px; background: #fff5e8; box-shadow: 12px 12px 0 #f8dc03; gap: 15px; }
 .bidSheet span,.bidSheet b { font-size: 12px; font-weight: 900; letter-spacing: .1em; }
-.bidSheet strong { color: #1ed2f4; font-size: clamp(48px,7vw,82px); line-height: 1; letter-spacing: -.015em; }
+.bidSheet strong { color: #1ed2f4; font-size: clamp(48px,7vw,82px); line-height: 1; letter-spacing: 0.01em; }
 .bidSheet i { height: 10px; border-bottom: 2px solid #11131a; }
 .gavelMark { position: absolute; right: 24px; bottom: 24px; display: grid; width: 86px; height: 86px; place-items: center; border: 3px solid #11131a; border-radius: 50%; background: #f8dc03; color: #0e0e0e; }
 .gavelMark svg { width: 42px; height: 42px; }
 .introCopy { display: flex; flex-direction: column; justify-content: center; padding: clamp(36px,6vw,68px); }
-.introCopy h1 { max-width: 700px; margin: 12px 0 18px; font-size: clamp(44px,5.2vw,70px); font-weight: 820; letter-spacing: -.015em; line-height: .96; }
+.introCopy h1 { max-width: 700px; margin: 12px 0 18px; font-size: clamp(44px,5.2vw,70px); font-weight: 820; letter-spacing: 0.01em; line-height: .96; }
 .introCopy > p:not(.eyebrow) { margin: 0; color: rgba(17,19,26,.75); font-size: clamp(18px,2vw,22px); line-height: 1.5; }
 .introBrief { margin: 26px 0; padding: 18px 22px; border-left: 5px solid #f8dc03; border-radius: 0 15px 15px 0; background: #e9ecff; }
 .introBrief strong { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
@@ -30,7 +30,7 @@
 
 .bidDesk,.endingPage { width: min(1360px,100%); margin: 18px auto 38px; }
 .pageHeading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
-.pageHeading h1 { margin: 4px 0 0; font-size: clamp(44px,5vw,70px); font-weight: 820; letter-spacing: -.015em; line-height: .95; }
+.pageHeading h1 { margin: 4px 0 0; font-size: clamp(44px,5vw,70px); font-weight: 820; letter-spacing: 0.01em; line-height: .95; }
 .roundProgress { display: flex; align-items: center; gap: 8px; }
 .roundProgress span { display: grid; width: 32px; height: 32px; place-items: center; border: 2px solid rgba(17,19,26,.24); border-radius: 50%; color: rgba(17,19,26,.55); font-size: 13px; font-weight: 850; }
 .roundProgress span.roundActive { border-color: #11131a; background: #f8dc03; color: #11131a; }
@@ -46,21 +46,21 @@
 .panelHeading p { margin: 0 0 3px; font-size: 11px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
 .panelHeading h2 { margin: 0; font-size: 20px; line-height: 1.15; }
 .assetCard > p,.authorizationCard > p { margin: 17px 0 0; color: rgba(17,19,26,.74); font-size: 15px; line-height: 1.55; }
-.authorizationCard > strong { display: block; margin-top: 18px; font-size: 38px; letter-spacing: -.024em; }
+.authorizationCard > strong { display: block; margin-top: 18px; font-size: 38px; letter-spacing: 0.01em; }
 .authorizationCard > p { margin-top: 4px; color: #11131a; font-size: 13px; font-weight: 700; }
 .mainColumn { display: grid; min-width: 0; gap: 18px; }
 
 .auctionPanel { display: flex; min-height: 430px; flex-direction: column; align-items: center; justify-content: center; padding: clamp(26px,3.5vw,42px); border: 2px solid #11131a; background: white; text-align: center; }
 .auctionPanel h2 { margin: 5px 0 0; font-size: 22px; font-weight: 820; }
-.leadingBid { margin: 22px 0 4px; color: #1ed2f4; font-size: clamp(72px,9.5vw,128px); font-weight: 850; letter-spacing: -.018em; line-height: .88; }
+.leadingBid { margin: 22px 0 4px; color: #1ed2f4; font-size: clamp(72px,9.5vw,128px); font-weight: 850; letter-spacing: 0.01em; line-height: .88; }
 .leadingOwner { margin: 14px 0 26px; color: rgba(17,19,26,.64); font-size: 15px; }
 .decisionActions { display: flex; justify-content: center; gap: 12px; }
 .decisionActions .primaryButton,.decisionActions .walkButton { min-width: 170px; }
 
 .bidEditor,.walkConfirmation { padding: clamp(24px,4vw,40px); background: white; }
 .bidEditor > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 2px solid rgba(17,19,26,.1); }
-.bidEditor h3,.walkConfirmation h3 { margin: 5px 0 0; font-size: clamp(28px,3vw,38px); letter-spacing: -.018em; }
-.bidEditor > header > strong { color: #1ed2f4; font-size: clamp(34px,5vw,58px); letter-spacing: -.015em; }
+.bidEditor h3,.walkConfirmation h3 { margin: 5px 0 0; font-size: clamp(28px,3vw,38px); letter-spacing: 0.01em; }
+.bidEditor > header > strong { color: #1ed2f4; font-size: clamp(34px,5vw,58px); letter-spacing: 0.01em; }
 .bidBounds { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin: 20px 0; }
 .bidBounds div { padding: 14px 16px; border-radius: 12px; background: #e9ecff; }
 .bidBounds dt { color: rgba(17,19,26,.57); font-size: 11px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
@@ -77,7 +77,7 @@
 .dropPanel::before { background: #f8dc03; }
 .responseIcon { display: grid; width: 54px; height: 54px; place-items: center; border: 2px solid #11131a; border-radius: 50%; background: #f8dc03; box-shadow: 3px 3px 0 #11131a; }
 .responseIcon svg { width: 26px; height: 26px; }
-.responsePanel h2,.forcedPanel h2,.dropPanel h2 { margin: 5px 0 8px; font-size: clamp(30px,4vw,48px); font-weight: 830; letter-spacing: -.024em; }
+.responsePanel h2,.forcedPanel h2,.dropPanel h2 { margin: 5px 0 8px; font-size: clamp(30px,4vw,48px); font-weight: 830; letter-spacing: 0.01em; }
 .responsePanel h2:focus,.forcedPanel h2:focus,.dropPanel h2:focus { outline: none; }
 .responsePanel p:last-child,.forcedPanel p:last-child,.dropPanel p { margin: 0; color: rgba(17,19,26,.72); font-size: 16px; line-height: 1.5; }
 .dropPanel span { display: block; margin-top: 8px; color: rgba(17,19,26,.58); font-size: 13px; font-weight: 700; }
@@ -103,13 +103,13 @@
 .endingHero .eyebrow { color: inherit; opacity: .72; }
 .endingIcon { display: grid; width: 82px; height: 82px; place-items: center; border: 2px solid #11131a; border-radius: 50%; background: #f8dc03; color: #11131a; }
 .endingIcon svg { width: 40px; height: 40px; }
-.endingHero h1 { margin: 8px 0 13px; font-size: clamp(42px,6vw,72px); font-weight: 830; letter-spacing: -.015em; line-height: .94; }
+.endingHero h1 { margin: 8px 0 13px; font-size: clamp(42px,6vw,72px); font-weight: 830; letter-spacing: 0.01em; line-height: .94; }
 .endingHero h1:focus { outline: none; }
 .endingHero > div > p:last-child { max-width: 760px; margin: 0; color: inherit; opacity: .82; font-size: clamp(17px,1.5vw,19px); line-height: 1.6; }
 .valuationReveal { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2px; overflow: hidden; border: 2px solid #11131a; background: #11131a; }
 .valuationReveal div { padding: 24px 28px; background: white; }
 .valuationReveal span { display: block; color: rgba(17,19,26,.56); font-size: 12px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
-.valuationReveal strong { display: block; margin-top: 5px; font-size: clamp(30px,4vw,48px); letter-spacing: -.024em; }
+.valuationReveal strong { display: block; margin-top: 5px; font-size: clamp(30px,4vw,48px); letter-spacing: 0.01em; }
 .endingActions { display: flex; justify-content: flex-end; }
 
 @keyframes event-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }

@@ -52,7 +52,7 @@
   margin: 7px 0 0;
   font-size: 36px;
   font-weight: var(--vc-display-weight);
-  letter-spacing: var(--vc-display-tracking);
+  letter-spacing: 0.01em;
   line-height: var(--vc-display-leading);
   text-wrap: balance;
 }
@@ -95,7 +95,7 @@
   margin: 8px 0 13px;
   font-size: 27px;
   font-weight: var(--vc-heading-weight);
-  letter-spacing: var(--vc-heading-tracking);
+  letter-spacing: 0.01em;
   line-height: 1.02;
   text-wrap: balance;
 }
@@ -163,7 +163,7 @@
   margin: 13px 0 0;
   font-size: clamp(40px, 4vw, 58px);
   font-weight: var(--vc-display-weight);
-  letter-spacing: var(--vc-display-tracking);
+  letter-spacing: 0.01em;
   line-height: var(--vc-display-leading);
   text-wrap: balance;
 }
@@ -209,7 +209,7 @@
   margin: 0;
   font-size: 22px;
   font-weight: var(--vc-heading-weight);
-  letter-spacing: var(--vc-heading-tracking);
+  letter-spacing: 0.01em;
   line-height: 1.05;
   text-wrap: balance;
 }
@@ -265,7 +265,7 @@
   margin: 7px 0 0;
   font-size: 27px;
   font-weight: var(--vc-heading-weight);
-  letter-spacing: var(--vc-heading-tracking);
+  letter-spacing: 0.01em;
   line-height: 1.04;
   text-wrap: balance;
 }
@@ -561,7 +561,7 @@
   color: inherit;
   font-size: 18px;
   font-weight: 650;
-  letter-spacing: -0.012em;
+  letter-spacing: 0.01em;
   line-height: 1.42;
 }
 
@@ -617,7 +617,7 @@
   margin: 15px 0 0;
   font-size: clamp(45px, 5vw, 70px);
   font-weight: var(--vc-display-weight);
-  letter-spacing: var(--vc-display-tracking);
+  letter-spacing: 0.01em;
   line-height: var(--vc-display-leading);
   text-wrap: balance;
 }
@@ -672,7 +672,7 @@
   margin: 8px 0 0;
   font-size: 36px;
   font-weight: var(--vc-heading-weight);
-  letter-spacing: var(--vc-heading-tracking);
+  letter-spacing: 0.01em;
   line-height: 1.02;
   text-wrap: balance;
 }
@@ -757,7 +757,7 @@
   margin: 8px 0 0;
   font-size: 17px;
   font-weight: 650;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   line-height: 1.45;
 }
 
@@ -797,6 +797,12 @@
 
   to {
     translate: 0 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .modeCards {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

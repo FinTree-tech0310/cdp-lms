@@ -185,7 +185,7 @@
 
 .contactCopy h1 {
   font-size: 19px;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.01em;
   line-height: 1.05;
 }
 
@@ -247,7 +247,7 @@
   color: var(--ink);
   font-size: clamp(18px, 2.3vw, 23px);
   font-weight: 680;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
   line-height: 1.38;
 }
 
@@ -520,7 +520,7 @@
   color: var(--ink);
   font-size: 20px;
   font-weight: 850;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.01em;
 }
 
 .reviewMessage {
@@ -657,6 +657,11 @@
 }
 
 @media (max-width: 480px) {
+  .introPanel h1 {
+    font-size: clamp(30px, 9vw, 40px);
+    line-height: 1.1;
+  }
+
   .voiceControls {
     align-items: stretch;
     flex-direction: column;

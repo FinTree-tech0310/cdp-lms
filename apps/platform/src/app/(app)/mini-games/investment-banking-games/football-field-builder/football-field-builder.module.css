@@ -9,7 +9,7 @@
 .introRangeTwo { top: 48%; right: 12%; width: 42%; background: #e9ecff !important; }
 .introRangeThree { bottom: 25%; left: 25%; width: 57%; background: #fff5e8 !important; }
 .introCopy { display: flex; flex-direction: column; justify-content: center; padding: clamp(36px,6vw,68px); }
-.introCopy h1 { max-width: 670px; margin: 12px 0 18px; font-size: clamp(44px,5.2vw,68px); font-weight: 830; letter-spacing: -.015em; line-height: .96; }
+.introCopy h1 { max-width: 670px; margin: 12px 0 18px; font-size: clamp(44px,5.2vw,68px); font-weight: 830; letter-spacing: 0.01em; line-height: .96; }
 .introCopy > p:not(.eyebrow) { margin: 0; color: rgba(17,19,26,.74); font-size: clamp(17px,2vw,21px); line-height: 1.5; }
 .introBrief { margin: 26px 0; padding: 18px 22px; border-left: 5px solid #f8dc03; border-radius: 0 15px 15px 0; background: #e9ecff; }
 .introBrief strong { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
@@ -24,7 +24,7 @@
 
 .workspace,.results { width: min(1360px,100%); margin: 18px auto 38px; }
 .pageHeading { margin-bottom: 18px; }
-.pageHeading h1 { margin: 5px 0 8px; font-size: clamp(42px,5vw,66px); font-weight: 830; letter-spacing: -.015em; line-height: .95; }
+.pageHeading h1 { margin: 5px 0 8px; font-size: clamp(42px,5vw,66px); font-weight: 830; letter-spacing: 0.01em; line-height: .95; }
 .pageHeading > p:last-child { max-width: 700px; margin: 0; color: rgba(17,19,26,.7); font-size: 16px; line-height: 1.5; }
 .deskGrid { display: grid; grid-template-columns: minmax(270px,320px) minmax(0,1fr); align-items: start; gap: 22px; }
 .contextRail { position: sticky; top: 18px; display: grid; gap: 14px; }
@@ -69,7 +69,7 @@
 .resultsHero { display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; gap: 18px; padding: clamp(26px,4vw,44px); border: 2px solid #11131a; background: #1ed2f4; box-shadow: 8px 8px 0 #f8dc03; color: #fff; }
 .resultsHero > svg { width: 56px; height: 56px; color: #f8dc03; }
 .resultsHero .eyebrow { color: #fff5e8; opacity: .76; }
-.resultsHero h1 { margin: 6px 0 10px; font-size: clamp(38px,5vw,62px); letter-spacing: -.015em; line-height: .94; }
+.resultsHero h1 { margin: 6px 0 10px; font-size: clamp(38px,5vw,62px); letter-spacing: 0.01em; line-height: .94; }
 .resultsHero p:last-child { max-width: 700px; margin: 0; color: rgba(255,255,255,.84); font-size: 16px; line-height: 1.5; }
 .reviewRows { display: grid; gap: 10px; }
 .reviewRow { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; background: #fff; }
@@ -80,7 +80,7 @@
 .needsAdjustment { background: #e9ecff; color: #11131a; }
 .resultGrid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
 .combinedCard,.dealCard { padding: 22px; background: #fff5e8; }
-.combinedCard strong,.dealCard strong { display: block; margin-top: 8px; font-size: clamp(24px,3vw,36px); letter-spacing: -.022em; }
+.combinedCard strong,.dealCard strong { display: block; margin-top: 8px; font-size: clamp(24px,3vw,36px); letter-spacing: 0.01em; }
 .dealCard { background: #e9ecff; }
 .dealCard > p:last-child { margin: 8px 0 0; color: #1ed2f4; font-size: 13px; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
 .summaryCard { display: flex; align-items: flex-start; gap: 12px; padding: 20px; background: #fff; }

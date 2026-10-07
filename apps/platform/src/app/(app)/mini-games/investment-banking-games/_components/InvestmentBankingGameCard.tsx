@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { MiniGameCardLink } from "@/components/mini-games/MiniGameCardLink";
 
 import type { InvestmentBankingGame } from "../_data/games";
 import styles from "../investment-banking-games.module.css";
@@ -45,13 +45,13 @@ export function InvestmentBankingGameCard({ game }: InvestmentBankingGameCardPro
   }
 
   return (
-    <Link
+    <MiniGameCardLink
       href={`/mini-games/investment-banking-games/${game.slug}`}
       className={className}
       data-game={game.slug}
       aria-label={game.title}
     >
       <CardContents game={game} />
-    </Link>
+    </MiniGameCardLink>
   );
 }

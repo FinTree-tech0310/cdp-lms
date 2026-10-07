@@ -37,7 +37,7 @@
   margin: 0;
   font-size: clamp(54px, 5vw, 76px);
   font-weight: 850;
-  letter-spacing: -0.065em;
+  letter-spacing: 0.01em;
   line-height: 0.95;
 }
 
@@ -248,7 +248,7 @@
   flex-direction: column;
   font-size: clamp(27px, 2.1vw, 37px);
   font-weight: 850;
-  letter-spacing: -0.055em;
+  letter-spacing: 0.01em;
   line-height: 0.9;
 }
 
@@ -411,7 +411,7 @@
   margin: 0;
   font-size: clamp(54px, 6vw, 86px);
   font-weight: 850;
-  letter-spacing: -0.065em;
+  letter-spacing: 0.01em;
   line-height: 0.92;
 }
 

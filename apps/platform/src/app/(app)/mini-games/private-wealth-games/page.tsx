@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { MiniGameCardLink } from "@/components/mini-games/MiniGameCardLink";
 
 import { MiniGameHubPortalLink } from "@/components/mini-games/MiniGameHubPortalLink";
 
@@ -26,7 +26,7 @@ export default function PrivateWealthGamesPage() {
       </header>
 
       <div className={styles.grid} aria-label="Private wealth mini-games">
-        <Link
+        <MiniGameCardLink
           className={`${styles.gameCard} ${styles.dossierCard}`}
           href="/mini-games/private-wealth-games/client-dossier"
           aria-label="Client Dossier — Risk Mismatch"
@@ -40,9 +40,9 @@ export default function PrivateWealthGamesPage() {
               Read the request. Notice the life context. Decide how to respond.
             </span>
           </span>
-        </Link>
+        </MiniGameCardLink>
 
-        <Link
+        <MiniGameCardLink
           className={`${styles.gameCard} ${styles.messageCard}`}
           href="/mini-games/private-wealth-games/would-you-push-back"
           aria-label="Would You Push Back?"
@@ -55,9 +55,9 @@ export default function PrivateWealthGamesPage() {
               Read the message. Weigh the request. Decide how to respond.
             </span>
           </span>
-        </Link>
+        </MiniGameCardLink>
 
-        <Link
+        <MiniGameCardLink
           className={`${styles.gameCard} ${styles.callCard}`}
           href="/mini-games/private-wealth-games/panic-call"
           aria-label="Panic Call"
@@ -70,9 +70,9 @@ export default function PrivateWealthGamesPage() {
               Answer the call. Guide the conversation. Compare what happens next.
             </span>
           </span>
-        </Link>
+        </MiniGameCardLink>
 
-        <Link
+        <MiniGameCardLink
           className={`${styles.gameCard} ${styles.rebalanceCard}`}
           href="/mini-games/private-wealth-games/rebalance-the-drift"
           aria-label="Rebalance the Drift"
@@ -85,9 +85,9 @@ export default function PrivateWealthGamesPage() {
               Adjust the portfolio. Track the live mix. Bring it back toward target.
             </span>
           </span>
-        </Link>
+        </MiniGameCardLink>
 
-        <Link
+        <MiniGameCardLink
           className={`${styles.gameCard} ${styles.timelineCard}`}
           href="/mini-games/private-wealth-games/client-timeline"
           aria-label="Client Timeline"
@@ -101,7 +101,7 @@ export default function PrivateWealthGamesPage() {
               Follow one client. Navigate three life moments. See the pattern in your advice.
             </span>
           </span>
-        </Link>
+        </MiniGameCardLink>
       </div>
       <p className={styles.note}>Best on desktop.</p>
     </section>

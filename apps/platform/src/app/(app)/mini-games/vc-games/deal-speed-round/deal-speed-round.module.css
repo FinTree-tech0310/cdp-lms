@@ -83,7 +83,7 @@
   margin: 18px 0 0;
   font-size: clamp(58px, 6vw, 88px);
   font-weight: var(--vc-display-weight);
-  letter-spacing: var(--vc-display-tracking);
+  letter-spacing: 0.01em;
   line-height: var(--vc-display-leading);
   text-wrap: balance;
 }
@@ -112,7 +112,7 @@
   color: var(--ink);
   font-size: 17px;
   font-weight: 850;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.01em;
 }
 
 .introCopy {
@@ -234,7 +234,7 @@
   margin: 15px 0 0;
   font-size: clamp(48px, 5vw, 76px);
   font-weight: var(--vc-display-weight);
-  letter-spacing: var(--vc-display-tracking);
+  letter-spacing: 0.01em;
   line-height: var(--vc-display-leading);
   text-wrap: balance;
 }
@@ -291,7 +291,7 @@
   color: var(--indigo);
   font-size: 48px;
   font-weight: 850;
-  letter-spacing: -0.05em;
+  letter-spacing: 0.01em;
   line-height: 1;
 }
 

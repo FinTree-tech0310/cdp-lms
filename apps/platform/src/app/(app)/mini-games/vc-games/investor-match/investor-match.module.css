@@ -88,7 +88,7 @@
   margin: 18px 0 0;
   font-size: clamp(48px, 5vw, 76px);
   font-weight: var(--vc-display-weight);
-  letter-spacing: var(--vc-display-tracking);
+  letter-spacing: 0.01em;
   line-height: var(--vc-display-leading);
   text-wrap: balance;
 }
@@ -145,7 +145,7 @@
 .contextPanel h1 {
   font-size: 30px;
   font-weight: var(--vc-heading-weight);
-  letter-spacing: var(--vc-heading-tracking);
+  letter-spacing: 0.01em;
   line-height: 1.02;
   text-wrap: balance;
 }
@@ -237,7 +237,7 @@
   margin: 14px 0 0;
   font-size: 34px;
   font-weight: var(--vc-heading-weight);
-  letter-spacing: var(--vc-heading-tracking);
+  letter-spacing: 0.01em;
   line-height: 1;
   text-wrap: balance;
 }
@@ -364,7 +364,7 @@
   margin: 16px 0 0;
   font-size: clamp(45px, 5vw, 70px);
   font-weight: var(--vc-display-weight);
-  letter-spacing: var(--vc-display-tracking);
+  letter-spacing: 0.01em;
   line-height: var(--vc-display-leading);
   text-wrap: balance;
 }
@@ -534,7 +534,7 @@
   margin-top: 9px;
   font-size: 38px;
   font-weight: var(--vc-heading-weight);
-  letter-spacing: var(--vc-heading-tracking);
+  letter-spacing: 0.01em;
   line-height: 1.02;
   text-wrap: balance;
 }
@@ -591,7 +591,7 @@
   margin: 9px 0 0;
   font-size: 21px;
   font-weight: var(--vc-heading-weight);
-  letter-spacing: var(--vc-heading-tracking);
+  letter-spacing: 0.01em;
   line-height: 1.02;
   text-wrap: balance;
 }

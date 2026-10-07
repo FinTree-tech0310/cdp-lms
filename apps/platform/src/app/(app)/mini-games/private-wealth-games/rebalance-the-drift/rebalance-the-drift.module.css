@@ -285,7 +285,7 @@
   font-family: "Rethink Sans", Arial, sans-serif;
   font-size: 23px;
   font-weight: 850;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.01em;
 }
 
 .donutCaption {
@@ -423,7 +423,7 @@
   --lavender: #e9ecff;
   --cream: #fff5e8;
   --vc-display-weight: 820;
-  --vc-display-tracking: -0.052em;
+  --vc-display-tracking: 0.01em;
   position: fixed;
   z-index: 80;
   inset: 0;

@@ -113,7 +113,7 @@
   margin: 14px 0 20px;
   font-size: clamp(44px, 5.2vw, 70px);
   font-weight: 820;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.01em;
   line-height: 0.96;
 }
 
@@ -294,7 +294,7 @@
   margin: 6px 0 0;
   font-size: clamp(25px, 3vw, 36px);
   font-weight: 820;
-  letter-spacing: -0.022em;
+  letter-spacing: 0.01em;
   line-height: 1.04;
 }
 
@@ -360,7 +360,7 @@
   margin: 10px 0 9px;
   font-size: 23px;
   font-weight: 820;
-  letter-spacing: -0.018em;
+  letter-spacing: 0.01em;
   line-height: 1.05;
 }
 
@@ -399,7 +399,7 @@
   margin: 7px 0 0;
   font-size: 22px;
   font-weight: 820;
-  letter-spacing: -0.018em;
+  letter-spacing: 0.01em;
   line-height: 1.05;
 }
 
@@ -485,7 +485,7 @@
   margin: 0;
   font-size: 17px;
   font-weight: 820;
-  letter-spacing: -0.012em;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
@@ -572,7 +572,7 @@
   margin: 0;
   font-size: 19px;
   font-weight: 820;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.01em;
   line-height: 1.05;
 }
 
@@ -671,7 +671,7 @@
 
 .dragOverlay strong {
   font-size: 18px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
 }
 
 .submitArea {
@@ -714,7 +714,7 @@
   margin: 8px 0 0;
   font-size: clamp(32px, 4.5vw, 52px);
   font-weight: 820;
-  letter-spacing: -0.024em;
+  letter-spacing: 0.01em;
   line-height: 0.98;
 }
 
@@ -759,7 +759,7 @@
   margin: 0;
   font-size: 20px;
   font-weight: 820;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.01em;
 }
 
 .reviewCompanyHeading span {

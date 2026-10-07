@@ -36,7 +36,7 @@
   margin: 0;
   font-size: clamp(44px, 4.5vw, 68px);
   font-weight: 850;
-  letter-spacing: -0.032em;
+  letter-spacing: 0.01em;
   line-height: 0.95;
   animation-delay: 40ms;
 }
@@ -236,7 +236,7 @@ a.gameCard:focus-visible .cardArt svg {
   flex-direction: column;
   font-size: clamp(23px, 2.2vw, 31px);
   font-weight: 850;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.01em;
   line-height: 0.9;
 }
 
@@ -359,5 +359,5 @@ a.gameCard:focus-visible .cardArt svg {
 
 /* Readable tracking across the Investment Banking mini-game hub. */
 .arena { letter-spacing: .012em; }
-.title { letter-spacing: -.028em; }
+.title { letter-spacing: 0.01em; }
 

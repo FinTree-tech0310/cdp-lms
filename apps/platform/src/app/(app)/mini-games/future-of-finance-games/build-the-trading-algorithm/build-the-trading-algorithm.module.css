@@ -9,7 +9,7 @@
 .introArt{display:grid;min-height:430px;place-items:center;overflow:hidden;padding:26px;background:var(--indigo)}
 .illustration{width:min(100%,440px);height:auto;filter:drop-shadow(9px 12px 0 rgb(17 19 26 / 35%))}
 .introCopy{display:flex;flex-direction:column;justify-content:center;padding:clamp(36px,5vw,62px)}
-.introCopy h1,.workspaceHeader h1,.resultsHeader h1{max-width:680px;margin:12px 0 18px;font-size:clamp(39px,4.6vw,60px);font-weight:800;letter-spacing:-.025em;line-height:1.06;text-wrap:balance}
+.introCopy h1,.workspaceHeader h1,.resultsHeader h1{max-width:680px;margin:12px 0 18px;font-size:clamp(39px,4.6vw,60px);font-weight:800;letter-spacing:0.01em;line-height:1.06;text-wrap:balance}
 .introDescription{max-width:550px;margin:0;color:rgb(17 19 26 / 75%);font-size:clamp(17px,1.6vw,20px);line-height:1.55}
 .introBrief{margin:26px 0;padding:18px 22px;border-left:5px solid var(--orange);border-radius:0 14px 14px 0;background:var(--lavender)}
 .introBrief p{margin:0;font-size:15px;line-height:1.55}.introBrief p+p{margin-top:8px}
@@ -40,7 +40,7 @@
 .workspaceActions{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:26px 0 0}
 .workspaceActions p{margin:0;color:rgb(17 19 26 / 70%);font-size:14px}
 .reportPanel{margin:0 0 20px;padding:clamp(22px,3vw,30px);border:2px solid var(--ink);border-radius:20px;background:#fff}
-.reportPanel h2,.reflection h2{margin:0 0 18px;font-size:clamp(21px,2.4vw,28px);font-weight:800;letter-spacing:-.02em}
+.reportPanel h2,.reflection h2{margin:0 0 18px;font-size:clamp(21px,2.4vw,28px);font-weight:800;letter-spacing:0.01em}
 .strategySummary,.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0}
 .metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
 .strategySummary>div,.metrics>div{min-width:0;padding:16px 18px;border:1px solid rgb(17 19 26 / 22%);border-radius:12px;background:var(--lavender)}
